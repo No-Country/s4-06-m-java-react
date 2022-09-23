@@ -2,7 +2,7 @@
 
 ## Mobile
 
-*FIRST MOVILE*
+*FIRST MOBILE*
 
 ## TABLET
 
