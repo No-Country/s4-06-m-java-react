@@ -13,7 +13,6 @@
 ## DESTOCK
 
 ```CSS
-DESTOCK
 @media screen and ( min-width: 1024px ) {
 } 
 ```
