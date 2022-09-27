@@ -11,6 +11,8 @@ export const HomeScreen = () => {
       <p className="title-section">Nuevas Ofertas</p>
 
       <SliderCards />
+
+      <p className="title-section">Oferta Relampago</p>
     </div>
   );
 };
