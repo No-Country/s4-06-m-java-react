@@ -1,0 +1,72 @@
+.labelStar {
+    color: grey;
+    font-size: 33px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.clasificacion {
+    display: flex;
+    justify-content: center;
+
+    width: 130px;
+    direction: rtl;
+    /* right to left */
+    unicode-bidi: bidi-override;
+    /* bidi de bidireccional */
+}
+
+.labelStar:hover {
+    color: #ffb800;
+    transition: 1s;
+}
+
+.labelStar:hover~label {
+    color: #ffb800;
+    transition: 1s;
+}
+
+input[type="radio"]:checked~label {
+    color: #ffb800;
+}
+
+
+#form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+}
+
+#form p {
+    text-align: center;
+}
+
+#form .labelStar {
+    font-size: 20px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.labelStar {
+    color: grey;
+}
+
+.clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+label:hover,
+label:hover~label {
+    color: #ffb800;
+}
+
+input[type="radio"]:checked~label {
+    color: #ffb800;
+}
