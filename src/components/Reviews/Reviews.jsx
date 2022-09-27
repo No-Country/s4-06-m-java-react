@@ -1,6 +1,7 @@
 import React from "react";
 import "./Reviews.css";
 import { Stars } from "../stars/Stars";
+import Like from "../../assets/reviews/Like.svg";
 
 export const Reviews = () => {
   return (
@@ -34,7 +35,11 @@ export const Reviews = () => {
             </div>
             <div class="review-wrapperIcon">
               <span className="review-wrapperIcon__title">Helpful</span>
-              <span className="review-wrapperIcon__icon">Icon</span>
+              <img
+                src={Like}
+                className="review-wrapperIcon__icon"
+                alt="iconLike"
+              />
             </div>
 
             {/* 535 Comentarios
