@@ -1,0 +1,35 @@
+.CardSimple {
+  width: 90%;
+  margin: 0 auto;
+  max-width: 300px;
+  background: #3cb057;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 30px;
+}
+
+.CardSimple__image {
+  padding: 0 10px;
+  width: 100%;
+  border-radius: 30px;
+  margin-top: 10px;
+}
+
+.wrapper-box-description-simple {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fbf8f4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.wrapper-box-description-simple__paragraph {
+}
+.wrapper-box-description-simple__price {
+}
