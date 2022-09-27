@@ -25,10 +25,18 @@ export const Reviews = () => {
             colgados, el color fue correcto y hasta ahora no se han despintado
             ni ndada por el estilo.
           </div>
-          <div class="review_container--subDown">
-            <span>535 Comentarios</span>
-            <span>Jan 21, 2021</span>
-            <span>Helpful</span>
+          <div className="review_container--subDown">
+            <div className="review-wrapperContent">
+              <span className="review-wrapperContent__comments">
+                535 Comentarios
+              </span>
+              <span className="review-wrapperContent__date">Jan 21, 2021</span>
+            </div>
+            <div class="review-wrapperIcon">
+              <span className="review-wrapperIcon__title">Helpful</span>
+              <span className="review-wrapperIcon__icon">Icon</span>
+            </div>
+
             {/* 535 Comentarios
               <span class="review_container--date">Jan 21, 2021</span> */}
           </div>
