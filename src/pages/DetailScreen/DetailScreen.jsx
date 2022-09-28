@@ -4,7 +4,8 @@ import { Reviews } from "../../components/Reviews/Reviews";
 
 export const DetailScreen = () => {
   return (
-    <div class="BiggestContainer">
+    <div class="detailScreenContainer">
+      <Reviews />
       <Reviews />
     </div>
   );

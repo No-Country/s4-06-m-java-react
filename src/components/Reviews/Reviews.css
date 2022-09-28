@@ -4,11 +4,11 @@
     align-items: flex-start;
     padding: 10px 16px;
     gap: 10px;
-    position: absolute;
     top: 1547px;
     background-color: #FFFFFF;
     width: 100%;
     height: 229px;
+    position: relative;
 }
 
 .review_container--sub{
@@ -20,6 +20,7 @@
 .review_container--subUp{
     display: flex;
     height: 40%;
+    justify-content: space-between;
 }
 
 .review_container--title{
@@ -30,23 +31,32 @@
     width: 50%;
 }
 
-.review_container--viewAll{
+.review_container--viewAllandName{
     display: flex;
-    justify-content: end;
-    font-size: 14px;
-    line-height: 7px;
-    width: 50%;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content: center;
+    margin-top: 24px;
 }
-.review_container--viewAndName{
-    padding-top: 9px;
+
+.review_container--viewAll{
+    font-size: 14px;
+    width: 100%;
 }
 
 .review_container--name{
-    width: 70%;
+    
+    width: 60%;
+    
+ 
+   
+}
+
+.review_container--name-name{
+    font-size: 12px;
     font-family: inter, sans-serif;
     font-weight: 200;
     line-height: 18px;
-   
 }
 
 .viewAll{
@@ -66,13 +76,13 @@
 }
 
 .review_container--subHalf{
-    font-family: inter,sans-serif;
-    font-size: 11.6px;
-    font-weight: 100;
+    font-family: roboto;
+    font-size: 12px;
+    font-weight: 400;
     line-height: 20px;
     text-align: left;
     width: 97%;
-    color: rgba(0, 0, 0, 0.568);
+    color: #626262;
 }
 
 /*.review-wrapperIcon*/
@@ -80,7 +90,11 @@
 .review_container--subDown{
     display: flex;
     justify-content: space-between;
-  
+    height: 30px;
+    align-items: center;
+    position: absolute;
+    width: 90%;
+    bottom: 0;
     
 }
 
@@ -94,10 +108,91 @@
 .review-wrapperIcon{
     padding-right: 10px;
 }
-.review-wrapperContent__comments{
-    
-}
 
 .review-wrapperContent__date{
     margin-left: 15px;
 }
+
+.review-wrapperIcon__icon{
+    display: inline;
+}
+
+.review-wrapperIcon__title{
+  margin-right: 10px;
+  font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    vertical-align:top;
+    color: #979797;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .review_container {
+            top: 2045px;
+            width: 800px;
+            height: 245px;
+        }
+
+        .review_container--subUp {
+            display: flex;
+            height: 50%;
+            justify-content: space-between;
+        }
+    
+                .review_container--title {
+                  
+                    font-weight: 700;
+                    font-size: 32px;
+                    width: 43%;
+                }
+        
+                .review_container--viewAllandName {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    align-items:unset;
+                    justify-content: center;
+                    margin-top: 13px;
+                    height: 50%;
+                    width: 100%;
+                }
+
+                                .review_container--viewAll {
+                                  display: flex;
+                                  justify-content: end;
+                                }
+
+                                .review_container--name {
+                                    height: 20%;
+                                    margin-top: 49px;
+                                }
+
+                                                                .review_container--name-name {
+                                                                    font-size: 20px;
+                                                                    font-family: 'Roboto';
+                                                                    font-style: normal;
+                                                                    font-weight: 600;
+                                                                    line-height: 18px;
+                                                                    color: #052734;
+                                                                }
+
+                                                                                                                                .review_container--subHalf {
+                                                                                                                                    font-family: 'Roboto';
+                                                                                                                                    font-size: 16px;
+                                                                                                                                    font-weight: 400;
+                                                                                                                                    line-height: 22px;
+                                                                                                                                   
+                                                                                                                                }
+
+                                                                                                                                .viewAll {
+                                                                                                                                   width: 20%;
+                                                                                                                                   height: 25%;
+                                                                                                                                   display: flex;
+                                                                                                                                   align-items: center
+                                                                                                                                }
+                                                                                                                                                                                                                                                                .review_container--subDown {
+                                                                                                                                                                                                                                                                    width: 96%                          
+                                                                                                                                                                                                                                                                }
+                    
+};

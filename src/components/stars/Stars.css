@@ -12,7 +12,7 @@ input[type="radio"] {
 .clasificacion {
     display: flex;
     justify-content: center;
-
+    
     width: 130px;
     direction: rtl;
     /* right to left */
@@ -69,4 +69,16 @@ label:hover~label {
 
 input[type="radio"]:checked~label {
     color: #ffb800;
+}
+
+@media screen and (min-width: 1024px){
+    .labelStar {
+            font-size: 40px;
+            padding-left: 4px;
+        }
+
+                .clasificacion {
+                    padding-left: 45px;
+                    padding-top: 15px;
+                }
 }
