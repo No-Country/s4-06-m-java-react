@@ -76,34 +76,3 @@
     margin-left: 1rem;
   }
 }
-
-/*button*/
-.button {
-  width: 290px;
-  height: 42px;
-  color: black;
-  margin: 0 auto;
-  display: block;
-}
-
-.button.button--blue {
-  background: linear-gradient(
-    90.34deg,
-    #184f63 3.48%,
-    #1f5b73 7%,
-    #19495b 92.96%,
-    #052734 100%
-  );
-  border: 2px solid #072b39;
-  border-radius: 4px;
-  color: white;
-}
-
-/*button style desktop*/
-
-@media screen and (min-width: 1024px) {
-  .button.button--blue {
-    width: 208px;
-    height: 56px;
-  }
-}

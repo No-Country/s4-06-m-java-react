@@ -13,7 +13,7 @@
 @media screen and (min-width: 768px) {
   .SliderCards {
     overflow-x: unset;
-    width: 222px;
+    width: 32%;
   }
 }
 
@@ -26,5 +26,6 @@
 @media screen and (min-width: 1440px) {
   .SliderCards {
     transform: translateX(50%);
+    margin-left: 51px;
   }
 }

@@ -1,6 +1,6 @@
-import EcoSport from "../../assets/images/nav/Ecosport.svg";
-import cart from "../../assets/images/nav/cart.svg";
-import searchIcon from "../../assets/images/nav/searchIcon.svg";
+import EcoSport from "../../../assets/images/nav/Ecosport.svg";
+import cart from "../../../assets/images/nav/cart.svg";
+import searchIcon from "../../../assets/images/nav/searchIcon.svg";
 
 import "./Nav.css";
 
