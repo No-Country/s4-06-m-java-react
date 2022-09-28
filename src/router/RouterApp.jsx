@@ -3,6 +3,7 @@ import { Footer } from "../components/sharedComponents/footer/Footer";
 import { Nav } from "../components/sharedComponents/nav/Nav";
 import { AuthScreen } from "../pages/AuthScreen";
 import { HomeScreen } from "../pages/HomeScreen";
+import { DetailScreen } from "../pages/DetailScreen/DetailScreen";
 
 export const RouterApp = () => {
   return (
@@ -16,6 +17,7 @@ export const RouterApp = () => {
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/auth" element={<AuthScreen />} />
+        <Route path="/details" element={<DetailScreen />} />
       </Routes>
 
       {/* footer compartido entre todas las paginas */}
