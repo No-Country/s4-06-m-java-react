@@ -60,8 +60,10 @@
   }
 
   .FlashDeeal__paragraph {
-    width: 50%;
+    width: 70%;
     margin: 30px auto;
+    line-height: 1.6;
+    font-size: 21px;
   }
   .timer-box {
     width: 105px;

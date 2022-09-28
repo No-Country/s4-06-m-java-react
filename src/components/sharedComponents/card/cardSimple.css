@@ -5,13 +5,12 @@
   background: #3cb057;
   margin: 0 auto;
   margin-top: 10px;
-  border-radius: 30px;
 }
 
 .CardSimple__image {
   padding: 0 10px;
   width: 100%;
-  border-radius: 30px;
+
   margin-top: 10px;
 }
 
@@ -29,7 +28,10 @@
   margin: 0 auto;
 }
 
-.wrapper-box-description-simple__paragraph {
-}
+.wrapper-box-description-simple__paragraph,
 .wrapper-box-description-simple__price {
+  font-family: "Aclonica";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
 }
