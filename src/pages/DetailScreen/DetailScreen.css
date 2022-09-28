@@ -1,6 +1,12 @@
-.BiggestContainer{
-    height: 2038.93px;
-    background-color: red;
+.detailScreenContainer{
+    height: 2290.93px;
     display: flex;
     flex-direction: column;
+}
+@media screen and (min-width: 1024px){
+    .detailScreenContainer{
+        height: 3281px;
+        display: flex;
+        align-items: center;
+    }
 }
