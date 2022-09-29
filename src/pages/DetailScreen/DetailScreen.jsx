@@ -1,12 +1,11 @@
 import React from "react";
 import "./DetailScreen.css";
-import { Reviews } from "../../components/Reviews/Reviews";
+import { ReviewsProps } from "../../components/Reviews/ReviewsProps";
 
-export const DetailScreen = () => {
+export const DetailScreen = ({ name, text, date, comment, stars }) => {
   return (
     <div class="detailScreenContainer">
-      <Reviews />
-      <Reviews />
+      <ReviewsProps {...name} {...text} {...date} {...comment} {...stars} />
     </div>
   );
 };

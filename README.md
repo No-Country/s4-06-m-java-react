@@ -40,8 +40,6 @@ Si deseas puedes probar el funcionamiento del sitio desde el siguiente link: <u>
 
 - Diana Zambrano (_`UX/UI`_)
 - Cristian Mosquera (_`Front end`_)
-- Martin Hernandez (_`Front end`_)
-- Cristian Gomez (_`Front end`_)
 - Lucas Abdala (_`Front end`_)
 - Santiago Schroh (_`Front end`_)
 - Diego SC (_`Back end`_)
