@@ -4,8 +4,8 @@
     flex-direction: column;
 }
 @media screen and (min-width: 1024px){
-    .detailScreenContainer{
-        height: 2700px;
+    .detailScreen_Container{
+        height: 2700.001px;
         display: flex;
         align-items: center;
     }

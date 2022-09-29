@@ -16,7 +16,7 @@
 - ✅ Redux toolkit
 - ✅ JavaScript
 
-.
+..
 .
 
 ## TECNOLOGIAS EN BACK

@@ -7,7 +7,7 @@ export const Reviews = (props) => {
     <div class="review_container">
       <div class="review_container--sub">
         <div class="review_container--subUp">
-          <h1 class="review_container--title">Reseñas {props.stars}</h1>
+          <h1 class="review_container--title"> Reseñas {props.stars}</h1>
           <div className="review_container--viewAllandName">
             <div class="review_container--viewAll">
               <div className="viewAll">

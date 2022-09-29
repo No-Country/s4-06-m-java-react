@@ -20,7 +20,7 @@ export const ReviewsProps = () => {
         no se transparenta puestas (si las ves contra luz un poco), y la calidad de las costuras se ve bien
         no estan nada mal."
         comments="112 Comentarios"
-        date="Mar 7, 2021"
+        date="Mar 9, 2021"
         stars=<Stars />
       />
     </div>
