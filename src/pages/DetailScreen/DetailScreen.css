@@ -1,0 +1,12 @@
+.detailScreenContainer{
+    height: 2050.93px;
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (min-width: 1024px){
+    .detailScreenContainer{
+        height: 2700px;
+        display: flex;
+        align-items: center;
+    }
+}

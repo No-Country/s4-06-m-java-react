@@ -1,0 +1,35 @@
+:root {
+    /* Layouts Colors */
+    
+    --primary: rgba(5, 39, 52, 1);
+    --secondary: rgba(122, 208, 142, 1);
+    --secundary-dark: rgba(33, 128, 55, 1);
+  
+    /* colors feedback */
+
+    --error: rgba(204, 12, 57, 1);
+    --success: rgba(8, 126, 99, 1);
+    --warn: rgba(241, 203, 47, 1);
+    --information: rgba(19, 57, 136, 1);
+  
+    /*Background color */
+
+    --background: #ffffff;
+    --background-grey-light: #f1f1f1;
+    --background-button: linear-gradient(
+      90.34deg,
+      #184f63 3.48%,
+      #1f5b73 7%,
+      #19495b 92.96%,
+      #052734 100%
+    );
+    --background-card: rgba(246, 245, 245, 1);
+    --background-start: #ffb800;
+  
+    /* Text Colors */
+    --text-primary: rgba(5, 39, 52, 1);
+    --text-white: #ffffff;
+    --text-grey-light: rgba(169, 168, 168, 1);
+    --text-grey-dark: rgba(33, 33, 33, 1);
+    --text-button: #ffffff;
+}

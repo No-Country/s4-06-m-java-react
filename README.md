@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# S4-06-M-JAVA-REACT // Eco Sportwear
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![](src/helpers/images/portada.jpg)
 
-## Available Scripts
+# Contenido General del Sitio:
 
-In the project directory, you can run:
+- "Login" para registrase e iniciar sesion.
+- Carrito de compras.
+- Seleccion de productos.
+- Landing Page con variedad de productos a seleccionar.
+- Proceso de pago.
 
-### `npm start`
+## TECNOLOGIAS EN FRONT
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ✅ React
+- ✅ Redux toolkit
+- ✅ JavaScript
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+.
+.
 
-### `npm test`
+## TECNOLOGIAS EN BACK
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ✅ Java
+- ✅
+- ✅
 
-### `npm run build`
+.
+.
+.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Demo:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Si deseas puedes probar el funcionamiento del sitio desde el siguiente link: <u>Viaja al Demo</u> ✈️
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+.
+.
 
-### `npm run eject`
+# Integrantes:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Diana Zambrano (_`UX/UI`_)
+- Cristian Mosquera (_`Front end`_)
+- Lucas Abdala (_`Front end`_)
+- Santiago Schroh (_`Front end`_)
+- Diego SC (_`Back end`_)
+- Abel Acevedo (_`Back end`_)
