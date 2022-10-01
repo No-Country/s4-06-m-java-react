@@ -1,27 +1,19 @@
 import { Route, Routes } from "react-router-dom";
 import { Footer } from "../components/sharedComponents/footer/Footer";
-import { Nav } from "../components/sharedComponents/nav/Nav";
-import { AuthScreen } from "../pages/AuthScreen";
 import { HomeScreen } from "../pages/HomeScreen";
-import { DetailScreen } from "../pages/DetailScreen/DetailScreen";
+
+import ProductsRouter from "../routes/ProductsRouter";
+
 
 export const RouterApp = () => {
   return (
     <div className="container-principal">
-      {/*  nav compartido entre todas las paginas */}
-
-      <Nav />
-
-      {/* routes pagehome , prooductPage , detailsProduct */}
-
       <Routes>
         <Route path="/" element={<HomeScreen />} />
-        <Route path="/auth" element={<AuthScreen />} />
-        <Route path="/details" element={<DetailScreen />} />
+
+        <Route path="/*" element={<ProductsRouter />} />
+
       </Routes>
-
-      {/* footer compartido entre todas las paginas */}
-
       <Footer />
     </div>
   );

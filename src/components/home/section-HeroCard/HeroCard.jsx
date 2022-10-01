@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import GimImage from "../../../assets/images/homeImages/GimImage.png";
 
 import "./HeroCard.css";
@@ -17,8 +18,11 @@ export const HeroCard = () => {
           estan fabricadas con algodon certificados por la ONGT. Somos tus
           aliados, con nuestra marca no solo vistes, tambien cuidas el ambiente
         </p>
-
-        <button className="button button--blue">Comprar ahora</button>
+        <Link to="/products">
+          <button className="button button--blue" type="button">
+            Comprar ahora
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@
 
 .SliderCards {
   display: flex;
-  width: 350px;
+  width: 100%;
   scroll-snap-type: x mandatory;
   scroll-padding: 25px;
   column-gap: 20px;
@@ -12,20 +12,21 @@
 
 @media screen and (min-width: 768px) {
   .SliderCards {
-    overflow-x: unset;
-    width: 32%;
+    max-width: 500px;
+    margin-left: 20%;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .SliderCards {
-    width: 300px;
+    overflow-x: unset;
+    margin-left: 0;
+    width: 272px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .SliderCards {
-    transform: translateX(50%);
-    margin-left: 51px;
+    width: 342px;
   }
 }

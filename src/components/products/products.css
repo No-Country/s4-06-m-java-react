@@ -1,0 +1,77 @@
+.wrapper-products {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  gap: 10px;
+}
+
+/*card*/
+
+.card-product {
+  width: 100%;
+  height: 356px;
+  max-width: 292px;
+  padding: 16px;
+  margin: 0 auto;
+  box-shadow: 2px 1px 6px 0px rgb(156 148 148);
+}
+
+.card-product__image {
+  width: 100%;
+  height: 186px;
+  margin: 0 auto;
+}
+
+.card-product__paragraph {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 18px;
+  color: #626262;
+  text-align: center;
+  overflow: hidden;
+  width: 180px;
+  height: 36px;
+  margin: 10px auto;
+}
+
+.card-product__price {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  color: #052734;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.card-product__delivery {
+  color: #626262;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  text-align: center;
+}
+
+.card-product__image img {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper-products {
+    display: grid;
+    grid-template-columns: repeat(3, 196px);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .wrapper-products {
+    display: grid;
+    grid-template-columns: repeat(4, 196px);
+  }
+}
