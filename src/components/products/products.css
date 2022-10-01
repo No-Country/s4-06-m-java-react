@@ -74,4 +74,14 @@
     display: grid;
     grid-template-columns: repeat(4, 196px);
   }
+  .card-product__paragraph {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 17px;
+    height: initial;
+    width: initial;
+    height: 65px;
+  }
 }

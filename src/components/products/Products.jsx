@@ -14,10 +14,7 @@ const Products = () => {
             />
           </div>
 
-          <p className="card-product__paragraph">
-            Playera deportiva en algodon... Playera deportiva en algodon...
-            Playera deportiva en algodon... Playera deportiva en algodon...
-          </p>
+          <p className="card-product__paragraph">{card.text}</p>
           <span className="card-product__price">$140</span>
 
           <p className="card-product__delivery">
