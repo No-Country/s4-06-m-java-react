@@ -41,6 +41,7 @@
   color: black;
   margin: 0 auto;
   display: block;
+  cursor: pointer;
 }
 
 .button.button--blue {

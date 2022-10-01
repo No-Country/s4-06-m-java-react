@@ -1,10 +1,8 @@
 import EcoSport from "../../../assets/images/nav/Ecosport.svg";
 import cart from "../../../assets/images/nav/cart.svg";
-import searchIcon from "../../../assets/images/nav/searchIcon.svg";
-
 import "./Nav.css";
 
-export const Nav = () => {
+export const Nav = (props) => {
   return (
     <div className="nav">
       <div className="nav__ecoSport-wrapper">
@@ -15,16 +13,7 @@ export const Nav = () => {
         </div>
       </div>
 
-      <div className="input-wrapper">
-        <div className="input-wrapper__icon">
-          <img src={searchIcon} alt="searchIcon" />
-        </div>
-        <input
-          className="input-wrapper__input"
-          type="text"
-          placeholder="Buscar"
-        />
-      </div>
+      {props.inputSearch}
 
       <ul className="nav__list">
         <li className="nav__item ">Home</li>
