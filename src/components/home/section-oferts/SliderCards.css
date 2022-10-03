@@ -20,7 +20,7 @@
 @media screen and (min-width: 1024px) {
   .SliderCards {
     overflow-x: unset;
-    margin-left: 0;
+    margin-left: 95px;
     width: 272px;
   }
 }

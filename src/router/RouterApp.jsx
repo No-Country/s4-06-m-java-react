@@ -14,10 +14,8 @@ export const RouterApp = () => {
         <Route path="/" element={<HomeScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
-
         <Route path="/*" element={<ProductsRouter />} />
       </Routes>
-      <Footer />
     </div>
   );
 };

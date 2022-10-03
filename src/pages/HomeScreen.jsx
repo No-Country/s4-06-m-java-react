@@ -1,6 +1,7 @@
 import { FlashDeeal } from "../components/home/section-flash-deal/FlashDeeal";
 import { HeroCard } from "../components/home/section-HeroCard/HeroCard";
 import { SliderCards } from "../components/home/section-oferts/SliderCards";
+import { Footer } from "../components/sharedComponents/footer/Footer";
 import { Nav } from "../components/sharedComponents/nav/Nav";
 
 export const HomeScreen = () => {
@@ -20,6 +21,7 @@ export const HomeScreen = () => {
       </p>
 
       <FlashDeeal />
+      <Footer />
     </div>
   );
 };
