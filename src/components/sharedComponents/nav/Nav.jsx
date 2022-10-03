@@ -1,25 +1,52 @@
 import EcoSport from "../../../assets/images/nav/Ecosport.svg";
 import cart from "../../../assets/images/nav/cart.svg";
+import { Link as LinkDom } from "react-router-dom";
+import { Link } from "react-scroll";
 import "./Nav.css";
 
 export const Nav = (props) => {
   return (
     <div className="nav">
       <div className="nav__ecoSport-wrapper">
-        <img src={EcoSport} alt="ecoSport" />
+        <LinkDom to="/">
+          <img src={EcoSport} alt="ecoSport" />
+        </LinkDom>
         <div className="cart">
-          <p className="cart__name">Cuenta</p>
+          <LinkDom to="/">
+            <p className="cart__name">Cuenta</p>
+          </LinkDom>
+          <LinkDom to="/login">
+            <p className="cart__name">login</p>
+          </LinkDom>
+          <LinkDom to="/register">
+            <p className="cart__name">Register</p>
+          </LinkDom>
           <img className="cart__image" src={cart} alt="shoppingCart" />
         </div>
       </div>
-
       {props.inputSearch}
 
       <ul className="nav__list">
-        <li className="nav__item ">Home</li>
-        <li className="nav__item nav__item--weigth">Ofertas</li>
-        <li className="nav__item nav__item--weigth">Tienda</li>
-        <li className="nav__item nav__item--weigth">Pedidos</li>
+        <li className="nav__item nav__item">
+          <LinkDom to="/">Home</LinkDom>
+        </li>
+        <li className="nav__item nav__item">
+          <Link
+            to="nuevas-ofertas"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+          >
+            Nuevas Ofertas
+          </Link>
+        </li>
+        <li className="nav__item nav__item">
+          <LinkDom to="/">tienda</LinkDom>
+        </li>
+        <li className="nav__item nav__item">
+          <LinkDom to="/">pedidos</LinkDom>
+        </li>
       </ul>
     </div>
   );
