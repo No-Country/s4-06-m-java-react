@@ -1,10 +1,46 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
+import IconBack from "../../assets/images/auth/iconBack.svg";
 import "./register.css";
 const RegisterScreen = () => {
   return (
     <div className="RegisterScreen">
-      <h1>RegisterScreen</h1>
+      <div className="wrapper-auth">
+        <Link to="/">
+          <img src={IconBack} alt="iconBack" className="iconBack" />
+        </Link>
+        <h2 className="wrapper-auth__title">Crear Cuenta</h2>
+        <label className="wrapper-auth__label">Nombre</label>
+        <input
+          className="wrapper-auth__input"
+          type="text"
+          placeholder="ingresa tu Nombre"
+        />
+        <label className="wrapper-auth__label">Correo</label>
+        <input
+          className="wrapper-auth__input"
+          type="text"
+          placeholder="Ingresa tu correo"
+        />
+        <label className="wrapper-auth__label">Contrasena</label>
+        <input
+          className="wrapper-auth__input"
+          type="text"
+          placeholder="In8$a"
+        />
+        <span className="wrapper-auth__info">
+          Debe contener caracteres con letras y numeros{" "}
+        </span>
+        <div className="wrapper-auth__footer">
+          <span className="wrapper-auth__footer__cuenta">
+            Ya Tienes Cuenta ?
+          </span>
+          <Link to="/login">
+            <span className="wrapper-auth__footer__register">Log in</span>
+          </Link>
+        </div>
+        <button className="button button--blue mt-btn ">Registrarse</button>
+      </div>
     </div>
   );
 };

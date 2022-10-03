@@ -1,7 +1,11 @@
+.Footer {
+  width: 100%;
+}
+
 .Footer__Image {
-  width: 90%;
   margin: 0 auto;
   height: 132px;
+  max-width: 1400px;
 }
 .Footer-content {
   background: #052734;
@@ -12,8 +16,8 @@
   align-items: center;
   flex-direction: column;
   position: relative;
-  width: 90%;
   margin: 0 auto;
+  max-width: 1400px;
 }
 .Footer-content__list {
   font-family: "Roboto";
@@ -72,6 +76,7 @@
     width: 90%;
     margin: 0 auto;
     height: 360px;
+    max-width: 1400px;
   }
 
   .Footer-content__list__wrapperItem {

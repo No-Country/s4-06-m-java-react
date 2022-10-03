@@ -9,7 +9,7 @@ import ProductsRouter from "../routes/ProductsRouter";
 
 export const RouterApp = () => {
   return (
-    <div className="container-principal">
+    <div>
       <Routes>
         <Route path="/" element={<HomeScreen />} />
         <Route path="/login" element={<LoginScreen />} />

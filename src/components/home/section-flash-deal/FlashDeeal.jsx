@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { CardSimple } from "../../sharedComponents/card/CardSimple";
 
 import "./FlashDeeal.css";
@@ -25,10 +26,11 @@ export const FlashDeeal = () => {
             <span className="timer-box__days">Days</span>
           </div>
         </div>
-
-        <button className="button timer__button button--Darkblue">
-          SHOP NOW
-        </button>
+        <Link to="/products">
+          <button className="button timer__button button--Darkblue">
+            SHOP NOW
+          </button>
+        </Link>
       </div>
       <div className="FlashDeeal__cardSimpleGrid">
         <CardSimple />
