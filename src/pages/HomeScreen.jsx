@@ -3,19 +3,21 @@ import { HeroCard } from "../components/home/section-HeroCard/HeroCard";
 import { SliderCards } from "../components/home/section-oferts/SliderCards";
 import { Nav } from "../components/sharedComponents/nav/Nav";
 
-
-
 export const HomeScreen = () => {
   return (
-    <div className="homeScreen container-principal ">
+    <div className="homeScreen container-principal" id="home">
       <Nav />
       {/* section HeroCard */}
       <HeroCard />
       {/* section new offers */}
-      <p className="title-section">Nuevas Ofertas</p>
+      <p className="title-section" id="nuevas-ofertas">
+        Nuevas Ofertas
+      </p>
       <SliderCards />
       {/* section flash deal */}
-      <p className="title-section">Oferta Relampago</p>
+      <p className="title-section" id="ofertas-relampago">
+        Oferta Relampago
+      </p>
 
       <FlashDeeal />
     </div>

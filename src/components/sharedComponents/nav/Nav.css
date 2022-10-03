@@ -24,12 +24,16 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
+  font-weight: 400;
   font-size: 14px;
   color: #052734;
 }
+.nav__item:hover {
+  font-weight: 600;
+}
 
-.nav__item--weigth {
-  font-weight: 400;
+.nav__item.nav__item--active {
+  font-weight: 600;
 }
 
 /*cart*/
@@ -41,7 +45,13 @@
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
+  cursor: pointer;
 }
 
 .cart__image {
+  cursor: pointer;
+}
+
+.nav__ecoSport-wrapper a {
+  display: flex;
 }
