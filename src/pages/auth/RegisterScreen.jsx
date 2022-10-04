@@ -10,23 +10,23 @@ const RegisterScreen = () => {
           <img src={IconBack} alt="iconBack" className="iconBack" />
         </Link>
         <h2 className="wrapper-auth__title">Crear Cuenta</h2>
-        <label className="wrapper-auth__label">Nombre</label>
+        <label className="wrapper-auth__label">Nombre y Apellido</label>
         <input
           className="wrapper-auth__input"
           type="text"
-          placeholder="ingresa tu Nombre"
+          placeholder="Ingresa tu Nombre"
         />
-        <label className="wrapper-auth__label">Correo</label>
+        <label className="wrapper-auth__label">Correo Electronico</label>
         <input
           className="wrapper-auth__input"
           type="text"
           placeholder="Ingresa tu correo"
         />
-        <label className="wrapper-auth__label">Contrasena</label>
+        <label className="wrapper-auth__label">Contraseña</label>
         <input
           className="wrapper-auth__input"
           type="text"
-          placeholder="In8$a"
+          placeholder="Ingresa tu contraseña"
         />
         <span className="wrapper-auth__info">
           Debe contener caracteres con letras y numeros{" "}
