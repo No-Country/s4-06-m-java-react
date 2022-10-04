@@ -6,22 +6,22 @@ export const linksCategories = [
   {
     id: 1,
     text: "HOMBRE",
-    url: "/",
+    url: "/products/hombre",
   },
   {
     id: 2,
     text: "MUJER",
-    url: "/",
+    url: "/products/mujer",
   },
   {
     id: 3,
-    text: "NINOS",
-    url: "/",
+    text: "NIÑOS",
+    url: "/products/nino",
   },
   {
     id: 4,
     text: "OFERTAS",
-    url: "/",
+    url: "/products/ofertas",
   },
 ];
 

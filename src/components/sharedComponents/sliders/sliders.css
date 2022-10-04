@@ -1,0 +1,48 @@
+
+/* carrousel cel */
+.slick-slide img {
+    margin: 10px auto;
+    height: 270px;
+  }
+  .slick-dots li {
+    margin: 18px 6px;
+  }
+  .slick-dots li button:before {
+    content: none;
+    bottom: 0px !important;
+  }
+  .slick-track {
+    display: inline-block;
+    width: min-with !important;
+    margin-bottom: 18px;
+  }
+  .slick-dots {
+    margin: 16px auto;
+    bottom: -35px;
+  }
+  
+  .slick-dots li.slick-active button {
+    background: #052734;
+    color: #052734;
+    border-radius: 50px;
+    width: 14px;
+    height: 14px;
+  }
+  .slick-dots li button {
+    width: 14px;
+    height: 14px;
+    opacity: 1;
+    border-radius: 50px;
+    background: #d9d9d9;
+    color: #d9d9d9 !important;
+  }
+  .contenedor__slider-min {
+    box-sizing: content-box;
+    height: 50px !important;
+    width: 59px !important;
+  }
+  .contenedor__min {
+    margin: 0px auto;
+    width: 250px;
+    height: 60px;
+  }

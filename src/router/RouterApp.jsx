@@ -11,7 +11,7 @@ export const RouterApp = () => {
       <Routes>
         <Route path="/" element={<HomeScreen />} />
 
-        <Route path="/*" element={<ProductsRouter />} />
+        <Route path="/products/*" element={<ProductsRouter />} />
 
       </Routes>
       <Footer />

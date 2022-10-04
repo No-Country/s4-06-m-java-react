@@ -1,0 +1,163 @@
+.product__shortdetails {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #626262;
+    margin-bottom: 0px;
+  }
+  .product__marca {
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #218037;
+    margin: 6px 0px;
+  }
+  
+  .product__contenedor-heating {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px auto;
+    height: 20px;
+  }
+  .product__contenedor-heating > p {
+    margin: 0px;
+  }
+  .product__heating {
+    color: rgba(255, 184, 0, 1);
+    width: 125px;
+  }
+  .product__view {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #052734;
+    margin: 5px 0px 8px 45px;
+    padding-bottom: 3px;
+  }
+  .product__stock {
+    font-family: Roboto;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #03a600;
+    margin: 5px 0px;
+  }
+  .product__price {
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    margin-bottom: 8px;
+  }
+  .product__price > span {
+    color: #052734;
+    font-family: Roboto;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin: 0px 0px 8px 22px;
+  }
+  .product__delivery {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    color: #052734;
+    margin-top: 0px;
+    border-bottom: 1px solid #dcdcdc;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+  .product__color-title {
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 8px;
+    margin-top: 0px;
+  }
+  .product__talla {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: block;
+    width: 57px;
+    height: 52px;
+    padding: 12px, 16px, 12px, 16px;
+    border: 1px solid #b2bcca;
+    border-radius: 8px;
+  }
+  .product__talla:checked {
+    border: 2px solid #052734;
+  }
+  .product__talla-label {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    top: -40px;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    letter-spacing: 0em;
+    color: #626262;
+  }
+  
+  
+  /*Sistema de colores*/
+  .select-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .select-container > input[type='radio'] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: block;
+    width: 42px;
+    height: 34px;
+    border-radius: 8px;
+    margin-right: 12px;
+    border: 1px solid;
+    margin-bottom: 8px;
+  }
+  .select-container > input[type='radio']:checked {
+    border: 3px solid #000;
+    height: 38px;
+    width: 45px;
+    -webkit-box-shadow: 0px 0px 51px -9px rgba(5, 39, 52, 1);
+    -moz-box-shadow: 0px 0px 51px -9px rgba(5, 39, 52, 1);
+    box-shadow: 0px 0px 51px -9px rgba(5, 39, 52, 1);
+  }
+  
+  .red {
+    background: red;
+  }
+  .blue {
+    background: blue;
+  }
+  .black {
+    background: #000;
+  }
+  .white {
+    background: #ffffff;
+  }
+  

@@ -1,11 +1,11 @@
 .list-categories {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  margin-bottom: 15px;
 }
 
 .list-categories__item {
-  padding: 1rem;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -13,17 +13,45 @@
   color: #052734;
   cursor: pointer;
   position: relative;
+  padding-bottom: 15px;
+  margin-bottom: 16px;
 }
 
 .list-categories__item:hover {
   color: green;
 }
+.list-categories__itemActive {
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  font-size: 12px;
+  color: #052734;
+  cursor: pointer;
+  position: relative;
+  border-bottom: 1px solid #052734;
+  padding-bottom: 0.1rem;
+  margin-bottom: 16px;
+}
 
 @media screen and (min-width: 1024px) {
+  .list-categories {
+    width: 60%;
+    margin: 0 auto;
+  }
+
   .list-categories__item {
     font-family: "Lato";
     font-style: normal;
     font-weight: 400;
+    font-size: 22.4144px;
+  }
+  .list-categories__itemActive {
+    border-bottom: 1px solid #052734;
+    padding-bottom: 0.1rem;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 900;
     font-size: 22.4144px;
   }
 }

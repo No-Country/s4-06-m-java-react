@@ -1,15 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { linksCategories } from "../../../utils/constants/constants";
+import NavLinkPersonalizado from "../../../helpers/NavLinkPersonalizado";
 
 import "./listCategories.css";
 const ListCategories = () => {
   return (
     <ul className="list-categories">
       {linksCategories.map((category) => (
-        <Link key={category.id}>
-          <li className="list-categories__item">{category.text}</li>
-        </Link>
+        
+      <li  key={category.id} >
+        <NavLinkPersonalizado  to={category.url} clase="list-categories__itemActive" claseInactive="list-categories__item">
+          {category.text}
+        </NavLinkPersonalizado>
+      </li>
       ))}
     </ul>
   );
