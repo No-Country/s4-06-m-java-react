@@ -16,10 +16,7 @@ export const Nav = (props) => {
             <p className="cart__name">Cuenta</p>
           </LinkDom>
           <LinkDom to="/login">
-            <p className="cart__name">login</p>
-          </LinkDom>
-          <LinkDom to="/register">
-            <p className="cart__name">Register</p>
+            <p className="cart__name">login / register</p>
           </LinkDom>
           <img className="cart__image" src={cart} alt="shoppingCart" />
         </div>
