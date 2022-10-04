@@ -15,37 +15,87 @@ const AuthForm = () => {
     setIsLogin((prevState) => !prevState);
   };
 
-  return (
-    <div className="LoginScreen">
-      <div className="wrapper-auth">
-        <Link to="/">
-          <img src={IconBack} alt="iconBack" className="iconBack" />
-        </Link>
+  const sumbitHandler = (event) => {
+    event.preventDefault();
 
+    const enteredEmail = emailInputRef.current.value;
+    const enteredPassword = passwordInputRef.current.value;
+    const enteredName = nameInputRef.current.value;
+
+    let url;
+
+    if (isLogin) {
+      async function getResponseRegister() {
+        const response = await fetch(
+          //EN ESTE FETCH IRIA EL ENDPOINT DE LA API PROPIA DEL ECOMMERCE
+          "https://sport-eco.herokuapp.com/auth/register",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              email: enteredEmail,
+              fullName: enteredName,
+              password: enteredPassword,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(response);
+      }
+      getResponseRegister();
+    } else {
+      async function getResponseLogin() {
+        const response = await fetch(
+          //EN ESTE FETCH IRIA EL ENDPOINT DE LA API PROPIA DEL ECOMMERCE
+          "https://sport-eco.herokuapp.com/auth/login",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              email: enteredEmail,
+              password: enteredPassword,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log(response);
+      }
+      getResponseLogin();
+    }
+  };
+
+  return (
+    <form className="LoginScreen" onSubmit={sumbitHandler}>
+      <div className="wrapper-auth">
         <h2 className="wrapper-auth__title">
-          {isLogin ? "Iniciar Sesion" : "Registrarse"}
+          <Link to="/">
+            <img src={IconBack} alt="iconBack" className="iconBack" />
+          </Link>
+          {isLogin ? "Crear Cuenta" : "Iniciar Sesion"}
         </h2>
         {isLogin ? (
-          ""
-        ) : (
           <label className="wrapper-auth__label">Nombre Completo</label>
+        ) : (
+          ""
         )}
         {isLogin ? (
-          ""
-        ) : (
           <input
             className="wrapper-auth__input"
             type="text"
-            placeholder="ingresa tu nombre completo"
+            placeholder="Ingresa tu nombre completo"
             required
             ref={nameInputRef}
           />
+        ) : (
+          ""
         )}
         <label className="wrapper-auth__label">Correo Electronico</label>
         <input
           className="wrapper-auth__input"
           type="text"
-          placeholder="ingresa tu correo"
+          placeholder="Ingresa tu correo"
           required
           ref={emailInputRef}
         />
@@ -53,7 +103,7 @@ const AuthForm = () => {
         <input
           className="wrapper-auth__input"
           type="text"
-          placeholder="In8$a"
+          placeholder="Ingresa la contraseña"
           required
           ref={passwordInputRef}
         />
@@ -62,21 +112,21 @@ const AuthForm = () => {
         </span>
         <div className="wrapper-auth__footer">
           <span className="wrapper-auth__footer__cuenta">
-            {isLogin ? "¿ Aun no tienes cuenta ?" : "¿ Tienes una cuenta ?"}
+            {isLogin ? "¿ Tienes una cuenta ?" : "¿ Aun no tienes cuenta ?"}
           </span>
           <button
             type="button"
             className="wrapper-auth__footer__register"
             onClick={switchAuthModeHandler}
           >
-            {isLogin ? "Registrarse" : "Iniciar Sesion"}
+            {isLogin ? "Log In" : "Registrarse"}
           </button>
         </div>
-        <button className="button button--blue mt-btn ">
-          {isLogin ? "Iniciar Sesion" : "Registrarse"}
+        <button className="button button--blue mt-btn">
+          {isLogin ? "Registrarse" : "Iniciar Sesion"}
         </button>
       </div>
-    </div>
+    </form>
   );
 };
 
