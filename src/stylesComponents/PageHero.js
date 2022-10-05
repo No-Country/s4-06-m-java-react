@@ -1,33 +1,40 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-const PageHero = ({ title }) => {
+const PageHero = () => {
   return (
     <Wrapper>
-      <div className="section-center">
-        <h3>
-          <Link to="/">Home</Link> {title}
-        </h3>
+      <div className="hero">
+        <h3 className="hero__title">Details Product</h3>
       </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  background: var(--clr-primary-10);
-  width: 100%;
-  min-height: 20vh;
-  display: flex;
-  align-items: center;
+  max-width: 909px;
+  margin: 0 auto;
+  .hero {
+    background: linear-gradient(
+      90.34deg,
+      #184f63 3.48%,
+      #1f5b73 7%,
+      #19495b 92.96%,
+      #052734 100%
+    );
+    width: 100%;
 
-  color: var(--clr-primary-1);
-  a {
-    color: var(--clr-primary-3);
-    padding: 0.5rem;
-    transition: var(--transition);
-  }
-  a:hover {
-    color: var(--clr-primary-1);
+    height: 58px;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    border-radius: 1rem;
+    .hero__title {
+      color: white;
+      font-size: 29px;
+    }
   }
 `;
 

@@ -1,11 +1,64 @@
-import React, { useState } from 'react'
-import styled from 'styled-components'
+import React, { useState } from "react";
+import styled from "styled-components";
 
-const ProductImages = () => {
-  return <h4>product images</h4>
-}
+const ProductImages = ({ images = [{ fileUrl: "" }] }) => {
+  const imagesFinales = [
+    { fileUrl: images[0].fileUrl, id: images[0].id, name: images[0].name },
+    {
+      fileUrl:
+        "https://chevignon.vtexassets.com/arquivos/ids/1076988/63_649D003_010000_0.jpg?v=1751298906",
+      id: 1,
+      name: images[0].name,
+    },
+    {
+      fileUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBOPAnkdBP8hyUvPrpDU45-4nYHmVQI_mO0g&usqp=CAU",
+      id: 2,
+      name: images[0].name,
+    },
+    {
+      fileUrl:
+        "https://chevignon.vtexassets.com/arquivos/ids/1076988/63_649D003_010000_0.jpg?v=1751298906",
+      id: 3,
+      name: images[0].name,
+    },
+    {
+      fileUrl:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-JsLAnDEOLIaLbiEhOZqMWEsGzn0lYlWlhYB4S_OaJE6H_fiwmtgjO9qM9uiTDNOhRr8&usqp=CAU",
+      id: 4,
+      name: images[0].name,
+    },
+  ];
+
+  const [imageMain, setimageMain] = useState(imagesFinales[0]);
+
+  return (
+    <Wrapper>
+      <img src={imageMain.fileUrl} alt={imageMain.name} className="main" />
+
+      <div className="gallery">
+        {imagesFinales.map((image, index) => {
+          return (
+            <img
+              src={image.fileUrl}
+              key={index}
+              onClick={() => {
+                setimageMain(imagesFinales[index]);
+              }}
+              className={`${
+                imagesFinales.url === imageMain.fileUrl ? "active" : null
+              }`}
+            />
+          );
+        })}
+      </div>
+    </Wrapper>
+  );
+};
 
 const Wrapper = styled.section`
+  max-width: 509px;
+  margin: 0 auto;
   .main {
     height: 600px;
   }
@@ -48,6 +101,6 @@ const Wrapper = styled.section`
       }
     }
   }
-`
+`;
 
-export default ProductImages
+export default ProductImages;
