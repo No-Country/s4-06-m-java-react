@@ -7,7 +7,7 @@
 
 .wrapper-auth {
   width: 100%;
-  max-width: 433px;
+  max-width: 533px;
   padding: 1rem;
 }
 
@@ -79,11 +79,11 @@
 
 .button.button--blue.mt-btn {
   margin-top: 3rem;
+  font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
 }
 
 
-@media screen and (min-width: 1024px) {
-
-
-  
-}
