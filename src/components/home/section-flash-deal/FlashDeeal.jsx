@@ -5,6 +5,12 @@ import { CardSimple } from "../../sharedComponents/card/CardSimple";
 import "./FlashDeeal.css";
 
 export const FlashDeeal = () => {
+  const OfertasRelampagoarrayTemporal = [
+    "1aofertasR",
+    "2aofertasR",
+    "3aofertasR",
+    "4aofertasR",
+  ];
   const [timeHours, setHours] = useState("");
   const [timeMinutes, setMinutes] = useState("00");
   const [timeSeconds, setSeconds] = useState("00");
@@ -23,8 +29,7 @@ export const FlashDeeal = () => {
       );
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      console.log(minutes);
-      console.log(seconds);
+
       if (distance < 0) {
         clearInterval(interval.current);
       } else {
@@ -71,10 +76,9 @@ export const FlashDeeal = () => {
         </Link>
       </div>
       <div className="FlashDeeal__cardSimpleGrid">
-        <CardSimple />
-        <CardSimple />
-        <CardSimple />
-        <CardSimple />
+        {OfertasRelampagoarrayTemporal.map((item) => {
+          return <CardSimple key={item} id={item} />;
+        })}
       </div>
     </div>
   );
