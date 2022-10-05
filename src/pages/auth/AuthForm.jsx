@@ -102,7 +102,7 @@ const AuthForm = () => {
         <label className="wrapper-auth__label">Constraseña</label>
         <input
           className="wrapper-auth__input"
-          type="text"
+          type="password"
           placeholder="Ingresa la contraseña"
           required
           ref={passwordInputRef}
