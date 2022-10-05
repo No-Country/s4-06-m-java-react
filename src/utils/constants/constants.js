@@ -124,6 +124,6 @@ export const cardItems = [
   },
 ];
 
-export const products_url = "https://course-api.com/react-store-products";
+export const products_url = "https://sport-eco.herokuapp.com/product/all";
 
-export const single_product_url = `https://course-api.com/react-store-single-product?id=`;
+export const single_product_url = `https://sport-eco.herokuapp.com/product/`;
