@@ -30,8 +30,8 @@
   cursor: pointer;
   position: relative;
   border-bottom: 1px solid #052734;
-  padding-bottom: 0.1rem;
-  margin-bottom: 16px;
+  padding: 0rem 0.3rem 0.1rem 0.3rem ;
+  margin-bottom: 8px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -47,7 +47,7 @@
     font-size: 22.4144px;
   }
   .list-categories__itemActive {
-    border-bottom: 1px solid #052734;
+    border-bottom: 2.4px solid #052734;
     padding-bottom: 0.1rem;
     font-family: "Lato";
     font-style: normal;
