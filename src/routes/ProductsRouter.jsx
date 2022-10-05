@@ -5,6 +5,7 @@ import InputSearch from "../components/sharedComponents/inputSearch/InputSearch"
 import ProductsScreen from "../pages/ProductsScreen";
 import { Nav } from "../components/sharedComponents/nav/Nav";
 import AddressScreen from "../pages/payment/AddressScreen";
+import SingleProduct from "../pages/SingleProduct";
 
 const ProductsRouter = () => {
   return (
