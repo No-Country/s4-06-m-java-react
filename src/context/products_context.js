@@ -3,8 +3,6 @@ import React, { useContext, useEffect, useReducer } from "react";
 import reducer from "../reducers/products_reducer";
 import { products_url as url } from "../utils/constants/constants";
 import {
-  SIDEBAR_OPEN,
-  SIDEBAR_CLOSE,
   GET_PRODUCTS_BEGIN_LOADING,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
@@ -22,6 +20,9 @@ const initialState = {
   single_product_loading: false,
   single_product_error: false,
   single_product: {},
+  token: null,
+  isLoggedIn: false,
+  userData: {},
 };
 
 const ProductsContext = React.createContext();
@@ -69,8 +70,30 @@ export const ProductsProvider = ({ children }) => {
     fetchProducts(url);
   }, []);
 
+  /***********************************AUTH**********************************************/
+
+  const Handlerlogin = (token) => {
+    dispatch({ type: "LOGIN", payload: token });
+  };
+
+  const Handlerlogout = () => {
+    dispatch({ type: "LOGOUT" });
+  };
+
+  const handlerUserData = (userData) => {
+    dispatch({ type: "ADDDATAUSER", payload: userData });
+  };
+
   return (
-    <ProductsContext.Provider value={{ ...state, fetchSingleProduct }}>
+    <ProductsContext.Provider
+      value={{
+        ...state,
+        fetchSingleProduct,
+        Handlerlogout,
+        Handlerlogin,
+        handlerUserData,
+      }}
+    >
       {children}
     </ProductsContext.Provider>
   );
