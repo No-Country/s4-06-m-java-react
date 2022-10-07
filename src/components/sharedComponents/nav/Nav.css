@@ -46,6 +46,7 @@
   font-weight: 500;
   font-size: 14px;
   cursor: pointer;
+  padding: 1rem;
 }
 
 .cart__image {
@@ -54,4 +55,28 @@
 
 .nav__ecoSport-wrapper a {
   display: flex;
+}
+
+.LOGOUT {
+  color: white;
+  margin-right: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: red;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.ADMINCONTROL {
+  background-color: aqua;
+  color: black;
+  margin-right: 2rem;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 1rem;
+  border-radius: 10px;
 }

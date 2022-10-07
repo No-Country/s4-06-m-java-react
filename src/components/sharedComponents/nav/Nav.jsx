@@ -6,7 +6,7 @@ import "./Nav.css";
 import { useProductsContext } from "../../../context/products_context";
 
 export const Nav = (props) => {
-  const { isLoggedIn } = useProductsContext();
+  const { isLoggedIn, Handlerlogout, userData } = useProductsContext();
   return (
     <div className="nav">
       <div className="nav__ecoSport-wrapper">
@@ -17,6 +17,18 @@ export const Nav = (props) => {
           {isLoggedIn && (
             <LinkDom to="/profileUser">
               <p className="cart__name">TU PERFIL</p>
+            </LinkDom>
+          )}
+
+          {isLoggedIn && (
+            <p className="LOGOUT" onClick={Handlerlogout}>
+              LOGOUT
+            </p>
+          )}
+
+          {userData.role === "ROLE_ADMIN" && (
+            <LinkDom to="/admin">
+              <p className="ADMINCONTROL">ADMIN CONTROL</p>
             </LinkDom>
           )}
 
