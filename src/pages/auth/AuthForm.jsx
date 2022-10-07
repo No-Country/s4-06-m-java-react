@@ -1,13 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import IconBack from "../../assets/images/auth/iconBack.svg";
+
 import "./AuthForm.css";
+import { useProductsContext } from "../../context/products_context";
 
 const AuthForm = () => {
+  const history = useNavigate();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const nameInputRef = useRef();
+
+  const { Handlerlogin, handlerUserData } = useProductsContext();
 
   const [isLogin, setIsLogin] = useState(true);
 
@@ -44,24 +49,32 @@ const AuthForm = () => {
       }
       getResponseRegister();
     } else {
-      console.log("estoy en el login");
       async function getResponseLogin() {
-        const response = await fetch(
-          "https://sport-eco.herokuapp.com/auth/login",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              email: enteredEmail,
-              password: enteredPassword,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        try {
+          const response = await fetch(
+            "https://sport-eco.herokuapp.com/auth/login",
+            {
+              method: "POST",
+              body: JSON.stringify({
+                email: enteredEmail,
+                password: enteredPassword,
+              }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
 
-        const data = await response.json();
-        console.log(data);
+          const data = await response.json();
+
+          Handlerlogin(data.token);
+
+          handlerUserData(data);
+
+          history("/");
+        } catch (error) {
+          console.log(error);
+        }
       }
       getResponseLogin();
     }

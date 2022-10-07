@@ -74,6 +74,28 @@ const products_reducer = (state, action) => {
   }
   /*error single product end*/
 
+  /**************************AUTH******************************/
+  if (action.type === "LOGIN") {
+    return {
+      ...state,
+      token: action.payload,
+      isLoggedIn: true,
+    };
+  }
+  if (action.type === "LOGOUT") {
+    return {
+      ...state,
+      token: null,
+      isLoggedIn: false,
+    };
+  }
+  if (action.type === "ADDDATAUSER") {
+    return {
+      ...state,
+      userData: action.payload,
+    };
+  }
+
   throw new Error(`No Matching "${action.type}" - action type`);
 };
 
