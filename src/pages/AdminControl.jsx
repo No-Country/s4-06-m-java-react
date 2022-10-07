@@ -2,23 +2,10 @@ import React, { useState } from "react";
 import { useRef } from "react";
 
 import styled from "styled-components";
+import { fileUpload } from "../utils/helpers/helpers";
 
 const AdminControl = () => {
   const [file, setfile] = useState(null);
-  const [Product, setProduct] = useState({
-    shortDetails: "",
-    details: "",
-    title: "",
-    brand: "",
-    view: "",
-    stock: "",
-    price: "",
-    size: "S",
-    color: "",
-    categoryId: "",
-    isEditing: false,
-    editProductId: "",
-  });
 
   const handlerUpload = (e) => {
     setfile(e.target.files);
@@ -33,15 +20,10 @@ const AdminControl = () => {
 
   const handleSubmitAdd = (e) => {
     e.preventDefault();
-    console.log("enviando todo al backend");
-    const formData = new FormData();
-    formData.append("postimages", file);
 
     const title = titleInput.current.value;
     const price = inputPrice.current.value;
-
     const shortDetails = shortDetailsInput.current.value;
-
     const details = detailsinput.current.value;
     const brand = brandInput.current.value;
     const selectsize = selectSizeInput.current.value;
@@ -54,7 +36,16 @@ const AdminControl = () => {
       brand,
       size: selectsize,
     };
+
     console.log(content);
+
+    console.log(file[0]);
+
+    const f = new FormData();
+    f.append("postimages", file[0]);
+    f.append("product", content);
+
+    console.log(f);
   };
 
   return (

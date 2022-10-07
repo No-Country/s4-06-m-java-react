@@ -5,14 +5,10 @@ export const formatPrice = (number) => {
   }).format(number / 100);
 };
 
-export const fileUpload = async (file = [], content) => {
-  if (!file) throw new Error("no tenemos ningun archivo a subir");
+export const fileUpload = async (formData = [], content) => {
+  if (!formData) throw new Error("no tenemos ningun archivo a subir");
 
   const Url = "https://sport-eco.herokuapp.com/product/add";
-
-  const formData = new FormData();
-  formData.append("postimages", file);
-  formData.append("product", content);
 
   try {
     const res = await fetch(Url, {
