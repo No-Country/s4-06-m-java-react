@@ -20,9 +20,8 @@ const initialState = {
   single_product_loading: false,
   single_product_error: false,
   single_product: {},
-  token: null,
-  isLoggedIn: false,
-  userData: {},
+  token: localStorage.getItem("token"),
+  userData: JSON.parse(localStorage.getItem("dataUser")),
   allUsers: [],
 };
 
@@ -30,6 +29,10 @@ const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  console.log(state.userData);
+
+  const isLoggedIn = !!state.token;
 
   /*i fetch all products here*/
 
@@ -55,7 +58,7 @@ export const ProductsProvider = ({ children }) => {
     try {
       const response = await axios.get(url);
       const singleProduct = response.data;
-      console.log(singleProduct);
+
       dispatch({
         type: GET_SINGLE_PRODUCT_SUCCESS,
         payload: singleProduct,
@@ -73,20 +76,24 @@ export const ProductsProvider = ({ children }) => {
 
   /***********************************AUTH**********************************************/
 
-  const Handlerlogin = (token) => {
-    dispatch({ type: "LOGIN", payload: token });
+  const Handlerlogin = (data) => {
+    dispatch({ type: "LOGIN", payload: data.token });
+    localStorage.setItem("token", data.token);
   };
 
-  const HandlerRegister = (token) => {
-    dispatch({ type: "REGISTER", payload: token });
+  const HandlerRegister = (data) => {
+    dispatch({ type: "REGISTER", payload: data.token });
   };
 
   const Handlerlogout = () => {
     dispatch({ type: "LOGOUT" });
+    localStorage.removeItem("token");
+    localStorage.removeItem("dataUser");
   };
 
   const handlerUserData = (userData) => {
     dispatch({ type: "ADDDATAUSER", payload: userData });
+    localStorage.setItem("dataUser", JSON.stringify(userData));
   };
 
   /***********************************USERS**********************************************/
@@ -100,6 +107,7 @@ export const ProductsProvider = ({ children }) => {
         Handlerlogin,
         handlerUserData,
         HandlerRegister,
+        isLoggedIn,
       }}
     >
       {children}

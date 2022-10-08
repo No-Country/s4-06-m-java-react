@@ -48,7 +48,7 @@ const AuthForm = () => {
           );
           const data = await response.json();
 
-          HandlerRegister(data.token);
+          HandlerRegister(data);
           handlerUserData(data);
 
           Swal.fire({
@@ -89,21 +89,32 @@ const AuthForm = () => {
             }
           );
 
-          const data = await response.json();
+          if (response.ok) {
+            const data = await response.json();
 
-          Handlerlogin(data.token);
+            Handlerlogin(data);
 
-          handlerUserData(data);
+            handlerUserData(data);
 
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "LOGIN SUCCESS",
-            showConfirmButton: false,
-            timer: 1500,
-          });
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "LOGIN SUCCESS",
+              showConfirmButton: false,
+              timer: 1500,
+            });
 
-          history("/");
+            history("/");
+          } else {
+            Swal.fire({
+              position: "top-end",
+              icon: "error",
+              title: "Error",
+              text: "password or email are no correct",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
         } catch (error) {
           Swal.fire({
             position: "top-end",

@@ -13,7 +13,7 @@ const UserAccountScreen = () => {
     <Wrapper className="UserAccountScreen">
       <div className="header">
         <div className="imageProfile">
-          {userData.role === "ROLE_USER" ? (
+          {userData?.role === "ROLE_USER" ? (
             <img src={avatar} className="imageProfile__img" />
           ) : (
             <img src={avatarofficer} className="imageProfile__img" />
