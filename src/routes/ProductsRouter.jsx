@@ -4,6 +4,12 @@ import InputSearch from "../components/sharedComponents/inputSearch/InputSearch"
 
 import ProductsScreen from "../pages/ProductsScreen";
 
+
+import { Nav } from "../components/sharedComponents/nav/Nav";
+
+import SingleProduct from "../pages/SingleProduct";
+
+
 import AddressScreen from "../pages/AddressScreen/AddressScreen";
 
 const ProductsRouter = () => {

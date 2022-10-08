@@ -20,20 +20,17 @@ const AuthForm = () => {
 
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-    const enteredName = nameInputRef.current.value;
-
-    let url;
+    const enteredName = nameInputRef.current?.value;
 
     if (isLogin) {
       async function getResponseRegister() {
         const response = await fetch(
-          //EN ESTE FETCH IRIA EL ENDPOINT DE LA API PROPIA DEL ECOMMERCE
           "https://sport-eco.herokuapp.com/auth/register",
           {
             method: "POST",
             body: JSON.stringify({
-              email: enteredEmail,
               fullName: enteredName,
+              email: enteredEmail,
               password: enteredPassword,
             }),
             headers: {
@@ -41,13 +38,15 @@ const AuthForm = () => {
             },
           }
         );
-        console.log(response);
+        const data = await response.json();
+
+        console.log(data);
       }
       getResponseRegister();
     } else {
+      console.log("estoy en el login");
       async function getResponseLogin() {
         const response = await fetch(
-          //EN ESTE FETCH IRIA EL ENDPOINT DE LA API PROPIA DEL ECOMMERCE
           "https://sport-eco.herokuapp.com/auth/login",
           {
             method: "POST",
@@ -60,7 +59,9 @@ const AuthForm = () => {
             },
           }
         );
-        console.log(response);
+
+        const data = await response.json();
+        console.log(data);
       }
       getResponseLogin();
     }

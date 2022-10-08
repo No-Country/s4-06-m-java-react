@@ -123,3 +123,7 @@ export const cardItems = [
     delivery: "Entrega para el jueves, 25 de sept",
   },
 ];
+
+export const products_url = "https://sport-eco.herokuapp.com/product/all";
+
+export const single_product_url = `https://sport-eco.herokuapp.com/product/`;

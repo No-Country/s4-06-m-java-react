@@ -1,29 +1,50 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useProductsContext } from "../../context/products_context";
 import { cardItems } from "../../utils/constants/constants";
+import { formatPrice } from "../../utils/helpers/helpers";
+
 import "./products.css";
 const Products = () => {
+  const {
+    products_loading: loading,
+    products_error: error,
+    products,
+  } = useProductsContext();
+
+  if (loading) {
+    return <h1>LOADING</h1>;
+  }
+
+  if (error) {
+    return (
+      <div>
+        <h2>ERROR</h2>
+      </div>
+    );
+  }
   return (
     <div className="wrapper-products">
-      {cardItems.map((card) => (
-        <div className="card-product" key={card.id}>
-          <div className="card-product__image">
-            <img
-              src={card.img}
-              className="card-product__image__img"
-              alt={card.price}
-            />
+      {products.map((card) => (
+        <Link to={`/products/${card.id}`} key={card.id}>
+          <div className="card-product">
+            <div className="card-product__image">
+              <img
+                src={card.imgList[0].fileUrl}
+                className="card-product__image__img"
+                alt={card.title}
+              />
+            </div>
+
+            <p className="card-product__paragraph">{card.details}</p>
+            <span className="card-product__price">
+              {formatPrice(card.price)}
+            </span>
+
+            <p className="card-product__delivery">{card.shortDetails}</p>
+            <p className="card-product__delivery">MARCA:{card.brand}</p>
           </div>
-
-          <p className="card-product__paragraph">
-            Playera deportiva en algodon... Playera deportiva en algodon...
-            Playera deportiva en algodon... Playera deportiva en algodon...
-          </p>
-          <span className="card-product__price">$140</span>
-
-          <p className="card-product__delivery">
-            Entrega para el jueves, 25 de sept
-          </p>
-        </div>
+        </Link>
       ))}
     </div>
   );
