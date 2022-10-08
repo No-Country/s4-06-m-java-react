@@ -26,7 +26,7 @@ export const Nav = (props) => {
             </p>
           )}
 
-          {userData.role === "ROLE_ADMIN" && (
+          {userData?.role === "ROLE_ADMIN" && (
             <LinkDom to="/admin">
               <p className="ADMINCONTROL">ADMIN CONTROL</p>
             </LinkDom>
