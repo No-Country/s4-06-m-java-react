@@ -28,7 +28,7 @@ export const AddressForm = () => {
         <input
           className="wrapper-address__input"
           type="text"
-          placeholder="Ingresa tu correo"
+          placeholder="Ingresa tu correo.."
           required
           ref={emailInputRef}
         />
@@ -36,7 +36,7 @@ export const AddressForm = () => {
         <input
           className="wrapper-address__input"
           type="password"
-          placeholder="Ingresa la contraseña"
+          placeholder="Ingresa la contraseña.."
           required
           ref={passwordInputRef}
         />
@@ -44,7 +44,7 @@ export const AddressForm = () => {
         <input
           className="wrapper-address__input"
           type="text"
-          placeholder="Ingresa tu nombre completo"
+          placeholder="Ingresa tu nombre completo.."
           required
           ref={cityInputRef}
         />
@@ -52,7 +52,7 @@ export const AddressForm = () => {
         <input
           className="wrapper-address__input"
           type="text"
-          placeholder="Ingresa tu direccion"
+          placeholder="Ingresa tu direccion.."
           required
           ref={addressInputRef}
         />
@@ -61,7 +61,7 @@ export const AddressForm = () => {
           className="wrapper-address__input"
           type="number"
           name="numero"
-          placeholder="Ingresa tu codigo postal"
+          placeholder="Ingresa tu codigo postal.."
           required
           ref={postalInputRef}
         />
@@ -70,7 +70,7 @@ export const AddressForm = () => {
           className="wrapper-address__input"
           type="number"
           name=""
-          placeholder="Ingresa tu numero de celular"
+          placeholder="Ingresa tu numero de celular.."
           required
           ref={cityInputRef}
         />
