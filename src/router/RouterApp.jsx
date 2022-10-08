@@ -1,11 +1,8 @@
 import { Route, Routes } from "react-router-dom";
-import { Footer } from "../components/sharedComponents/footer/Footer";
-
-import AuthForm from "../pages/auth/AuthForm";
 import { HomeScreen } from "../pages/HomeScreen";
-import SingleProduct from "../pages/SingleProduct";
 import { SingleUserScreen } from "../pages/SingleUserScreen";
-
+import AuthForm from "../pages/auth/AuthForm";
+import SingleProduct from "../pages/SingleProduct";
 import ProductsRouter from "../routes/ProductsRouter";
 
 export const RouterApp = () => {
