@@ -30,7 +30,7 @@ const AuthForm = () => {
     if (isLogin) {
       async function getResponseRegister() {
         const response = await fetch(
-          "https://sport-eco.herokuapp.com/auth/register",
+          "https://eco-sport.herokuapp.com/auth/register",
           {
             method: "POST",
             body: JSON.stringify({
@@ -52,7 +52,7 @@ const AuthForm = () => {
       async function getResponseLogin() {
         try {
           const response = await fetch(
-            "https://sport-eco.herokuapp.com/auth/login",
+            "https://eco-sport.herokuapp.com/auth/login",
             {
               method: "POST",
               body: JSON.stringify({

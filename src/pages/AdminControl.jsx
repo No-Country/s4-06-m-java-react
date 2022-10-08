@@ -2,10 +2,25 @@ import React, { useState } from "react";
 import { useRef } from "react";
 
 import styled from "styled-components";
+import { UserControl } from "../components/products/UserControl";
 import { fileUpload } from "../utils/helpers/helpers";
 
 const AdminControl = () => {
   const [file, setfile] = useState(null);
+
+  const [isActiveProductsControler, setisActiveProductsControler] =
+    useState(true);
+
+  const [isAlluserActive, setisAlluserActive] = useState(false);
+
+  const handlerProductActive = () => {
+    setisActiveProductsControler(true);
+    setisAlluserActive(false);
+  };
+  const handlerUserActive = () => {
+    setisAlluserActive(true);
+    setisActiveProductsControler(false);
+  };
 
   const handlerUpload = (e) => {
     setfile(e.target.files);
@@ -48,42 +63,59 @@ const AdminControl = () => {
     console.log(f);
   };
 
+  const ProductsControler = (
+    <form className="wrapper-content">
+      <label>IMAGEN</label>
+      <input type="file" className="file input" onChange={handlerUpload} />
+      <label>titulo</label>
+      <input type="texto" className="input" ref={titleInput} />
+      <label>precio</label>
+      <input type="number" className="input" ref={inputPrice} />
+      <label>details</label>
+      <input type="texto" className="input" ref={detailsinput} />
+      <label>brand</label>
+      <input type="texto" className="input" ref={brandInput} />
+      <label>shortDetails</label>
+      <input type="texto" className="input" ref={shortDetailsInput} />
+      <label>size</label>
+      <select name="size" id="size" ref={selectSizeInput}>
+        <option value="S">S</option>
+        <option value="X">X</option>
+        <option value="XL">XL</option>
+        <option value="XXL">XXL</option>
+      </select>
+
+      <button
+        className="control-buttons-admin__btn--blue"
+        onClick={handleSubmitAdd}
+      >
+        AGREGAR PRODUCTO
+      </button>
+    </form>
+  );
+
+  const userControl = <UserControl />;
+
   return (
     <Wrapper>
       <h1 className="title">ADMIN CONTROL</h1>
-
       <div className="control-buttons-admin">
-        <button className="control-buttons-admin__btn">AGREGAR PRODUCTO</button>
-      </div>
-
-      <form className="wrapper-content">
-        <label>IMAGEN</label>
-        <input type="file" className="file input" onChange={handlerUpload} />
-        <label>titulo</label>
-        <input type="texto" className="input" ref={titleInput} />
-        <label>precio</label>
-        <input type="number" className="input" ref={inputPrice} />
-        <label>details</label>
-        <input type="texto" className="input" ref={detailsinput} />
-        <label>brand</label>
-        <input type="texto" className="input" ref={brandInput} />
-        <label>shortDetails</label>
-        <input type="texto" className="input" ref={shortDetailsInput} />
-        <label>size</label>
-        <select name="size" id="size" ref={selectSizeInput}>
-          <option value="S">S</option>
-          <option value="X">X</option>
-          <option value="XL">XL</option>
-          <option value="XXL">XXL</option>
-        </select>
-
         <button
-          className="control-buttons-admin__btn--blue"
-          onClick={handleSubmitAdd}
+          className="control-buttons-admin__btn"
+          onClick={handlerProductActive}
         >
           AGREGAR PRODUCTO
         </button>
-      </form>
+        <button
+          className="control-buttons-admin__btn"
+          onClick={handlerUserActive}
+        >
+          ALL USERS
+        </button>
+      </div>
+
+      {isActiveProductsControler && ProductsControler}
+      {isAlluserActive && userControl}
     </Wrapper>
   );
 };

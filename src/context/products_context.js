@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useReducer } from "react";
 import reducer from "../reducers/products_reducer";
-import { products_url as url } from "../utils/constants/constants";
+import { products_url } from "../utils/constants/constants";
 import {
   GET_PRODUCTS_BEGIN_LOADING,
   GET_PRODUCTS_SUCCESS,
@@ -23,6 +23,7 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   userData: {},
+  allUsers: [],
 };
 
 const ProductsContext = React.createContext();
@@ -67,7 +68,7 @@ export const ProductsProvider = ({ children }) => {
   /*i singleProduct here end */
 
   useEffect(() => {
-    fetchProducts(url);
+    fetchProducts(products_url);
   }, []);
 
   /***********************************AUTH**********************************************/
@@ -83,6 +84,8 @@ export const ProductsProvider = ({ children }) => {
   const handlerUserData = (userData) => {
     dispatch({ type: "ADDDATAUSER", payload: userData });
   };
+
+  /***********************************USERS**********************************************/
 
   return (
     <ProductsContext.Provider
