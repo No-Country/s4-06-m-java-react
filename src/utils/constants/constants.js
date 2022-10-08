@@ -123,7 +123,18 @@ export const cardItems = [
     delivery: "Entrega para el jueves, 25 de sept",
   },
 ];
+/*product*/
 
-export const products_url = "https://sport-eco.herokuapp.com/product/all";
+export const products_url = "https://eco-sport.herokuapp.com/product/all";
 
-export const single_product_url = `https://sport-eco.herokuapp.com/product/`;
+export const single_product_url = `https://eco-sport.herokuapp.com/product/`;
+
+export const productbyIdDelete = `https://eco-sport.herokuapp.com/product/`;
+
+export const productAdd = `https://eco-sport.herokuapp.com/product/add`;
+
+/**users*/
+
+export const GetallUsers = "https://eco-sport.herokuapp.com/user/all";
+export const GetUserId = "https://eco-sport.herokuapp.com/user/";
+export const deleteUserById = "https://eco-sport.herokuapp.com/user/";
