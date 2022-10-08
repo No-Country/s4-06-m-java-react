@@ -131,6 +131,8 @@ export const single_product_url = `https://eco-sport.herokuapp.com/product/`;
 
 export const productbyIdDelete = `https://eco-sport.herokuapp.com/product/`;
 
+export const productAdd = `https://eco-sport.herokuapp.com/product/add`;
+
 /**users*/
 
 export const GetallUsers = "https://eco-sport.herokuapp.com/user/all";

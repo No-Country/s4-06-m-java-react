@@ -3,7 +3,6 @@ import { useRef } from "react";
 
 import styled from "styled-components";
 import { UserControl } from "../components/products/UserControl";
-import { fileUpload } from "../utils/helpers/helpers";
 
 const AdminControl = () => {
   const [file, setfile] = useState(null);
