@@ -11,8 +11,8 @@ export const UserControl = () => {
     const data = response.data;
 
     const dataUsersFilter = data.filter((el) => el.id !== 1);
-    console.log(dataUsersFilter);
-    setallUsers(data);
+
+    setallUsers(dataUsersFilter);
   };
 
   useEffect(() => {
