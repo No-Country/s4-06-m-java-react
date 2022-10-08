@@ -95,6 +95,13 @@ const products_reducer = (state, action) => {
       userData: action.payload,
     };
   }
+  if (action.type === "REGISTER") {
+    return {
+      ...state,
+      token: action.payload,
+      isLoggedIn: true,
+    };
+  }
 
   throw new Error(`No Matching "${action.type}" - action type`);
 };
