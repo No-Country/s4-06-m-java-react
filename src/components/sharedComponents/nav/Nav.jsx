@@ -7,6 +7,8 @@ import { useProductsContext } from "../../../context/products_context";
 
 export const Nav = (props) => {
   const { isLoggedIn, Handlerlogout, userData } = useProductsContext();
+
+  console.log(isLoggedIn);
   return (
     <div className="nav">
       <div className="nav__ecoSport-wrapper">
@@ -26,7 +28,7 @@ export const Nav = (props) => {
             </p>
           )}
 
-          {userData?.role === "ROLE_ADMIN" && (
+          {userData?.role === "ROLE_ADMIN" && isLoggedIn && (
             <LinkDom to="/admin">
               <p className="ADMINCONTROL">ADMIN CONTROL</p>
             </LinkDom>

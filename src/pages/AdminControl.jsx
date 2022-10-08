@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 import styled from "styled-components";
 import { UserControl } from "../components/products/UserControl";
@@ -99,6 +100,9 @@ const AdminControl = () => {
     <Wrapper>
       <h1 className="title">ADMIN CONTROL</h1>
       <div className="control-buttons-admin">
+        <Link to={"/"}>
+          <button className="control-buttons-admin__btn">BACK</button>
+        </Link>
         <button
           className="control-buttons-admin__btn"
           onClick={handlerProductActive}

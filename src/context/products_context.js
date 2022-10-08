@@ -77,6 +77,10 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: "LOGIN", payload: token });
   };
 
+  const HandlerRegister = (token) => {
+    dispatch({ type: "REGISTER", payload: token });
+  };
+
   const Handlerlogout = () => {
     dispatch({ type: "LOGOUT" });
   };
@@ -95,6 +99,7 @@ export const ProductsProvider = ({ children }) => {
         Handlerlogout,
         Handlerlogin,
         handlerUserData,
+        HandlerRegister,
       }}
     >
       {children}
