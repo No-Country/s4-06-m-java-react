@@ -9,6 +9,9 @@ export const UserControl = () => {
   const getAllUsers = async (url) => {
     const response = await axios.get(url);
     const data = response.data;
+
+    const dataUsersFilter = data.filter((el) => el.id !== 1);
+    console.log(dataUsersFilter);
     setallUsers(data);
   };
 
