@@ -9,11 +9,14 @@ import {
   GET_SINGLE_PRODUCT_BEGIN_LOADING,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
+  REGISTER,
+  LOGOUT,
+  ADDDATAUSER,
+  LOGIN,
 } from "../actions/actions";
 
 const initialState = {
   products: [],
-  isSidebarOpen: false,
   products_loading: false,
   products_error: false,
   featured_products: [],
@@ -29,9 +32,6 @@ const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  console.log(state.userData);
-
   const isLoggedIn = !!state.token;
 
   /*i fetch all products here*/
@@ -77,22 +77,22 @@ export const ProductsProvider = ({ children }) => {
   /***********************************AUTH**********************************************/
 
   const Handlerlogin = (data) => {
-    dispatch({ type: "LOGIN", payload: data.token });
+    dispatch({ type: LOGIN, payload: data.token });
     localStorage.setItem("token", data.token);
   };
 
   const HandlerRegister = (data) => {
-    dispatch({ type: "REGISTER", payload: data.token });
+    dispatch({ type: REGISTER, payload: data.token });
   };
 
   const Handlerlogout = () => {
-    dispatch({ type: "LOGOUT" });
+    dispatch({ type: LOGOUT });
     localStorage.removeItem("token");
     localStorage.removeItem("dataUser");
   };
 
   const handlerUserData = (userData) => {
-    dispatch({ type: "ADDDATAUSER", payload: userData });
+    dispatch({ type: ADDDATAUSER, payload: userData });
     localStorage.setItem("dataUser", JSON.stringify(userData));
   };
 
