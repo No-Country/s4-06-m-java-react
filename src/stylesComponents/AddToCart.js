@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { FaCheck } from "react-icons/fa";
 // import { useCartContext } from '../context/cart_context'
-// import AmountButtons from "./AmountButtons";
+import AmountButtons from "./AmountButtons";
 
 const AddToCart = ({ product }) => {
   const { id, stock, colors } = product;
@@ -11,6 +11,21 @@ const AddToCart = ({ product }) => {
   const [mainColor, setmainColor] = useState(colors[0]);
 
   const [amount, setamount] = useState(1);
+
+  const increase = () => {
+    setamount((prev) => prev + 1);
+  };
+  const decrease = () => {
+    setamount((prev) => {
+      let tempAmount = prev - 1;
+
+      if (tempAmount < 1) {
+        tempAmount = 1;
+      }
+
+      return tempAmount;
+    });
+  };
   return (
     <Wrapper>
       <div className="colors">
@@ -32,7 +47,17 @@ const AddToCart = ({ product }) => {
         );
       })}
 
-      <div className="btn-container"></div>
+      <div className="btn-container">
+        <AmountButtons
+          amount={amount}
+          increase={increase}
+          decrease={decrease}
+        />
+
+        <Link to="/cart" className="btn">
+          Agregar al carrito
+        </Link>
+      </div>
     </Wrapper>
   );
 };

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useProductsContext } from "../../context/products_context";
 import { formatPrice } from "../../utils/helpers/helpers";
-
 import "./products.css";
 const Products = () => {
   const {
