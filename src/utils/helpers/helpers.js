@@ -27,3 +27,9 @@ export const fileUpload = async (formData = [], content) => {
     throw new Error(error.message);
   }
 };
+
+export const getUniquesValues = (data, type) => {
+  let unique = data.map((item) => item[type]);
+
+  return ["all", ...new Set(unique)];
+};

@@ -1,11 +1,81 @@
 import React from "react";
 import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
-import { getUniqueValues, formatPrice } from "../utils/helpers/helpers";
+import { formatPrice, getUniquesValues } from "../utils/helpers/helpers";
 import { FaCheck } from "react-icons/fa";
 
 const Filters = () => {
-  return <h4>filters</h4>;
+  const {
+    filters: { text, category, company, color, min_price, price, max_price },
+    updateFilters,
+    clearFilters,
+    all_products,
+  } = useFilterContext();
+
+  const categories = getUniquesValues(all_products, "category");
+  const companies = getUniquesValues(all_products, "company");
+
+  console.log(categories);
+
+  return (
+    <Wrapper>
+      <div className="content">
+        <form onSubmit={(e) => e.preventDefault}>
+          {/*search input*/}
+          <div className="form-control">
+            <input
+              type="text"
+              name="text"
+              placeholder="search"
+              className="search-input"
+              value={text}
+              onChange={updateFilters}
+            />
+          </div>
+
+          <div className="form-control">
+            <h5>Category</h5>
+            <div>
+              {categories.map((category, index) => {
+                return (
+                  <button
+                    key={index}
+                    onClick={updateFilters}
+                    name="category"
+                    type="button"
+                    className={`${
+                      category === category.toLowerCase() ? "active" : null
+                    }`}
+                  >
+                    {category}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
+          <div className="form-control">
+            <h5>Company</h5>
+
+            <select
+              name="company"
+              value={company}
+              onChange={updateFilters}
+              className="company"
+            >
+              {companies.map((c, index) => {
+                return (
+                  <option key={index} value={c}>
+                    {c}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        </form>
+      </div>
+    </Wrapper>
+  );
 };
 
 const Wrapper = styled.section`
