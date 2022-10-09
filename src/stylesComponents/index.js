@@ -9,6 +9,7 @@ import ProductList from "./ProductList";
 import Sort from "./Sort";
 import GridView from "./GridView";
 import ListView from "./ListView";
+import Product from "./Product";
 
 export {
   Loading,
@@ -22,4 +23,5 @@ export {
   Sort,
   GridView,
   ListView,
+  Product,
 };

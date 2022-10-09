@@ -11,8 +11,8 @@ const ProductsPage = () => {
       <Nav inputSearch={<InputSearch />} />
       <div className="section-center products">
         <Filters />
+        <Sort />
       </div>
-      <Sort />
       <ProductList />
       <Footer />
     </Wrapper>
