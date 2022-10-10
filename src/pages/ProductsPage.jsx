@@ -7,27 +7,33 @@ import { Filters, ProductList, Sort } from "../stylesComponents";
 
 const ProductsPage = () => {
   return (
-    <Wrapper className="page">
-      <Nav inputSearch={<InputSearch />} />
-      <div className="section-center products">
-        <Filters />
-        <Sort />
-      </div>
-      <ProductList />
-      <Footer />
-    </Wrapper>
+    <>
+      <Wrapper>
+        <Nav />
+        <h2 className="productsPage-title">NUESTRO PRODUCTOS</h2>
+        <div>
+          <Filters />
+          <Sort />
+        </div>
+        <ProductList />
+        <Footer />
+      </Wrapper>
+    </>
   );
 };
 
 const Wrapper = styled.div`
-  .products {
-    display: grid;
-    gap: 3rem 1.5rem;
-    margin: 4rem auto;
+  .productsPage-title {
+    font-family: "Aclonica";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
   }
-  @media (min-width: 768px) {
-    .products {
-      grid-template-columns: 200px 1fr;
+
+  @media screen and (min-width: 1024px) {
+    .productsPage-title {
+      font-size: 54px;
     }
   }
 `;
