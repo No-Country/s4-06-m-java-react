@@ -7,6 +7,10 @@ import {
   GET_SINGLE_PRODUCT_BEGIN_LOADING,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
+  LOGIN,
+  LOGOUT,
+  ADDDATAUSER,
+  REGISTER,
 } from "../actions/actions";
 
 const products_reducer = (state, action) => {
@@ -38,19 +42,16 @@ const products_reducer = (state, action) => {
   /*error si el get del producto falla*/
 
   if (action.type === GET_PRODUCTS_ERROR) {
-    return { ...PopStateEvent, products_loading: false, products_error: true };
+    return { ...state, products_loading: false, products_error: true };
   }
 
   /*****************SINGLE PRODUCT**********************/
-  // single_product_loading: false,
-  // single_product_error: false,
-  // single_product: {},
 
   if (action.type === GET_SINGLE_PRODUCT_BEGIN_LOADING) {
     return {
       ...state,
       single_product_loading: true,
-      single_product_loading: true,
+      single_product_error: false,
     };
   }
   /*set single product */
@@ -75,27 +76,27 @@ const products_reducer = (state, action) => {
   /*error single product end*/
 
   /**************************AUTH******************************/
-  if (action.type === "LOGIN") {
+  if (action.type === LOGIN) {
     return {
       ...state,
       token: action.payload,
       isLoggedIn: true,
     };
   }
-  if (action.type === "LOGOUT") {
+  if (action.type === LOGOUT) {
     return {
       ...state,
       token: null,
       isLoggedIn: false,
     };
   }
-  if (action.type === "ADDDATAUSER") {
+  if (action.type === ADDDATAUSER) {
     return {
       ...state,
       userData: action.payload,
     };
   }
-  if (action.type === "REGISTER") {
+  if (action.type === REGISTER) {
     return {
       ...state,
       token: action.payload,
