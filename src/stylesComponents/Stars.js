@@ -28,6 +28,8 @@ const Stars = ({ stars }) => {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
   span {
     color: #ffb900;
     font-size: 1rem;

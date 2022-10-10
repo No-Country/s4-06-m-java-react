@@ -18,7 +18,7 @@ const Filters = () => {
   return (
     <Wrapper>
       <div className="content">
-        <form onSubmit={(e) => e.preventDefault}>
+        <form onSubmit={(e) => e.preventDefault} className="wrapper-form">
           {/*search input*/}
           <div className="search-input">
             <input
@@ -51,32 +51,56 @@ const Filters = () => {
               })}
             </div>
           </div>
-
-          <div className="form-control">
-            <h5>Company</h5>
-
-            <select
-              name="company"
-              value={brand}
-              onChange={updateFilters}
-              className="company"
-            >
-              {branden.map((c, index) => {
-                return (
-                  <option key={index} value={c}>
-                    {c}
-                  </option>
-                );
-              })}
-            </select>
-          </div>
         </form>
+        <div className="wrapper-select-company">
+          <h5 className="select-title">Company</h5>
+          <select
+            name="brand"
+            value={brand}
+            onChange={updateFilters}
+            className="company"
+          >
+            {branden.map((c, index) => {
+              return (
+                <option key={index} value={c} className="option-company">
+                  {c}
+                </option>
+              );
+            })}
+          </select>
+        </div>
       </div>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
+  .option-company {
+    background-color: #052734;
+  }
+
+  .wrapper-select-company {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+  .select-title {
+    font-size: 2rem;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  .company {
+    background-color: #052734;
+    border: none;
+    border-radius: 3rem;
+    color: white;
+    padding: 1rem;
+  }
+  .wrapper-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
   .active {
     opacity: 1;
   }
@@ -100,19 +124,35 @@ const Wrapper = styled.section`
   }
 
   .wrapper-categorias {
-    background-color: red;
     display: flex;
-    flex-direction: column;
     height: 200px;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
   }
 
   button {
     text-transform: uppercase;
-    background-color: transparent;
+    background-color: black;
+    color: white;
+    padding: 0.3rem;
     border: 1px solid black;
     margin-top: 0.7rem;
+    border-radius: 5px;
+    width: 100%;
+    display: block;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .wrapper-categorias {
+      flex-direction: row;
+      justify-content: space-between;
+      height: 90px;
+      margin-top: -40px;
+    }
+    button {
+      margin-left: 1rem;
+    }
   }
 `;
 

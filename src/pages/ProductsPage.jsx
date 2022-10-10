@@ -11,7 +11,7 @@ const ProductsPage = () => {
       <Wrapper>
         <Nav />
         <h2 className="productsPage-title">NUESTRO PRODUCTOS</h2>
-        <div>
+        <div className="grid">
           <Filters />
           <Sort />
         </div>

@@ -22,9 +22,8 @@ const Wrapper = styled.section`
 
   .products-container {
     display: grid;
-    grid-template-columns: 1fr;
-
-    gap: 2rem 1.5rem;
+    justify-content: center;
+    margin-top: 1rem;
   }
 
   @media (min-width: 992px) {

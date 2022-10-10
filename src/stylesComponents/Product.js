@@ -8,7 +8,7 @@ import Stars from "./Stars";
 const Product = ({ imgList, title, price, id, stars }) => {
   return (
     <Wrapper>
-      <Link to={`/products/${id}`}>
+      <Link to={`/products/${id}`} className="product">
         <div className="container">
           <img src={imgList[0].fileUrl} alt={title} />
         </div>
@@ -23,5 +23,29 @@ const Product = ({ imgList, title, price, id, stars }) => {
   );
 };
 
-const Wrapper = styled.article``;
+const Wrapper = styled.article`
+  background-color: #052734;
+  color: white;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+
+  .product {
+    text-align: center;
+  }
+
+  .container img {
+    margin: 0 auto;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+  }
+
+  .footer {
+    color: white;
+  }
+`;
 export default Product;
