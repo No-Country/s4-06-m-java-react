@@ -1,17 +1,33 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-
 import styled from "styled-components";
 import { UserControl } from "../components/products/UserControl";
+import { useProductsContext } from "../context/products_context";
 
 const AdminControl = () => {
-  const [file, setfile] = useState(null);
-
   const [isActiveProductsControler, setisActiveProductsControler] =
     useState(true);
-
   const [isAlluserActive, setisAlluserActive] = useState(false);
+  const [image, setimage] = useState({});
+  const { token } = useProductsContext();
+
+  const product = {
+    shortDetails: "Conjunto deportivo",
+    details: "Maxi Dress in Black",
+    title: "Pants2",
+    brand: "Fila",
+    view: 500,
+    stock: true,
+    star: 3.5,
+    price: 4900,
+    sizes: ["S", "M", "L", "XS"],
+    colors: ["#ff0000", "#0000ff", "#00ff00"],
+    categoryId: 1,
+  };
+
+  const producjson = JSON.stringify(product);
 
   const handlerProductActive = () => {
     setisActiveProductsControler(true);
@@ -23,7 +39,20 @@ const AdminControl = () => {
   };
 
   const handlerUpload = (e) => {
-    setfile(e.target.files);
+    setimage(e.target.files[0]);
+  };
+
+  const postProduct = async (url) => {
+    const response = await axios.post(url, producjson, {
+      headers: {
+        Authorization: token,
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    console.log(data);
   };
 
   const inputPrice = useRef();
@@ -32,6 +61,9 @@ const AdminControl = () => {
   const titleInput = useRef();
   const brandInput = useRef();
   const selectSizeInput = useRef();
+  const categoryInput = useRef();
+
+  /*submit*/
 
   const handleSubmitAdd = (e) => {
     e.preventDefault();
@@ -42,31 +74,23 @@ const AdminControl = () => {
     const details = detailsinput.current.value;
     const brand = brandInput.current.value;
     const selectsize = selectSizeInput.current.value;
+    const category = categoryInput.current.value;
 
-    const content = {
-      price,
-      shortDetails,
-      details,
-      title,
-      brand,
-      size: selectsize,
-    };
+    const url = "https://eco-sports.herokuapp.com/product/add";
 
-    console.log(content);
-
-    console.log(file[0]);
-
-    const f = new FormData();
-    f.append("postimages", file[0]);
-    f.append("product", content);
-
-    console.log(f);
+    postProduct(url);
   };
 
   const ProductsControler = (
     <form className="wrapper-content">
       <label>IMAGEN</label>
-      <input type="file" className="file input" onChange={handlerUpload} />
+      <input
+        type="file"
+        className="file input"
+        name="postimages"
+        id="postimages"
+        onChange={handlerUpload}
+      />
       <label>titulo</label>
       <input type="texto" className="input" ref={titleInput} />
       <label>precio</label>
@@ -83,6 +107,15 @@ const AdminControl = () => {
         <option value="X">X</option>
         <option value="XL">XL</option>
         <option value="XXL">XXL</option>
+      </select>
+      <label>categorias</label>
+      <select name="category" id="category" ref={categoryInput}>
+        <option value="1">Ninos</option>
+        <option value="2">hombre</option>
+        <option value="3">etc</option>
+        <option value="4">etc</option>
+        <option value="5">etc</option>
+        <option value="6">etc</option>
       </select>
 
       <button

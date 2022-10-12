@@ -15,8 +15,6 @@ export const UserControl = () => {
     setallUsers(dataUsersFilter);
   };
 
-  console.log(allUsers);
-
   useEffect(() => {
     getAllUsers([GetallUsers]);
   }, []);
