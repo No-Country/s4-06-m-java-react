@@ -6,6 +6,7 @@ import "./css/global.css";
 import "./css/colors.css";
 import { ProductsProvider } from "./context/products_context";
 import { FilterProvider } from "./context/filter_context";
+import { FacturaElectronica } from "./santiejemplo/FacturaElectronica";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
