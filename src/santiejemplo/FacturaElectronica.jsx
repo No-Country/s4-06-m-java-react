@@ -35,6 +35,6 @@ const Wrapper = styled.div`
   }
 
   .azul {
-    color: blue;
+    color: #ff1500;
   }
 `;
