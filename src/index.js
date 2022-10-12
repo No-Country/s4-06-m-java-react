@@ -7,13 +7,16 @@ import "./css/colors.css";
 import { ProductsProvider } from "./context/products_context";
 import { FilterProvider } from "./context/filter_context";
 import { FacturaElectronica } from "./santiejemplo/FacturaElectronica";
+import { CartProvider } from "./context/cart_context";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <ProductsProvider>
       <FilterProvider>
-        <App />
+        <CartProvider>
+          <App />
+        </CartProvider>
       </FilterProvider>
     </ProductsProvider>
   </BrowserRouter>

@@ -1,9 +1,19 @@
 import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { useCartContext } from "../context/cart_context";
+import { CartContent, PageHero } from "../stylesComponents";
 
 export const CartScreen = () => {
-  return (
-    <div>
-      <h1>CARTSCREEN</h1>
-    </div>
-  );
+  return <h4>cart page</h4>;
 };
+
+const Wrapper = styled.main`
+  .empty {
+    text-align: center;
+    h2 {
+      margin-bottom: 1rem;
+      text-transform: none;
+    }
+  }
+`;

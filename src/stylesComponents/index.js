@@ -10,6 +10,10 @@ import Sort from "./Sort";
 import GridView from "./GridView";
 import ListView from "./ListView";
 import Product from "./Product";
+import CarContent from "./CarContent";
+import CartColumns from "./CartColumns";
+import CartItem from "./CartItem";
+import CartTotals from "./CartTotals";
 
 export {
   Loading,
@@ -24,4 +28,8 @@ export {
   GridView,
   ListView,
   Product,
+  CarContent,
+  CartColumns,
+  CartItem,
+  CartTotals,
 };

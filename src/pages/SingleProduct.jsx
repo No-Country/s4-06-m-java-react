@@ -51,7 +51,7 @@ const SingleProduct = () => {
 
   const {
     brand,
-    color,
+    colors,
     details,
     imgList,
     price,
