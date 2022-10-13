@@ -169,3 +169,24 @@ img {
   font-size: 4rem;
   text-align: center;
 }
+
+.vacio-continue-shopping {
+  width: 447px;
+  height: 52px;
+  cursor: pointer;
+
+  background: linear-gradient(
+    90.34deg,
+    #9ae20c 3.48%,
+    #94cd10 7%,
+    #13aa0c 92.96%,
+    #41a801 100%
+  );
+  border: 2px solid #8cf00a;
+  border-radius: 4px;
+  margin: 0 auto;
+  display: block;
+  color: white;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}

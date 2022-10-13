@@ -4,9 +4,20 @@ import closeicon from "../assets/images/card/removeCardDetailsIcon.svg";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../context/cart_context";
 import { CartContent, PageHero } from "../stylesComponents";
+import { formatPrice } from "../utils/helpers/helpers";
+import AmountButtons from "../stylesComponents/AmountButtons";
 
 export const CartScreen = () => {
-  const { cart } = useCartContext();
+  const { cart, clearCart, total_amount, removeItem, toggleAmount, amount } =
+    useCartContext();
+
+  const increase = (id) => {
+    toggleAmount(id, "inc");
+  };
+
+  const decrease = (id) => {
+    toggleAmount(id, "dec");
+  };
 
   if (cart.length < 1) {
     return (
@@ -15,6 +26,10 @@ export const CartScreen = () => {
           Tu carrito esta vacio porfavor <br /> elige uno de nuestro mejores
           productos
         </p>
+
+        <Link to="/products">
+          <button className="vacio-continue-shopping">SHOPPING </button>
+        </Link>
 
         <img
           src="https://www.presteamshop.com/blog/wp-content/uploads/2020/12/como-solucionar-el-error-de-carrito-vacio-en-prestashop.png"
@@ -31,60 +46,62 @@ export const CartScreen = () => {
           3 productos pedidos
         </span>
 
-        <div className="card-detalles">
-          <img src={closeicon} alt="close-icon" className="remove-icon" />
-          <p className="card-detalles__paragraph">
-            fecha estimada de entrega : 30 septiembre 2022
-          </p>
+        {cart.map((item) => {
+          return (
+            <div className="card-detalles" key={item.id}>
+              <img
+                src={closeicon}
+                alt="close-icon"
+                className="remove-icon"
+                onClick={() => removeItem(item.id)}
+              />
+              <p className="card-detalles__paragraph">
+                fecha estimada de entrega : 30 septiembre 2022
+              </p>
 
-          <div className="card-detalles__body">
-            <div className="wrapper-image">
-              <img src="https://img01.ztat.net/article/spp-media-p1/c138bbb465f83d049f656bf344ab2102/f03f200bd13046a1a7e82ce8073dbe5c.jpg?imwidth=156" />
+              <div className="card-detalles__body">
+                <div className="wrapper-image">
+                  <img src={item?.image} alt={item.name} />
+                </div>
+
+                <div className="wrapper-details">
+                  <p>Playera deportiva en algodon con estampado de letras </p>
+                  <div
+                    style={{
+                      width: "15px",
+                      height: "15px",
+                      backgroundColor: `${item.color}`,
+                      borderRadius: "50%",
+                      marginLeft: "5rem",
+                      marginTop: "1rem",
+                    }}
+                  ></div>
+
+                  <AmountButtons
+                    amount={item?.amount}
+                    increase={() => increase(item.id)}
+                    decrease={() => decrease(item.id)}
+                  />
+
+                  <span className="price">
+                    {" "}
+                    {formatPrice(item.price * item.amount)}
+                  </span>
+                </div>
+              </div>
             </div>
+          );
+        })}
 
-            <div className="wrapper-details">
-              <p>Playera deportiva en algodon con estampado de letras </p>
+        <hr />
 
-              <span className="price">$1234</span>
-            </div>
-          </div>
-        </div>
-        <div className="card-detalles">
-          <img src={closeicon} alt="close-icon" className="remove-icon" />
-          <p className="card-detalles__paragraph">
-            fecha estimada de entrega : 30 septiembre 2022
-          </p>
+        <Link to="/products">
+          <button className="botton-pagar">continue shopping</button>
+        </Link>
 
-          <div className="card-detalles__body">
-            <div className="wrapper-image">
-              <img src="https://img01.ztat.net/article/spp-media-p1/c138bbb465f83d049f656bf344ab2102/f03f200bd13046a1a7e82ce8073dbe5c.jpg?imwidth=156" />
-            </div>
-
-            <div className="wrapper-details">
-              <p>Playera deportiva en algodon con estampado de letras </p>
-
-              <span className="price">$1234</span>
-            </div>
-          </div>
-        </div>
-        <div className="card-detalles">
-          <img src={closeicon} alt="close-icon" className="remove-icon" />
-          <p className="card-detalles__paragraph">
-            fecha estimada de entrega : 30 septiembre 2022
-          </p>
-
-          <div className="card-detalles__body">
-            <div className="wrapper-image">
-              <img src="https://img01.ztat.net/article/spp-media-p1/c138bbb465f83d049f656bf344ab2102/f03f200bd13046a1a7e82ce8073dbe5c.jpg?imwidth=156" />
-            </div>
-
-            <div className="wrapper-details">
-              <p>Playera deportiva en algodon con estampado de letras </p>
-
-              <span className="price">$1234</span>
-            </div>
-          </div>
-        </div>
+        <button className="botton-pagar" onClick={clearCart}>
+          Eliminar todos los productos
+        </button>
       </div>
 
       <div className="factura">
@@ -97,8 +114,8 @@ export const CartScreen = () => {
           </div>
           <div>
             <p className="title-factura-de-end">12</p>
-            <p className="title-factura-de-end">$740</p>
-            <p className="title-factura-de-end">$740</p>
+            <p className="title-factura-de-end">{formatPrice(total_amount)}</p>
+            <p className="title-factura-de-end">{formatPrice(total_amount)}</p>
           </div>
         </div>
         <div className="wrapper-input">
@@ -108,7 +125,9 @@ export const CartScreen = () => {
             Términos
           </p>
         </div>
-        <button className="botton-pagar">Pagar $76123764</button>
+        <button className="botton-pagar">
+          Pagar {formatPrice(total_amount)}
+        </button>
       </div>
     </Wrapper>
   );
@@ -133,6 +152,11 @@ const Wrapper = styled.main`
     margin: 0 auto;
   }
 
+  .subtotal {
+    color: black;
+    font-size: 2rem;
+    margin-left: 3rem;
+  }
   .resumen-del-pedido__title {
     text-align: start;
     font-family: "Roboto";
