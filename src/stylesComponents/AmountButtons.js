@@ -34,6 +34,7 @@ const Wrapper = styled.div`
   }
   button {
     border: 1px solid #b2bcca;
+    background-color: transparent;
     border-radius: 3px;
     cursor: pointer;
     padding: 1rem 0;

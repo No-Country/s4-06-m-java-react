@@ -4,9 +4,12 @@ import { Link as LinkDom } from "react-router-dom";
 import { Link } from "react-scroll";
 import "./Nav.css";
 import { useProductsContext } from "../../../context/products_context";
+import { useCartContext } from "../../../context/cart_context";
 
 export const Nav = (props) => {
   const { isLoggedIn, Handlerlogout, userData } = useProductsContext();
+
+  const { total_items } = useCartContext();
 
   return (
     <div className="nav">
@@ -38,8 +41,10 @@ export const Nav = (props) => {
               <p className="cart__name">register</p>
             </LinkDom>
           )}
-
-          <img className="cart__image" src={cart} alt="shoppingCart" />
+          <LinkDom to="/cart">
+            <img className="cart__image" src={cart} alt="shoppingCart" />
+          </LinkDom>
+          <span className="number-items">{total_items}</span>
         </div>
       </div>
       {props.inputSearch}
