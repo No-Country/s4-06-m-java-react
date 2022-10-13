@@ -99,9 +99,9 @@ export const CartScreen = () => {
           <button className="botton-pagar">continue shopping</button>
         </Link>
 
-        <button className="botton-pagar" onClick={clearCart}>
+        {/* <button className="botton-pagar" onClick={clearCart}>
           Eliminar todos los productos
-        </button>
+        </button> */}
       </div>
 
       <div className="factura">
