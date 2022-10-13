@@ -151,3 +151,21 @@ img {
   max-width: 493px;
   margin: 0 auto;
 }
+
+.content-vacio {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.carrito-vacio-imagen {
+  height: 300px;
+  border-radius: 40px;
+}
+
+.vacio {
+  font-size: 4rem;
+  text-align: center;
+}
