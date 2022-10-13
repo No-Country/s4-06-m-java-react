@@ -101,12 +101,13 @@ export const CartScreen = () => {
             <p className="title-factura-de-end">$740</p>
           </div>
         </div>
-
-        <input type="checkbox" className="checkbox-input" />
-        <p className="checkbox">
-          Por favor marque para reconocer nuestra Política de Privacidad y
-          Términos
-        </p>
+        <div className="wrapper-input">
+          <input type="checkbox" className="checkbox-input" />
+          <p className="checkbox">
+            Por favor marque para reconocer nuestra Política de Privacidad y
+            Términos
+          </p>
+        </div>
         <button className="botton-pagar">Pagar $76123764</button>
       </div>
     </Wrapper>
@@ -117,6 +118,10 @@ const Wrapper = styled.main`
   display: grid;
   grid-template-columns: 1fr;
   width: 100%;
+
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   .vacio {
     font-size: 4rem;
@@ -157,6 +162,7 @@ const Wrapper = styled.main`
       position: absolute;
       top: 10px;
       right: 10px;
+      cursor: pointer;
     }
   }
 
@@ -227,7 +233,7 @@ const Wrapper = styled.main`
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 55%;
     margin: 0 auto;
     height: 429px;
     color: #e7d8d8;
@@ -253,6 +259,11 @@ const Wrapper = styled.main`
     }
   }
 
+  .wrapper-input {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+  }
   .checkbox {
     text-align: center;
     display: inline-block;
@@ -264,11 +275,11 @@ const Wrapper = styled.main`
   }
 
   .checkbox-input {
-    margin-left: 10%;
   }
   .botton-pagar {
     width: 447px;
     height: 52px;
+    cursor: pointer;
 
     background: linear-gradient(
       90.34deg,
