@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useProductsContext } from "../../context/products_context";
-import { cardItems } from "../../utils/constants/constants";
 import { formatPrice } from "../../utils/helpers/helpers";
-
 import "./products.css";
 const Products = () => {
   const {
@@ -30,7 +28,7 @@ const Products = () => {
           <div className="card-product">
             <div className="card-product__image">
               <img
-                src={card.imgList[0].fileUrl}
+                src={card.image}
                 className="card-product__image__img"
                 alt={card.title}
               />
@@ -42,7 +40,7 @@ const Products = () => {
             </span>
 
             <p className="card-product__delivery">{card.shortDetails}</p>
-            <p className="card-product__delivery">MARCA:{card.brand}</p>
+            <p className="card-product__delivery">MARCA:{card.company}</p>
           </div>
         </Link>
       ))}

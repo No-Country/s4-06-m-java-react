@@ -27,29 +27,31 @@ const SingleProduct = () => {
     fetchSingleProduct,
   } = useProductsContext();
 
+  console.log(product);
+
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
   }, [id]);
 
-  // useEffect(() => {
-  //   if (error) {
-  //     setTimeout(() => {
-  //       history("/");
-  //     }, 3000);
-  //   }
-  // }, [error]);
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        history("/");
+      }, 3000);
+    }
+  }, [error]);
 
   if (loading) {
     return <Loading />;
   }
 
   if (error) {
-    return <Loading />;
+    return <Error />;
   }
 
   const {
     brand,
-    color,
+    colors,
     details,
     imgList,
     price,
@@ -57,6 +59,7 @@ const SingleProduct = () => {
     size,
     stock,
     title,
+    stars,
   } = product;
   return (
     <Wrapper>
@@ -71,7 +74,7 @@ const SingleProduct = () => {
 
           <section className="content">
             <h2>{title}</h2>
-            <Stars />
+            <Stars stars={stars} />
             <h5 className="price">{formatPrice(price)}</h5>
             <p className="desc">{shortDetails}</p>
 
@@ -86,8 +89,8 @@ const SingleProduct = () => {
 
             <hr />
 
-            {stock ? (
-              <AddToCart />
+            {stock > 0 ? (
+              <AddToCart product={product} />
             ) : (
               <p>Sorry the product is not more in our stock</p>
             )}

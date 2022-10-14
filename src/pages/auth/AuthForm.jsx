@@ -1,13 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import IconBack from "../../assets/images/auth/iconBack.svg";
+import Swal from "sweetalert2";
+
 import "./AuthForm.css";
+import { useProductsContext } from "../../context/products_context";
 
 const AuthForm = () => {
+  const history = useNavigate();
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
   const nameInputRef = useRef();
+
+  const { Handlerlogin, handlerUserData, HandlerRegister } =
+    useProductsContext();
 
   const [isLogin, setIsLogin] = useState(true);
 
@@ -24,44 +31,100 @@ const AuthForm = () => {
 
     if (isLogin) {
       async function getResponseRegister() {
-        const response = await fetch(
-          "https://sport-eco.herokuapp.com/auth/register",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              fullName: enteredName,
-              email: enteredEmail,
-              password: enteredPassword,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        const data = await response.json();
+        try {
+          const response = await fetch(
+            "https://sport-eco.herokuapp.com/auth/register",
+            {
+              method: "POST",
+              body: JSON.stringify({
+                fullName: enteredName,
+                email: enteredEmail,
+                password: enteredPassword,
+              }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          const data = await response.json();
 
-        console.log(data);
+          HandlerRegister(data);
+          handlerUserData(data);
+
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "REGISTER SUCCESS",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+
+          history("/");
+        } catch (error) {
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Error",
+            text: error,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       }
       getResponseRegister();
     } else {
-      console.log("estoy en el login");
       async function getResponseLogin() {
-        const response = await fetch(
-          "https://sport-eco.herokuapp.com/auth/login",
-          {
-            method: "POST",
-            body: JSON.stringify({
-              email: enteredEmail,
-              password: enteredPassword,
-            }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
+        try {
+          const response = await fetch(
+            "https://sport-eco.herokuapp.com/auth/login",
+            {
+              method: "POST",
+              body: JSON.stringify({
+                email: enteredEmail,
+                password: enteredPassword,
+              }),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
 
-        const data = await response.json();
-        console.log(data);
+          if (response.ok) {
+            const data = await response.json();
+
+            Handlerlogin(data);
+
+            handlerUserData(data);
+
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "LOGIN SUCCESS",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+
+            history("/");
+          } else {
+            Swal.fire({
+              position: "top-end",
+              icon: "error",
+              title: "Error",
+              text: "password or email are no correct",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        } catch (error) {
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Error",
+            text: error,
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
       }
       getResponseLogin();
     }
