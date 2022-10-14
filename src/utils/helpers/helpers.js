@@ -5,18 +5,23 @@ export const formatPrice = (number) => {
   }).format(number / 100);
 };
 
-export const fileUpload = async (formData = [], content) => {
+export const productAdd = async (formData = [], token) => {
   if (!formData) throw new Error("no tenemos ningun archivo a subir");
 
-  const Url = "https://sport-eco.herokuapp.com/product/add";
+  const Url = "https://eco-sports.herokuapp.com/product/a";
 
   try {
     const res = await fetch(Url, {
       method: "POST",
       body: formData,
+      headers: {
+        Authorization: token,
+        // "content-type": "multipart/form-data",
+        // "content-type": "application/json",
+      },
     });
 
-    if (!res.ok) throw new Error("no se puedo subir imagen ");
+    if (!res.ok) throw new Error("no se pudo subir ");
 
     const data = await res.json();
 
