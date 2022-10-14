@@ -8,8 +8,15 @@ import { formatPrice } from "../utils/helpers/helpers";
 import AmountButtons from "../stylesComponents/AmountButtons";
 
 export const CartScreen = () => {
-  const { cart, clearCart, total_amount, removeItem, toggleAmount, amount } =
-    useCartContext();
+  const {
+    cart,
+    clearCart,
+    total_amount,
+    removeItem,
+    toggleAmount,
+    amount,
+    total_items,
+  } = useCartContext();
 
   const increase = (id) => {
     toggleAmount(id, "inc");
@@ -43,7 +50,7 @@ export const CartScreen = () => {
       <div className="resumen-del-pedido">
         <h2 className="resumen-del-pedido__title">Resumen del pedido</h2>
         <span className="resumen-del-pedido__contador">
-          3 productos pedidos
+          {total_items} productos pedidos
         </span>
 
         {cart.map((item) => {
@@ -113,7 +120,7 @@ export const CartScreen = () => {
             <p className="title-factura-de">Total:</p>
           </div>
           <div>
-            <p className="title-factura-de-end">12</p>
+            <p className="title-factura-de-end">{total_items}</p>
             <p className="title-factura-de-end">{formatPrice(total_amount)}</p>
             <p className="title-factura-de-end">{formatPrice(total_amount)}</p>
           </div>

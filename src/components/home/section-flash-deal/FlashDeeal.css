@@ -2,10 +2,12 @@
 
 .FlashDeeal {
   width: 100%;
-  background: #d4f3db;
   padding: 13px;
 }
 
+.timer-box__number {
+  color: #218037;
+}
 /*wrapper deal*/
 
 .FlashDeeal__paragraph {
@@ -43,6 +45,9 @@
   align-items: center;
   flex-direction: column;
   border-radius: 4px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
 }
 
 @media screen and (min-width: 768px) {
@@ -61,7 +66,7 @@
 
   .FlashDeeal__paragraph {
     width: 70%;
-    margin: 30px auto;
+    margin: 15px auto;
     line-height: 1.6;
     font-size: 21px;
   }
@@ -75,19 +80,19 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 38px;
-    width: 50%;
+    width: 38%;
+    margin-bottom: 4rem;
   }
   .timer__button {
     display: block;
   }
 
   .FlashDeeal__cardSimpleGrid {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 20%);
+    margin: 0 auto;
+    justify-content: center;
+    gap: 2rem;
   }
 
   .timer-box__number {

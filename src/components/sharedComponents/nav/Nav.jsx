@@ -65,10 +65,10 @@ export const Nav = (props) => {
           </Link>
         </li>
         <li className="nav__item nav__item">
-          <LinkDom to="/">tienda</LinkDom>
+          <LinkDom to="/products">productos</LinkDom>
         </li>
         <li className="nav__item nav__item">
-          <LinkDom to="/">pedidos</LinkDom>
+          <LinkDom to="/cart">tu Carrito</LinkDom>
         </li>
       </ul>
     </div>
