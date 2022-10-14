@@ -11,11 +11,11 @@ const ProductsPage = () => {
       <Wrapper>
         <Nav />
         <h2 className="productsPage-title">NUESTRO PRODUCTOS</h2>
+        {/* <Sort /> */}
         <div className="grid">
           <Filters />
-          <Sort />
+          <ProductList />
         </div>
-        <ProductList />
         <Footer />
       </Wrapper>
     </>
@@ -34,6 +34,11 @@ const Wrapper = styled.div`
   @media screen and (min-width: 1024px) {
     .productsPage-title {
       font-size: 54px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 2rem;
     }
   }
 `;
