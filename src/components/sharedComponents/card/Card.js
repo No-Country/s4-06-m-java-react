@@ -22,7 +22,7 @@ export const Card = (props) => {
         </div>
         <div className="card__content">
           <p className="card__content__paragraph">{props.text}</p>
-          <p className="card__content__paragraph">${props.price}</p>
+          <p className="card__content__price">${props.price}</p>
           <p className="card__content__paragraph">
             Entrega para el jueves, 25 de sept
           </p>

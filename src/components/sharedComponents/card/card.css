@@ -48,6 +48,7 @@
 
 .card__content {
   text-align: center;
+  padding: 1.7rem;
 }
 
 .card__content__paragraph {
@@ -59,11 +60,19 @@
   color: #626262;
 }
 
+.card__content__price {
+  font-family: "Roboto";
+  font-style: normal;
+
+  font-size: 24px;
+  color: #052734;
+}
+
 .card__content__price,
 .card__content__priceDiscount {
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 18px;
   color: #052734;
   height: 30px;

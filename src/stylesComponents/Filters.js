@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
 import { formatPrice, getUniquesValues } from "../utils/helpers/helpers";
 import { FaCheck } from "react-icons/fa";
+import filtersvg from "../assets/git-commit.svg";
 
 const Filters = () => {
   const {
@@ -32,7 +33,10 @@ const Filters = () => {
           </div>
 
           <div>
-            <h5 className="filter-title-categorias">Categorias</h5>
+            <div className="wrapper-filter-svg">
+              <p className="filter-title-categorias">Filtros</p>
+              <img src={filtersvg} alt="svg imagen" className="filtersvg" />
+            </div>
             <div className="wrapper-categorias">
               {categories.map((category, index) => {
                 return (
@@ -75,26 +79,37 @@ const Filters = () => {
 };
 
 const Wrapper = styled.section`
+  .wrapper-filter-svg {
+    display: flex;
+    margin-bottom: 7rem;
+    justify-content: center;
+  }
+
+  .filtersvg {
+    margin-left: 2rem;
+  }
   .option-company {
-    background-color: #052734;
+    /* background-color: #052734; */
   }
 
   .wrapper-select-company {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
+    margin-top: 9rem;
   }
   .select-title {
-    font-size: 2rem;
-    margin: 0;
-    margin-bottom: 1rem;
+    color: #052734;
+    text-align: center;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22.4144px;
   }
   .company {
-    background-color: #052734;
-    border: none;
+    border: 1px solid #dcdcdc;
     border-radius: 3rem;
-    color: white;
+    color: black;
     padding: 1rem;
+    margin: -30px auto;
+    display: block;
   }
   .wrapper-form {
     display: flex;
@@ -117,10 +132,10 @@ const Wrapper = styled.section`
   }
 
   .filter-title-categorias {
-    font-size: 3rem;
-    text-align: center;
-    margin: 0;
-    margin-bottom: 3rem;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
   }
 
   .wrapper-categorias {
@@ -132,27 +147,24 @@ const Wrapper = styled.section`
   }
 
   button {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22.4144px;
     text-transform: uppercase;
-    background-color: black;
-    color: white;
+    /* background-color: black; */
+    background-color: transparent;
+    color: #052734;
     padding: 0.3rem;
-    border: 1px solid black;
     margin-top: 0.7rem;
-    border-radius: 5px;
     width: 100%;
     display: block;
+    border: none;
+    border-bottom: 1px solid #dcdcdc;
+    padding-bottom: 1rem;
   }
 
   @media screen and (min-width: 1024px) {
-    .wrapper-categorias {
-      flex-direction: row;
-      justify-content: space-between;
-      height: 90px;
-      margin-top: -40px;
-    }
-    button {
-      margin-left: 1rem;
-    }
   }
 `;
 

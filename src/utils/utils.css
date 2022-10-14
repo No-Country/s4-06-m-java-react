@@ -20,6 +20,8 @@
   font-size: 20px;
   text-align: center;
   color: #052734;
+  margin: 0 auto;
+  margin-top: 7rem;
 }
 
 @media screen and (min-width: 1024px) {
