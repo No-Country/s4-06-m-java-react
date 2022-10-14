@@ -1,24 +1,25 @@
 import { Card } from "../../sharedComponents/card/Card";
-import TshirtYellow from "../../../assets/images/card/t-shirt1.png";
-import TshirtWhite from "../../../assets/images/card/t-shirt2.png";
-import TshirtRed from "../../../assets/images/card/t-shirt3.png";
-import TshirtWhiteAndGrenn from "../../../assets/images/card/t-shirt4.png";
+import { useProductsContext } from "../../../context/products_context";
+import { DiscountComponent } from "../../../stylesComponents/DiscountComponent";
 import "./SliderCards.css";
-import { Link } from "react-router-dom";
+import { Heart } from "../../../stylesComponents/Heart";
 export const SliderCards = () => {
-  const NuevasOfertastemporal = ["nueva1", "nueva2", "nueva3", "nueva4"];
+  const { featured_products: featured } = useProductsContext();
+
   return (
     <div className="SliderCards">
-      {NuevasOfertastemporal.map((item) => {
+      {featured.slice(0, 4).map((item) => {
         return (
           <Card
-            key={item}
-            id={item}
+            key={item.id}
+            id={item.id}
             porcent="-50%"
-            image={TshirtYellow}
+            image={item.imgList[0].fileUrl}
             text="Tommy Hilfiger padded jackets - black with..."
             price="55"
-            discount="110"
+            stars={item.stars}
+            Discount={<DiscountComponent />}
+            Heart={<Heart />}
           />
         );
       })}

@@ -17,7 +17,6 @@
   font-family: "Aclonica";
   font-style: normal;
   font-weight: 400;
-
   font-size: 20px;
   text-align: center;
   color: #052734;
@@ -26,6 +25,8 @@
 @media screen and (min-width: 1024px) {
   .title-section {
     font-size: 52px;
+    margin: 0;
+    margin-top: 8rem;
   }
 }
 
@@ -64,11 +65,9 @@
   margin-bottom: 20px;
 }
 
-
 .button.button--White {
   display: none;
 }
-
 
 /*button style desktop*/
 
@@ -78,7 +77,6 @@
     height: 56px;
   }
 
-
   .button.button--White {
     background: #ffffff;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
@@ -87,5 +85,4 @@
     position: absolute;
     top: 0;
   }
-
 }

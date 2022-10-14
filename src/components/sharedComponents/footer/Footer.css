@@ -1,11 +1,14 @@
 .Footer {
   width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .Footer__Image {
   margin: 0 auto;
   height: 132px;
   max-width: 1400px;
+  width: 100%;
 }
 .Footer-content {
   background: #052734;
