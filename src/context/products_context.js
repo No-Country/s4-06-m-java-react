@@ -32,6 +32,7 @@ const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
   const isLoggedIn = !!state.token;
 
   /*i fetch all products here*/
@@ -69,12 +70,36 @@ export const ProductsProvider = ({ children }) => {
 
   /*post reviews controler*/
 
-  const postReview = async (url) => {
+  const postReview = async (url, dataUser) => {
     try {
-      const response = await axios.post(url);
-      const singleProduct = response.data;
+      const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(dataUser),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: state.token,
+        },
+      });
 
-      console.log(singleProduct);
+      const data = await response.json();
+
+      //       console.log("esta data contiene comment
+      // :
+      // "hola prueba "
+      // id
+      // :
+      // 4
+      // score
+      // :
+      // 1
+      // time
+      // :
+      // "2022-10-17 19:27:37"
+      // username
+      // :
+      // "admin@eco-sport.com"")
+
+      console.log(data);
     } catch (error) {
       console.log(error);
     }

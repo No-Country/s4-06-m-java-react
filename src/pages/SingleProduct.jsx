@@ -17,6 +17,7 @@ import {
 } from "../stylesComponents";
 import { useEffect } from "react";
 import { Nav } from "../components/sharedComponents/nav/Nav";
+import { useRef } from "react";
 
 const SingleProduct = () => {
   const history = useNavigate();
@@ -28,19 +29,35 @@ const SingleProduct = () => {
     single_product: product,
     fetchSingleProduct,
     postReview,
+    userData,
   } = useProductsContext();
-
-  // useEffect(() => {
-
-  //   postReview("")
-
-  // }, [])
 
   console.log(product);
 
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
   }, [id]);
+
+  const inputComment = useRef();
+  const selectStar = useRef();
+
+  const handlerSubmit = (e) => {
+    e.preventDefault();
+
+    const comment = inputComment.current.value;
+    const score = selectStar.current.value;
+    const username = userData.fullName;
+    const idProducto = id;
+
+    const body = {
+      idProduct: idProducto,
+      score: score,
+      username: username,
+      comment: comment,
+    };
+
+    postReview("https://sport-eco.herokuapp.com/review/add", body);
+  };
 
   useEffect(() => {
     if (error) {
@@ -112,17 +129,24 @@ const SingleProduct = () => {
           </section>
         </div>
 
-        <form className="form-review">
-          <input type="text" placeholder="comentario" />
-          <label for="cars">Choose a car:</label>
+        <h1 className="agregaResena">AGREGA UNA RESENA DEL PRODUCTO</h1>
 
-          <select name="cars" id="cars">
-            <option value="volvo">0.5</option>
-            <option value="saab">1.0</option>
-            <option value="mercedes">1.5</option>
+        <form className="form-review" onSubmit={handlerSubmit}>
+          <input type="text" placeholder="comentario" ref={inputComment} />
+          <label htmlFor="stars">Evalua el producto:</label>
+
+          <select name="stars" id="stars" ref={selectStar}>
+            <option value="0.5">0.5</option>
+            <option value="1.0">1.0</option>
+            <option value="1.5">1.5</option>
+            <option value="2.0">2.0</option>
+            <option value="2.5">2.5</option>
+            <option value="3">3</option>
+            <option value="3.5">3.5</option>
+            <option value="4">4</option>
           </select>
 
-          <button type="button">Submit</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </Wrapper>
@@ -132,10 +156,15 @@ const SingleProduct = () => {
 const Wrapper = styled.main`
   background-color: #f8f8f8;
 
+  .agregaResena {
+    text-align: center;
+    font-size: 3rem;
+  }
   .form-review {
     display: flex;
     flex-direction: column;
     width: 50%;
+    margin: 0 auto;
   }
   .single-product {
     padding-bottom: 3rem;
