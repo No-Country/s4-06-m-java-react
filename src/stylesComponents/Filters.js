@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
 import { formatPrice, getUniquesValues } from "../utils/helpers/helpers";
 import { FaCheck } from "react-icons/fa";
+
+import searchIcon from "../assets/images/nav/searchIcon.svg";
 import filtersvg from "../assets/git-commit.svg";
 
 const Filters = () => {
@@ -25,11 +27,13 @@ const Filters = () => {
             <input
               type="text"
               name="text"
-              placeholder="search"
+              placeholder="Buscar"
               className="search-input"
               value={text}
               onChange={updateFilters}
             />
+
+            {/* <img src={searchIcon} className="searchIcon" /> */}
           </div>
 
           <div>
@@ -85,6 +89,13 @@ const Wrapper = styled.section`
     justify-content: center;
   }
 
+  .searchIcon {
+    background-color: green;
+    padding: 3px;
+    position: absolute;
+    top: 5px;
+    left: 33px;
+  }
   .filtersvg {
     margin-left: 2rem;
   }
@@ -129,6 +140,7 @@ const Wrapper = styled.section`
     width: 70%;
     left: 50%;
     transform: translateX(-50%);
+    height: 23px;
   }
 
   .filter-title-categorias {

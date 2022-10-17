@@ -1,77 +1,67 @@
-.addressContainer{
-    position: absolute;
-    width: 100%;
-    left: 0px;
-    top: 138px;
+.addressContainer {
+  display: flex;
+  justify-content: center;
 }
 
-.wrapper-address__title{
-    display: flex;
-    padding-bottom: 10px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    color: #212121;
+.wrapper-address__title {
+  display: flex;
+  padding-bottom: 10px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #212121;
 }
 
 .wrapper-address__input {
-    width: 100%;
-    height: 56px;
-    border: 1px solid #A9A8A8;
-    border-radius: 0.5rem;
-    margin-bottom: 1.6rem;
-    
+  width: 100%;
+  height: 56px;
+  border: 1px solid #a9a8a8;
+  border-radius: 0.5rem;
+  margin-bottom: 1.6rem;
 }
 
-.wrapper-address__input::placeholder{
-    font-size: 16px;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400; 
-    line-height: 22px;
-    color: #A9A8A8;
-    
+.wrapper-address__input::placeholder {
+  font-size: 16px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px;
+  color: #a9a8a8;
 }
 
 .wrapper-address__footer {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 17.99px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17.99px;
 }
 
-.wrapper-address__footer--span{
-    color: #000000;
+.wrapper-address__footer--span {
+  color: #000000;
 }
-
-
 
 @media screen and (min-width: 1024px) {
+  .addressContainer {
+    display: flex;
+    justify-content: center;
+    position: unset;
+    width: 584px;
+    margin: 0 auto;
+    top: unset;
+    border: 1px solid;
+    border-color: #b2bcca;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    margin-top: 1rem;
+  }
 
-  
-    .addressContainer {
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            width: 584px;
-            top: 20px;
-            border: 1px solid;
-            border-color: #B2BCCA ;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
-            border-radius: 4px;
-        }
-
-                .wrapper-address__title {
-                    font-size: 32px;    
-                    padding-bottom: 30px;   
-                }
-                
-                
-                
-    
+  .wrapper-address__title {
+    font-size: 32px;
+    padding-bottom: 30px;
+  }
 }

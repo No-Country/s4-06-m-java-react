@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { FaPlus, FaMinus } from "react-icons/fa";
 
 const AmountButtons = ({ increase, decrease, amount }) => {
-  console.log(amount);
   return (
     <Wrapper className="amount-btns">
       <button type="button" className="amount-btn" onClick={decrease}>
@@ -18,10 +17,8 @@ const AmountButtons = ({ increase, decrease, amount }) => {
 };
 
 const Wrapper = styled.div`
-  display: grid;
-  width: 140px;
-  justify-items: center;
-  grid-template-columns: repeat(3, 1fr);
+  display: flex;
+  flex-direction: row;
   align-items: center;
   color: black;
   font-family: "Roboto";
@@ -29,6 +26,8 @@ const Wrapper = styled.div`
   font-weight: 500;
   font-size: 16px;
   margin-left: 3rem;
+  justify-content: center;
+  margin-top: 2rem;
   h2 {
     margin-bottom: 0;
   }
@@ -43,10 +42,15 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1.6rem;
+    margin-left: 5px;
+    margin-right: 5px;
   }
   h2 {
     margin-bottom: 0;
+  }
+
+  .Amount {
+    margin: 0;
   }
 `;
 

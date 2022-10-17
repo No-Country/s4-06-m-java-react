@@ -48,6 +48,7 @@ const ProductImages = ({ images = [{ fileUrl: "" }] }) => {
               className={`${
                 imagesFinales.url === imageMain.fileUrl ? "active" : null
               }`}
+              alt={image.title}
             />
           );
         })}
@@ -59,14 +60,36 @@ const ProductImages = ({ images = [{ fileUrl: "" }] }) => {
 const Wrapper = styled.section`
   max-width: 509px;
   margin: 0 auto;
+
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
   .main {
     height: 600px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .main {
+      width: 400px;
+    }
   }
   img {
     width: 100%;
     display: block;
     border-radius: var(--radius);
     object-fit: cover;
+  }
+
+  @media screen and (min-width: 1024px) {
+    img {
+      width: 70%;
+      border-radius: 10px;
+      box-shadow: 2px 3px 5px 0px #7e9a87;
+      margin: 0 auto;
+      display: block;
+    }
   }
   .gallery {
     margin-top: 1rem;
@@ -78,6 +101,13 @@ const Wrapper = styled.section`
       cursor: pointer;
     }
   }
+  @media screen and (min-width: 1024px) {
+    .gallery {
+      grid-template-columns: repeat(1, 1fr);
+      align-items: center;
+    }
+  }
+
   .active {
     box-shadow: 0px 0px 0px 2px var(--clr-primary-5);
   }
