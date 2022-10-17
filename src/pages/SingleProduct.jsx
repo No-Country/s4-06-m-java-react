@@ -27,7 +27,14 @@ const SingleProduct = () => {
     single_product_error: error,
     single_product: product,
     fetchSingleProduct,
+    postReview,
   } = useProductsContext();
+
+  // useEffect(() => {
+
+  //   postReview("")
+
+  // }, [])
 
   console.log(product);
 
@@ -104,6 +111,19 @@ const SingleProduct = () => {
             )}
           </section>
         </div>
+
+        <form className="form-review">
+          <input type="text" placeholder="comentario" />
+          <label for="cars">Choose a car:</label>
+
+          <select name="cars" id="cars">
+            <option value="volvo">0.5</option>
+            <option value="saab">1.0</option>
+            <option value="mercedes">1.5</option>
+          </select>
+
+          <button type="button">Submit</button>
+        </form>
       </div>
     </Wrapper>
   );
@@ -112,6 +132,11 @@ const SingleProduct = () => {
 const Wrapper = styled.main`
   background-color: #f8f8f8;
 
+  .form-review {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
   .single-product {
     padding-bottom: 3rem;
   }
