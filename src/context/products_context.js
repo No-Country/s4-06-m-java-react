@@ -67,6 +67,19 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
+  /*post reviews controler*/
+
+  const postReview = async (url) => {
+    try {
+      const response = await axios.post(url);
+      const singleProduct = response.data;
+
+      console.log(singleProduct);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   /*i singleProduct here end */
 
   useEffect(() => {
@@ -107,6 +120,7 @@ export const ProductsProvider = ({ children }) => {
         handlerUserData,
         HandlerRegister,
         isLoggedIn,
+        postReview,
       }}
     >
       {children}

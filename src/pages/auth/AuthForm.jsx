@@ -76,7 +76,7 @@ const AuthForm = () => {
       async function getResponseLogin() {
         try {
           const response = await fetch(
-            "https://eco-sports.herokuapp.com/auth/login",
+            "https://sport-eco.herokuapp.com/auth/login",
             {
               method: "POST",
               body: JSON.stringify({
