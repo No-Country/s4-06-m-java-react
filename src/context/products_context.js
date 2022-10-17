@@ -14,6 +14,7 @@ import {
   ADDDATAUSER,
   LOGIN,
 } from "../actions/actions";
+import Swal from "sweetalert2";
 
 const initialState = {
   products: [],
@@ -81,7 +82,28 @@ export const ProductsProvider = ({ children }) => {
         },
       });
 
-      const data = await response.json();
+      if (response.ok) {
+        const data = await response.json();
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "GRACIAS POR TU RESEÑA ",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        console.log(data);
+      } else {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Error",
+          text: "Intentelo mas tarde porfavor",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
 
       //       console.log("esta data contiene comment
       // :
@@ -98,10 +120,15 @@ export const ProductsProvider = ({ children }) => {
       // username
       // :
       // "admin@eco-sport.com"")
-
-      console.log(data);
     } catch (error) {
-      console.log(error);
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Error",
+        text: error,
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   };
 
