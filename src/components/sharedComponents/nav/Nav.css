@@ -39,7 +39,15 @@
 /*cart*/
 .cart {
   display: flex;
+  flex-direction: column;
 }
+
+@media screen and (min-width: 425px) {
+  .cart {
+    flex-direction: row;
+  }
+}
+
 .cart__name {
   margin-right: 2rem;
   font-style: normal;
@@ -64,14 +72,20 @@
   font-weight: 500;
   font-size: 14px;
   cursor: pointer;
-  background-color: red;
+  background: rgb(255, 128, 0);
   padding: 1rem;
   border-radius: 10px;
 }
 
 .ADMINCONTROL {
-  background-color: aqua;
-  color: black;
+  background: linear-gradient(
+    90.34deg,
+    #184f63 3.48%,
+    #1f5b73 7%,
+    #19495b 92.96%,
+    #052734 100%
+  );
+  color: white;
   margin-right: 2rem;
   font-style: normal;
   font-weight: 500;

@@ -34,6 +34,7 @@ const Wrapper = styled.div`
   @media screen and (min-width: 1024px) {
     .productsPage-title {
       font-size: 54px;
+      margin-top: 9rem;
     }
     .grid {
       display: grid;

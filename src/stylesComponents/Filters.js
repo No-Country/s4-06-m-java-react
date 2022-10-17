@@ -135,12 +135,21 @@ const Wrapper = styled.section`
   }
 
   .search-input {
-    position: absolute;
-    top: 7%;
-    width: 70%;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 23px;
+    display: none;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .search-input {
+      position: absolute;
+      top: 60px;
+      width: 70%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 23px;
+      border-radius: 10px;
+      padding: 2rem;
+      display: block;
+    }
   }
 
   .filter-title-categorias {

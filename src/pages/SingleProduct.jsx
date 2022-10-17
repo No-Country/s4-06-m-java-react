@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-
+import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { useProductsContext } from "../context/products_context";
 import { single_product_url as url } from "../utils/constants/constants";
 import { formatPrice } from "../utils/helpers/helpers";
@@ -30,6 +30,7 @@ const SingleProduct = () => {
     fetchSingleProduct,
     postReview,
     userData,
+    isLoggedIn,
   } = useProductsContext();
 
   console.log(product);
@@ -129,25 +130,41 @@ const SingleProduct = () => {
           </section>
         </div>
 
-        <h1 className="agregaResena">AGREGA UNA RESENA DEL PRODUCTO</h1>
+        {isLoggedIn ? (
+          <>
+            <h1 className="agregaResena">AGREGA UNA RESEÑA DEL PRODUCTO</h1>
 
-        <form className="form-review" onSubmit={handlerSubmit}>
-          <input type="text" placeholder="comentario" ref={inputComment} />
-          <label htmlFor="stars">Evalua el producto:</label>
+            <form className="form-review" onSubmit={handlerSubmit}>
+              <input
+                type="text"
+                placeholder="comentario"
+                ref={inputComment}
+                className="inputComentario"
+              />
+              <label htmlFor="stars" className="labelResenas">
+                Evalua el producto:
+              </label>
 
-          <select name="stars" id="stars" ref={selectStar}>
-            <option value="0.5">0.5</option>
-            <option value="1.0">1.0</option>
-            <option value="1.5">1.5</option>
-            <option value="2.0">2.0</option>
-            <option value="2.5">2.5</option>
-            <option value="3">3</option>
-            <option value="3.5">3.5</option>
-            <option value="4">4</option>
-          </select>
-
-          <button type="submit">Submit</button>
-        </form>
+              <select name="stars" id="stars" ref={selectStar}>
+                <option value="4">4 estrella</option>
+                <option value="3.5">3.5 estrella</option>
+                <option value="3">3 estrella</option>
+                <option value="2.5">2.5 estrella</option>
+                <option value="2.0">2.0 estrella</option>
+                <option value="1.5">1.5 estrella</option>
+                <option value="1.0">1.0 estrella</option>
+                <option value="0.5">0.5 estrella</option>
+              </select>
+              <button type="submit" className="submitResenas">
+                Enviar Reseña
+              </button>
+            </form>
+          </>
+        ) : (
+          <h2 className="agregaResena">
+            TE GUSTARIA AGREGAR UNA RESEÑA PORFAVOR REGISTRATE
+          </h2>
+        )}
       </div>
     </Wrapper>
   );
@@ -156,21 +173,68 @@ const SingleProduct = () => {
 const Wrapper = styled.main`
   background-color: #f8f8f8;
 
+  .labelResenas {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
   .agregaResena {
     text-align: center;
-    font-size: 3rem;
+    font-size: 2rem;
+    margin-top: 3rem;
   }
+
+  .inputComentario {
+    height: 30px;
+    border-radius: 20px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
   .form-review {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     margin: 0 auto;
+    margin-bottom: 3rem;
+
+    select {
+      height: 30px;
+      border-radius: 20px;
+      margin-bottom: 1rem;
+      padding-left: 0.5rem;
+    }
+
+    .submitResenas {
+      height: 30px;
+      background: linear-gradient(
+        90.34deg,
+        #184f63 3.48%,
+        #1f5b73 7%,
+        #19495b 92.96%,
+        #052734 100%
+      );
+      border: 2px solid #072b39;
+      border-radius: 4px;
+      cursor: pointer;
+      color: white;
+    }
+    .submitResenas:hover {
+      background-color: #46dc46f1;
+    }
   }
+
   .single-product {
     padding-bottom: 3rem;
   }
 
   @media screen and (min-width: 1024px) {
+    .agregaResena {
+      text-align: center;
+      font-size: 3rem;
+    }
+    .form-review {
+      width: 50%;
+    }
     .single-product {
       display: flex;
       justify-content: center;

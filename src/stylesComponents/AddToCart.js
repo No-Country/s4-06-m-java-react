@@ -83,14 +83,27 @@ const Wrapper = styled.section`
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #87f1a1;
-    border-radius: 20px;
+    height: 30px;
+    background: linear-gradient(
+      90.34deg,
+      #184f63 3.48%,
+      #1f5b73 7%,
+      #19495b 92.96%,
+      #052734 100%
+    );
+    border: 2px solid #072b39;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
     padding: 5px 10px;
     margin-top: 30px;
     border: none;
     cursor: pointer;
     font-size: 1.4rem;
     /* box-shadow: 2px 2px 2px 2px #082710; */
+  }
+  .addProductbtn:hover {
+    background-color: #46dc46f1;
   }
   .colors {
     display: grid;
