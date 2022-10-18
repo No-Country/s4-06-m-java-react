@@ -21,6 +21,8 @@ const Products = () => {
       </div>
     );
   }
+
+  console.log(products[0].card.imgList[0].fileUrl);
   return (
     <div className="wrapper-products">
       {products.map((card) => (
@@ -28,7 +30,7 @@ const Products = () => {
           <div className="card-product">
             <div className="card-product__image">
               <img
-                src={card.image}
+                src={card.imgList[0].fileUrl}
                 className="card-product__image__img"
                 alt={card.title}
               />

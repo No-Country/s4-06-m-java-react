@@ -9,6 +9,7 @@ const GridView = ({ products }) => {
     <Wrapper>
       <div className="products-container">
         {products.map((product) => {
+          console.log(product.imgList[0].fileUrl);
           return (
             <Card
               key={product.id}
