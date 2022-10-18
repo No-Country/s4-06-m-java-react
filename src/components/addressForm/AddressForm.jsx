@@ -13,13 +13,7 @@ export const AddressForm = () => {
   const postalInputRef = useRef();
 
   const sumbitHandler = (event) => {
-    event.preventDefault();
-
-    const enteredEmail = emailInputRef.current.value;
-    const enteredPassword = passwordInputRef.current.value;
-    const enteredCity = cityInputRef.current.value;
-    const enteredAddress = addressInputRef.current.value;
-    const enteredPostal = postalInputRef.current.value;
+    event.preventDefault();  
   };
 
   return (
