@@ -5,7 +5,7 @@ const PageHero = () => {
   return (
     <Wrapper>
       <div className="hero">
-        <h3 className="hero__title">Product Details</h3>
+        <h3 className="">Product Details</h3>
       </div>
     </Wrapper>
   );

@@ -83,6 +83,7 @@ const Filters = () => {
 };
 
 const Wrapper = styled.section`
+  margin-top: 2rem;
   .wrapper-filter-svg {
     display: flex;
     margin-bottom: 7rem;
@@ -104,7 +105,7 @@ const Wrapper = styled.section`
   }
 
   .wrapper-select-company {
-    margin-top: 9rem;
+    /* margin-top: 9rem; */
   }
   .select-title {
     color: #052734;
@@ -135,13 +136,20 @@ const Wrapper = styled.section`
   }
 
   .search-input {
-    display: none;
+    display: block;
+    border-radius: 5px;
+    padding: 1rem;
+    position: absolute;
+    top: 62px;
+    width: 70%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   @media screen and (min-width: 1024px) {
     .search-input {
       position: absolute;
-      top: 60px;
+      top: 75px;
       width: 70%;
       left: 50%;
       transform: translateX(-50%);
