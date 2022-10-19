@@ -1,11 +1,16 @@
 /*nav*/
 
 .nav {
-  font-family: "Roboto";
-  width: 100%;
+  font-family: "Aclonica";
+  width: 100%; 
 }
+.div-nav__list{
+  width: 100%;
+  display: flex;  
+  align-items: center;
 
-.nav__ecoSport-wrapper {
+}
+.nav__ecoSport-wrapper {  
   display: flex;
   justify-content: space-between;
 }
@@ -15,14 +20,15 @@
 /*list*/
 
 .nav__list {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 1rem;
+  margin:0% 5%; 
 }
 
 .nav__item {
-  font-family: "Roboto";
-  font-style: normal;
+  font-family: "Aclonica";
+  font-style: none;
   font-weight: 600;
   font-weight: 400;
   font-size: 14px;
