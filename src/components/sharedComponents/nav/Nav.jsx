@@ -1,11 +1,10 @@
-import EcoSport from "../../../assets/images/nav/Ecosport.svg";
-import cart from "../../../assets/images/nav/cart.svg";
+import EcoSport from "../../../assets/images/nav/Eco-sport.svg";
+import cart from "../../../assets/images/nav/cart01.png";
 import { Link as LinkDom } from "react-router-dom";
 import { Link } from "react-scroll";
 import "./Nav.css";
 import { useProductsContext } from "../../../context/products_context";
 import { useCartContext } from "../../../context/cart_context";
-import InputSearch from "../inputSearch/InputSearch";
 
 export const Nav = (props) => {
   const { isLoggedIn, Handlerlogout, userData } = useProductsContext();
@@ -17,17 +16,13 @@ export const Nav = (props) => {
       <div className="nav__ecoSport-wrapper">
         <LinkDom to="/">
           <img src={EcoSport} alt="EcoSport" />
-        </LinkDom>
-         <div className="nav__seacrh">
-         <InputSearch /> 
-         </div>
-    
+        </LinkDom>      
         <div className="div-nav__list">
         <ul className="nav__list">
-        <li className="nav__item nav__item">
+        <li className="nav__item ">
           <LinkDom to="/">Home</LinkDom>
         </li>
-        <li className="nav__item nav__item">
+        <li className="nav__item">
           <Link
             to="nuevas-ofertas"
             spy={true}
@@ -35,11 +30,14 @@ export const Nav = (props) => {
             offset={-70}
             duration={500}
           >
-            Nuevas Ofertas
+            Ofertas
           </Link>
         </li>
-        <li className="nav__item nav__item">
-          <LinkDom to="/products">Tienda</LinkDom>
+        <li className="nav__item nav__linkDom">
+          <LinkDom to="/products"
+          
+          >Tienda</LinkDom>       
+          
         </li>   
       </ul>
       </div>
