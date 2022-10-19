@@ -21,12 +21,16 @@
   .SliderCards {
     overflow-x: unset;
     margin-left: 95px;
-    width: 272px;
+    width: 316px;
+    height: 540px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .SliderCards {
     width: 342px;
+    width: 316px;
+    height: 540px;
+    margin-left: 180px;
   }
 }
