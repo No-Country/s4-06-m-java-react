@@ -14,6 +14,7 @@ import {
   ADDDATAUSER,
   LOGIN,
 } from "../actions/actions";
+import Swal from "sweetalert2";
 
 const initialState = {
   products: [],
@@ -32,6 +33,7 @@ const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
   const isLoggedIn = !!state.token;
 
   /*i fetch all products here*/
@@ -64,6 +66,69 @@ export const ProductsProvider = ({ children }) => {
       });
     } catch (error) {
       dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
+    }
+  };
+
+  /*post reviews controler*/
+
+  const postReview = async (url, dataUser) => {
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(dataUser),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: state.token,
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "GRACIAS POR TU RESEÑA ",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        console.log(data);
+      } else {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Error",
+          text: "Intentelo mas tarde porfavor",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+
+      //       console.log("esta data contiene comment
+      // :
+      // "hola prueba "
+      // id
+      // :
+      // 4
+      // score
+      // :
+      // 1
+      // time
+      // :
+      // "2022-10-17 19:27:37"
+      // username
+      // :
+      // "admin@eco-sport.com"")
+    } catch (error) {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Error",
+        text: error,
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   };
 
@@ -107,6 +172,7 @@ export const ProductsProvider = ({ children }) => {
         handlerUserData,
         HandlerRegister,
         isLoggedIn,
+        postReview,
       }}
     >
       {children}

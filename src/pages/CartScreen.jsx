@@ -3,12 +3,14 @@ import styled from "styled-components";
 import closeicon from "../assets/images/card/removeCardDetailsIcon.svg";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../context/cart_context";
-import { CartContent, PageHero } from "../stylesComponents";
 import { formatPrice } from "../utils/helpers/helpers";
 import AmountButtons from "../stylesComponents/AmountButtons";
+import { Nav } from "../components/sharedComponents/nav/Nav";
+import { useProductsContext } from "../context/products_context";
 
 export const CartScreen = () => {
-  const { cart, clearCart, total_amount, removeItem, toggleAmount, amount } =
+  const { token } = useProductsContext();
+  const { cart, total_amount, removeItem, toggleAmount, total_items } =
     useCartContext();
 
   const increase = (id) => {
@@ -39,107 +41,136 @@ export const CartScreen = () => {
     );
   }
   return (
-    <Wrapper>
-      <div className="resumen-del-pedido">
-        <h2 className="resumen-del-pedido__title">Resumen del pedido</h2>
-        <span className="resumen-del-pedido__contador">
-          3 productos pedidos
-        </span>
+    <div className="container-principal">
+      <Nav />
+      <Wrapper>
+        <div className="resumen-del-pedido">
+          <h2 className="resumen-del-pedido__title">Resumen del pedido</h2>
+          <span className="resumen-del-pedido__contador">
+            {total_items} productos pedidos
+          </span>
 
-        {cart.map((item) => {
-          return (
-            <div className="card-detalles" key={item.id}>
-              <img
-                src={closeicon}
-                alt="close-icon"
-                className="remove-icon"
-                onClick={() => removeItem(item.id)}
-              />
-              <p className="card-detalles__paragraph">
-                fecha estimada de entrega : 30 septiembre 2022
-              </p>
+          {cart.map((item) => {
+            return (
+              <div className="card-detalles" key={item.id}>
+                <img
+                  src={closeicon}
+                  alt="close-icon"
+                  className="remove-icon"
+                  onClick={() => removeItem(item.id)}
+                />
+                <p className="card-detalles__paragraph">
+                  fecha estimada de entrega : 30 septiembre 2022
+                </p>
 
-              <div className="card-detalles__body">
-                <div className="wrapper-image">
-                  <img src={item?.image} alt={item.name} />
-                </div>
+                <div className="card-detalles__body">
+                  <div className="wrapper-image">
+                    <img src={item?.image} alt={item.name} />
+                  </div>
 
-                <div className="wrapper-details">
-                  <p>Playera deportiva en algodon con estampado de letras </p>
-                  <div
-                    style={{
-                      width: "15px",
-                      height: "15px",
-                      backgroundColor: `${item.color}`,
-                      borderRadius: "50%",
-                      marginLeft: "5rem",
-                      marginTop: "1rem",
-                    }}
-                  ></div>
+                  <div className="wrapper-details">
+                    <p>Playera deportiva en algodon con estampado de letras </p>
+                    <div
+                      style={{
+                        width: "15px",
+                        height: "15px",
+                        backgroundColor: `${item.color}`,
+                        borderRadius: "50%",
+                        marginLeft: "5rem",
+                        marginTop: "1rem",
+                        marginBottom: "1rem",
+                        marginLeft: "auto",
+                        marginRight: "auto",
+                      }}
+                    ></div>
 
-                  <AmountButtons
-                    amount={item?.amount}
-                    increase={() => increase(item.id)}
-                    decrease={() => decrease(item.id)}
-                  />
+                    <AmountButtons
+                      amount={item?.amount}
+                      increase={() => increase(item.id)}
+                      decrease={() => decrease(item.id)}
+                    />
 
-                  <span className="price">
-                    {" "}
-                    {formatPrice(item.price * item.amount)}
-                  </span>
+                    <span className="price">
+                      {" "}
+                      {formatPrice(item.price * item.amount)}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
 
-        <hr />
+          <hr />
 
-        <Link to="/products">
-          <button className="botton-pagar">continue shopping</button>
-        </Link>
+          <Link to="/products">
+            <button className="botton-pagar">continue shopping</button>
+          </Link>
 
-        {/* <button className="botton-pagar" onClick={clearCart}>
+          {/* <button className="botton-pagar" onClick={clearCart}>
           Eliminar todos los productos
         </button> */}
-      </div>
+        </div>
 
-      <div className="factura">
-        <h2 className="resumen-del-pedido-factura__title">Factura</h2>
-        <div className="wrapper-factura-details">
-          <div className="grid">
-            <p className="title-factura-de">Cantidad de productos:</p>
-            <p className="title-factura-de">descuento aplicado:</p>
-            <p className="title-factura-de">Total:</p>
+        <div className="factura">
+          <h2 className="resumen-del-pedido-factura__title">Factura</h2>
+          <div className="wrapper-factura-details">
+            <div className="grid">
+              <p className="title-factura-de">Cantidad de productos:</p>
+              <p className="title-factura-de">descuento aplicado:</p>
+              <p className="title-factura-de">Total:</p>
+            </div>
+            <div>
+              <p className="title-factura-de-end">{total_items}</p>
+              <p className="title-factura-de-end">
+                {formatPrice(total_amount)}
+              </p>
+              <p className="title-factura-de-end">
+                {formatPrice(total_amount)}
+              </p>
+            </div>
           </div>
-          <div>
-            <p className="title-factura-de-end">12</p>
-            <p className="title-factura-de-end">{formatPrice(total_amount)}</p>
-            <p className="title-factura-de-end">{formatPrice(total_amount)}</p>
+          <div className="wrapper-input">
+            <input type="checkbox" className="checkbox-input" />
+            <p className="checkbox">
+              Por favor marque para reconocer nuestra Política de Privacidad y
+              Términos
+            </p>
           </div>
+
+          {!token ? (
+            <Link to="/login">
+              <button className="botton-pagar">
+                REGISTRATE ANTES DE PAGAR
+              </button>
+            </Link>
+          ) : (
+            <Link to="/address">
+              <button className="botton-pagar">
+                Pagar {formatPrice(total_amount)}
+              </button>
+            </Link>
+          )}
         </div>
-        <div className="wrapper-input">
-          <input type="checkbox" className="checkbox-input" />
-          <p className="checkbox">
-            Por favor marque para reconocer nuestra Política de Privacidad y
-            Términos
-          </p>
-        </div>
-        <button className="botton-pagar">
-          Pagar {formatPrice(total_amount)}
-        </button>
-      </div>
-    </Wrapper>
+      </Wrapper>
+    </div>
   );
 };
 
 const Wrapper = styled.main`
-  display: grid;
-  grid-template-columns: 1fr;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
 
   @media screen and (min-width: 1024px) {
+    /* flex-direction: row;
+    justify-content: start;
+    align-items: flex-start; */
+    display: none;
+    display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
   }
 
   .vacio {
@@ -148,7 +179,7 @@ const Wrapper = styled.main`
   }
 
   .resumen-del-pedido {
-    width: 620px;
+    /* width: 620px; */
     margin: 0 auto;
   }
 
@@ -162,7 +193,7 @@ const Wrapper = styled.main`
     font-family: "Roboto";
     font-style: normal;
     font-weight: 700;
-    font-size: 32px;
+    font-size: 19px;
     color: #212121;
   }
 
@@ -177,7 +208,8 @@ const Wrapper = styled.main`
   .card-detalles {
     margin: 0 auto;
     color: white;
-    padding: 1rem;
+    height: 227px;
+
     border-bottom: 1px solid black;
 
     position: relative;
@@ -196,8 +228,7 @@ const Wrapper = styled.main`
     font-weight: 600;
     font-size: 20px;
     color: #218037;
-    margin: 0 auto;
-    margin-bottom: 1rem;
+    font-size: 10px;
   }
 
   .card-detalles__body {
@@ -206,13 +237,13 @@ const Wrapper = styled.main`
   }
   .wrapper-image {
     background-color: aliceblue;
-    width: 160px;
-    height: 163px;
+    /* width: 160px;
+    height: 163px; */
 
     img {
       display: block;
-      width: 160px;
-      height: 163px;
+      width: 267px;
+      height: 202px;
       object-fit: cover;
     }
   }
@@ -221,10 +252,11 @@ const Wrapper = styled.main`
       font-family: "Roboto";
       font-style: normal;
       font-weight: 600;
-      font-size: 20px;
+      font-size: 13px;
+      text-align: center;
       color: #626262;
-      width: 80%;
-      margin: 0 auto;
+      /* width: 80%; */
+      /* margin: 18px auto; */
     }
 
     .price {
@@ -257,16 +289,15 @@ const Wrapper = styled.main`
     grid-template-columns: 1fr 1fr;
     justify-content: center;
     align-items: center;
-    width: 55%;
+    /* width: 55%; */
     margin: 0 auto;
-    height: 429px;
     color: #e7d8d8;
     text-align: center;
 
     .title-factura-de {
       text-align: center;
       color: black;
-      font-size: 2.5rem;
+      font-size: 1.5rem;
     }
     p {
       padding: 1rem;
@@ -279,7 +310,7 @@ const Wrapper = styled.main`
     .title-factura-de-end {
       text-align: center;
       color: black;
-      font-size: 3rem;
+      font-size: 2rem;
     }
   }
 
@@ -301,9 +332,11 @@ const Wrapper = styled.main`
   .checkbox-input {
   }
   .botton-pagar {
-    width: 447px;
-    height: 52px;
+    /* width: 447px;
+    height: 52px; */
     cursor: pointer;
+    width: 100%;
+    padding: 1rem;
 
     background: linear-gradient(
       90.34deg,
@@ -317,5 +350,11 @@ const Wrapper = styled.main`
     margin: 0 auto;
     display: block;
     color: white;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .botton-pagar {
+      width: 50%;
+    }
   }
 `;

@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
-import { formatPrice, getUniquesValues } from "../utils/helpers/helpers";
-import { FaCheck } from "react-icons/fa";
+import { getUniquesValues } from "../utils/helpers/helpers";
+
+import filtersvg from "../assets/git-commit.svg";
 
 const Filters = () => {
   const {
     filters: { text, category, brand, color, min_price, price, max_price },
-    updateFilters,
-    clearFilters,
+    updateFilters,   
     all_products,
   } = useFilterContext();
 
@@ -24,15 +24,20 @@ const Filters = () => {
             <input
               type="text"
               name="text"
-              placeholder="search"
+              placeholder="Buscar"
               className="search-input"
               value={text}
               onChange={updateFilters}
             />
+
+            {/* <img src={searchIcon} className="searchIcon" /> */}
           </div>
 
           <div>
-            <h5 className="filter-title-categorias">Categorias</h5>
+            <div className="wrapper-filter-svg">
+              <p className="filter-title-categorias">Filtros</p>
+              <img src={filtersvg} alt="svg imagen" className="filtersvg" />
+            </div>
             <div className="wrapper-categorias">
               {categories.map((category, index) => {
                 return (
@@ -75,26 +80,44 @@ const Filters = () => {
 };
 
 const Wrapper = styled.section`
+  .wrapper-filter-svg {
+    display: flex;
+    margin-bottom: 7rem;
+    justify-content: center;
+  }
+
+  .searchIcon {
+    background-color: green;
+    padding: 3px;
+    position: absolute;
+    top: 5px;
+    left: 33px;
+  }
+  .filtersvg {
+    margin-left: 2rem;
+  }
   .option-company {
-    background-color: #052734;
+    /* background-color: #052734; */
   }
 
   .wrapper-select-company {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
+    margin-top: 9rem;
   }
   .select-title {
-    font-size: 2rem;
-    margin: 0;
-    margin-bottom: 1rem;
+    color: #052734;
+    text-align: center;
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22.4144px;
   }
   .company {
-    background-color: #052734;
-    border: none;
+    border: 1px solid #dcdcdc;
     border-radius: 3rem;
-    color: white;
+    color: black;
     padding: 1rem;
+    margin: -30px auto;
+    display: block;
   }
   .wrapper-form {
     display: flex;
@@ -109,18 +132,28 @@ const Wrapper = styled.section`
   }
 
   .search-input {
-    position: absolute;
-    top: 7%;
-    width: 70%;
-    left: 50%;
-    transform: translateX(-50%);
+    display: none;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .search-input {
+      position: absolute;
+      top: 60px;
+      width: 70%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 23px;
+      border-radius: 10px;
+      padding: 2rem;
+      display: block;
+    }
   }
 
   .filter-title-categorias {
-    font-size: 3rem;
-    text-align: center;
-    margin: 0;
-    margin-bottom: 3rem;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
   }
 
   .wrapper-categorias {
@@ -132,27 +165,24 @@ const Wrapper = styled.section`
   }
 
   button {
+    font-family: "Lato";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 22.4144px;
     text-transform: uppercase;
-    background-color: black;
-    color: white;
+    /* background-color: black; */
+    background-color: transparent;
+    color: #052734;
     padding: 0.3rem;
-    border: 1px solid black;
     margin-top: 0.7rem;
-    border-radius: 5px;
     width: 100%;
     display: block;
+    border: none;
+    border-bottom: 1px solid #dcdcdc;
+    padding-bottom: 1rem;
   }
 
   @media screen and (min-width: 1024px) {
-    .wrapper-categorias {
-      flex-direction: row;
-      justify-content: space-between;
-      height: 90px;
-      margin-top: -40px;
-    }
-    button {
-      margin-left: 1rem;
-    }
   }
 `;
 

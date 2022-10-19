@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Card } from "../components/sharedComponents/card/Card";
 // import products_reducer from "../reducers/products_reducer";
 import Product from "./Product";
 
@@ -8,7 +9,18 @@ const GridView = ({ products }) => {
     <Wrapper>
       <div className="products-container">
         {products.map((product) => {
-          return <Product key={product.id} {...product} />;
+          console.log(product.imgList[0].fileUrl);
+          return (
+            <Card
+              key={product.id}
+              image={product.imgList[0].fileUrl}
+              text={product.details}
+              stars={product.stars}
+              price={product.price}
+              title={product.title}
+              id={product.id}
+            />
+          );
         })}
       </div>
     </Wrapper>
@@ -24,6 +36,7 @@ const Wrapper = styled.section`
     display: grid;
     justify-content: center;
     margin-top: 1rem;
+    gap: 1rem;
   }
 
   @media (min-width: 992px) {

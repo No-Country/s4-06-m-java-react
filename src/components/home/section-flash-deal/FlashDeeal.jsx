@@ -1,16 +1,12 @@
 import { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
-import { CardSimple } from "../../sharedComponents/card/CardSimple";
+import { useProductsContext } from "../../../context/products_context";
+import { Card } from "../../sharedComponents/card/Card";
 
 import "./FlashDeeal.css";
 
 export const FlashDeeal = () => {
-  const OfertasRelampagoarrayTemporal = [
-    "1aofertasR",
-    "2aofertasR",
-    "3aofertasR",
-    "4aofertasR",
-  ];
+  const { featured_products: featured } = useProductsContext();
+
   const [timeHours, setHours] = useState("");
   const [timeMinutes, setMinutes] = useState("00");
   const [timeSeconds, setSeconds] = useState("00");
@@ -69,15 +65,20 @@ export const FlashDeeal = () => {
             <span className="timer-box__days">Segundos</span>
           </div>
         </div>
-        <Link to="/products">
-          <button className="button timer__button button--Darkblue">
-            SHOP NOW
-          </button>
-        </Link>
       </div>
       <div className="FlashDeeal__cardSimpleGrid">
-        {OfertasRelampagoarrayTemporal.map((item) => {
-          return <CardSimple key={item} id={item} />;
+        {featured.slice(0, 4).map((item) => {
+          return (
+            <Card
+              key={item.id}
+              id={item.id}
+              porcent="-50%"
+              image={item.imgList[0].fileUrl}
+              text="Tommy Hilfiger padded jackets - black with..."
+              price="55"
+              stars={item.stars}
+            />
+          );
         })}
       </div>
     </div>

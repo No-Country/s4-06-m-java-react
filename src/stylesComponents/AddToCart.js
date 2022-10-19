@@ -57,13 +57,13 @@ const AddToCart = ({ product }) => {
           increase={increase}
           decrease={decrease}
         />
-
         <Link to="/cart">
           <button
             type="button"
             onClick={() => addToCart(id, mainColor.name, amount, product)}
+            className="addProductbtn"
           >
-            Agregar al carrito
+            Agregar a tu carrito
           </button>
         </Link>
       </div>
@@ -72,12 +72,44 @@ const AddToCart = ({ product }) => {
 };
 
 const Wrapper = styled.section`
-  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100px;
+  justify-content: center;
+  width: 100%;
+
+  .addProductbtn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 30px;
+    background: linear-gradient(
+      90.34deg,
+      #184f63 3.48%,
+      #1f5b73 7%,
+      #19495b 92.96%,
+      #052734 100%
+    );
+    border: 2px solid #072b39;
+    border-radius: 4px;
+    cursor: pointer;
+    color: white;
+    padding: 5px 10px;
+    margin-top: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    /* box-shadow: 2px 2px 2px 2px #082710; */
+  }
+  .addProductbtn:hover {
+    background-color: #46dc46f1;
+  }
   .colors {
     display: grid;
     grid-template-columns: 125px 1fr;
     align-items: center;
-    margin-bottom: 1rem;
+
     span {
       text-transform: capitalize;
       font-weight: 700;
@@ -108,7 +140,6 @@ const Wrapper = styled.section`
     opacity: 1;
   }
   .btn-container {
-    margin-top: 2rem;
   }
 
   .btn {

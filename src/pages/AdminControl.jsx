@@ -1,33 +1,17 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { UserControl } from "../components/products/UserControl";
 import { useProductsContext } from "../context/products_context";
+import { productAdd } from "../utils/helpers/helpers";
 
 const AdminControl = () => {
+  const { token } = useProductsContext();
   const [isActiveProductsControler, setisActiveProductsControler] =
     useState(true);
   const [isAlluserActive, setisAlluserActive] = useState(false);
   const [image, setimage] = useState({});
-  const { token } = useProductsContext();
-
-  const product = {
-    shortDetails: "Conjunto deportivo",
-    details: "Maxi Dress in Black",
-    title: "Pants2",
-    brand: "Fila",
-    view: 500,
-    stock: true,
-    star: 3.5,
-    price: 4900,
-    sizes: ["S", "M", "L", "XS"],
-    colors: ["#ff0000", "#0000ff", "#00ff00"],
-    categoryId: 1,
-  };
-
-  const producjson = JSON.stringify(product);
 
   const handlerProductActive = () => {
     setisActiveProductsControler(true);
@@ -40,19 +24,6 @@ const AdminControl = () => {
 
   const handlerUpload = (e) => {
     setimage(e.target.files[0]);
-  };
-
-  const postProduct = async (url) => {
-    const response = await axios.post(url, producjson, {
-      headers: {
-        Authorization: token,
-        "Content-Type": "application/json",
-      },
-    });
-
-    const data = await response.json();
-
-    console.log(data);
   };
 
   const inputPrice = useRef();
@@ -68,17 +39,41 @@ const AdminControl = () => {
   const handleSubmitAdd = (e) => {
     e.preventDefault();
 
-    const title = titleInput.current.value;
-    const price = inputPrice.current.value;
-    const shortDetails = shortDetailsInput.current.value;
-    const details = detailsinput.current.value;
-    const brand = brandInput.current.value;
-    const selectsize = selectSizeInput.current.value;
-    const category = categoryInput.current.value;
+    // const title = titleInput.current.value;
+    // const price = inputPrice.current.value;
+    // const shortDetails = shortDetailsInput.current.value;
+    // const details = detailsinput.current.value;
+    // const brand = brandInput.current.value;
+    // const selectsize = selectSizeInput.current.value;
+    // const category = categoryInput.current.value;
 
-    const url = "https://eco-sports.herokuapp.com/product/add";
+    const product = {
+      shortDetails: "Conjunto deportivo",
+      details: "Maxi Dress in Black",
+      title: "cdfdf",
+      brand: "Fila",
+      view: 500,
+      stock: true,
+      star: 3.5,
+      price: 4900,
+      sizes: ["S", "M", "L", "XS"],
+      colors: ["#ff0000", "#0000ff", "#00ff00"],
+      categoryId: 1,
+    };
 
-    postProduct(url);
+    const productJson = JSON.stringify(product);
+
+    const imagestring = new Blob([JSON.stringify(image)], {
+      type: "application/json",
+    });
+
+    const formData = new FormData();
+    // formData.append("postimages", imagestring);
+    formData.append("product", productJson);
+
+    console.log(...formData);
+
+    productAdd(formData, token);
   };
 
   const ProductsControler = (

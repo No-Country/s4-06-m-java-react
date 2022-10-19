@@ -5,6 +5,7 @@ import { Link } from "react-scroll";
 import "./Nav.css";
 import { useProductsContext } from "../../../context/products_context";
 import { useCartContext } from "../../../context/cart_context";
+import InputSearch from "../inputSearch/InputSearch";
 
 export const Nav = (props) => {
   const { isLoggedIn, Handlerlogout, userData } = useProductsContext();
@@ -15,8 +16,33 @@ export const Nav = (props) => {
     <div className="nav">
       <div className="nav__ecoSport-wrapper">
         <LinkDom to="/">
-          <img src={EcoSport} alt="ecoSport" />
+          <img src={EcoSport} alt="EcoSport" />
         </LinkDom>
+         <div className="nav__seacrh">
+         <InputSearch /> 
+         </div>
+    
+        <div className="div-nav__list">
+        <ul className="nav__list">
+        <li className="nav__item nav__item">
+          <LinkDom to="/">Home</LinkDom>
+        </li>
+        <li className="nav__item nav__item">
+          <Link
+            to="nuevas-ofertas"
+            spy={true}
+            smooth={true}
+            offset={-70}
+            duration={500}
+          >
+            Nuevas Ofertas
+          </Link>
+        </li>
+        <li className="nav__item nav__item">
+          <LinkDom to="/products">Tienda</LinkDom>
+        </li>   
+      </ul>
+      </div>
         <div className="cart">
           {isLoggedIn && (
             <LinkDom to="/profileUser">
@@ -29,7 +55,6 @@ export const Nav = (props) => {
               LOGOUT
             </p>
           )}
-
           {userData?.role === "ROLE_ADMIN" && isLoggedIn && (
             <LinkDom to="/admin">
               <p className="ADMINCONTROL">ADMIN CONTROL</p>
@@ -49,28 +74,7 @@ export const Nav = (props) => {
       </div>
       {props.inputSearch}
 
-      <ul className="nav__list">
-        <li className="nav__item nav__item">
-          <LinkDom to="/">Home</LinkDom>
-        </li>
-        <li className="nav__item nav__item">
-          <Link
-            to="nuevas-ofertas"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-          >
-            Nuevas Ofertas
-          </Link>
-        </li>
-        <li className="nav__item nav__item">
-          <LinkDom to="/">tienda</LinkDom>
-        </li>
-        <li className="nav__item nav__item">
-          <LinkDom to="/">pedidos</LinkDom>
-        </li>
-      </ul>
+      
     </div>
   );
 };

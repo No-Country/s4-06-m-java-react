@@ -1,8 +1,8 @@
 /*card*/
 
 .card {
-  flex: 0 0 70%;
-  padding: 22px;
+  flex: 0 0 87%;
+  padding: 5px;
   scroll-snap-align: start;
   background: #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -10,6 +10,18 @@
   margin-bottom: 10px;
   margin-top: 10px;
   cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    flex: 0 0 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .card {
+    flex: 0 0 66%;
+  }
 }
 
 .card:last-of-type {
@@ -25,38 +37,19 @@
   }
 }
 
-/* .card__wrapper-image {
-} */
-
-.card__discount {
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  background: #218037;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 0px 20px 20px 0px;
-  padding: 7px;
-  color: white;
-  position: absolute;
-  top: 10%;
-  left: 22px;
-}
-
 .card__backgroundImg {
   background-color: #f6f5f5;
-}
-
-.card__svgFavorite {
-  position: absolute;
-  right: 9px;
-  top: 232px;
+  width: 292px;
+  height: 270px;
+  margin: 0 auto;
 }
 
 /*card Content*/
 
-/* .card__content {
-} */
+.card__content {
+  text-align: center;
+  padding: 1.7rem;
+}
 
 .card__content__paragraph {
   font-family: "Roboto";
@@ -67,11 +60,19 @@
   color: #626262;
 }
 
+.card__content__price {
+  font-family: "Roboto";
+  font-style: normal;
+
+  font-size: 24px;
+  color: #052734;
+}
+
 .card__content__price,
 .card__content__priceDiscount {
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 18px;
   color: #052734;
   height: 30px;
@@ -90,7 +91,4 @@
   justify-content: space-between;
   width: 90%;
   margin-bottom: 2rem;
-}
-
-.star-srapper__star {
 }

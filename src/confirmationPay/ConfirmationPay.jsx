@@ -13,7 +13,7 @@ export const FacturaElectronica = () => {
           </div>
           <div>
             <span className="pagoExitoso">Pago exitoso</span>
-            <p>Entrega estimada: 25/sept</p>
+            <p>Entrega estimada: 24/sept</p>
           </div>
         </p>
 
