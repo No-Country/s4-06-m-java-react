@@ -15,6 +15,7 @@ import {
   LOGIN,
 } from "../actions/actions";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const initialState = {
   products: [],
@@ -33,6 +34,10 @@ const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  /*nav*/
+
+  const [isNavOpen, setisNavOpen] = useState(false);
 
   const isLoggedIn = !!state.token;
 
@@ -173,6 +178,8 @@ export const ProductsProvider = ({ children }) => {
         HandlerRegister,
         isLoggedIn,
         postReview,
+        isNavOpen,
+        setisNavOpen,
       }}
     >
       {children}

@@ -251,8 +251,16 @@ const Wrapper = styled.main`
   .as {
     svg {
       width: 40px;
-      margin-top: 19px;
-      margin-left: 1rem;
+      margin-top: 100px;
+      margin-left: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .as {
+      svg {
+        margin-left: 10rem;
+      }
     }
   }
   .price {
