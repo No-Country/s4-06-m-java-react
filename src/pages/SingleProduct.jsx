@@ -33,8 +33,6 @@ const SingleProduct = () => {
     isLoggedIn,
   } = useProductsContext();
 
-  console.log(product);
-
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
   }, [id]);
