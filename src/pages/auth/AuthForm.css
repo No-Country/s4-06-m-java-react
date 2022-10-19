@@ -1,8 +1,19 @@
+.contaienr-form{
+  background: rgba(217, 217, 217, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+}
 .LoginScreen {
-  height: 77vh;
+  background-color: #FFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 50%;
+  margin-top: 5% 0%;
 }
 
 .wrapper-auth {

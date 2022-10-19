@@ -3,9 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
 import IconBack from "../../assets/images/auth/iconBack.svg";
 import Swal from "sweetalert2";
-
+import { Nav } from "../../components/sharedComponents/nav/Nav";
 import "./AuthForm.css";
 import { useProductsContext } from "../../context/products_context";
+import { Footer } from "../../components/sharedComponents/footer/Footer";
 
 const AuthForm = () => {
   const history = useNavigate();
@@ -131,6 +132,9 @@ const AuthForm = () => {
   };
 
   return (
+    <div className="homeScreen container-principal">
+    <Nav />
+    <div className="contaienr-form">
     <form className="LoginScreen" onSubmit={sumbitHandler}>
       <div className="wrapper-auth">
         <h2 className="wrapper-auth__title">
@@ -191,6 +195,9 @@ const AuthForm = () => {
         </button>
       </div>
     </form>
+    <Footer />
+    </div>
+    </div>
   );
 };
 
