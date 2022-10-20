@@ -1,14 +1,26 @@
+.contaienr-form{
+  background: rgba(217, 217, 217, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%; 
+
+}
 .LoginScreen {
-  height: 77vh;
+  background-color: #FFFFFF;
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 50%; 
+  margin-bottom: 5%; 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
 }
 
 .wrapper-auth {
   width: 100%;
   max-width: 533px;
-  padding: 1rem;
+  padding: 1rem;  
 }
 
 .wrapper-auth__title {
@@ -20,21 +32,38 @@
   font-size: 24px;
 }
 
-.wrapper-auth__label {
+.wrapper-auth__label {  
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  color: #212121;
-}
+  color: #212121; 
+  position: absolute;
+  z-index: 1;
+  margin-top: -1.5%;
+  margin-left: 3%;
+  padding: 0% 5px;
+  background-color: white;
 
-.wrapper-auth__input {
+}
+.inputContainer{
+  position: relative;
+  height: 45px;
+  width: 90%;
+  margin-bottom: 10%;
+
+}
+.wrapper-auth__input {  
+  position: absolute;  
   width: 100%;
   height: 56px;
   border: 1px solid #a9a8a8;
   border-radius: 0.5rem;
-  margin-bottom: 4rem;
+  margin-bottom: 4rem; 
+  font-family: "Roboto";
+  padding-left: 4%;
 }
+
 .wrapper-auth__footer {
   display: flex;
   justify-content: center;
@@ -42,6 +71,7 @@
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
+  margin-top: 2%;
 }
 
 .wrapper-auth__footer__cuenta {
@@ -67,7 +97,7 @@
   font-weight: 400;
   font-size: 12px;
   color: #a9a8a8;
-  margin-bottom: 1rem;
+  margin-top: 6rem;
   display: inline-block;
 }
 
@@ -79,11 +109,22 @@
 
 .button.button--blue.mt-btn {
   margin-top: 3rem;
+  margin-bottom: 3rem;
   font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 17.99px;
 }
+@media screen and (max-width: 420px){
 
-
+  .LoginScreen {
+    width: 98%;
+  }
+  .wrapper-auth__footer__cuenta{
+    margin-top: 2rem;
+  }
+  .wrapper-auth__footer__register{
+    margin-top: 2rem;
+  }
+}

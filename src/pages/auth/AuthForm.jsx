@@ -1,11 +1,11 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
-import IconBack from "../../assets/images/auth/iconBack.svg";
 import Swal from "sweetalert2";
-
+import { Nav } from "../../components/sharedComponents/nav/Nav";
 import "./AuthForm.css";
 import { useProductsContext } from "../../context/products_context";
+import { Footer } from "../../components/sharedComponents/footer/Footer";
 
 const AuthForm = () => {
   const history = useNavigate();
@@ -33,7 +33,7 @@ const AuthForm = () => {
       async function getResponseRegister() {
         try {
           const response = await fetch(
-            "https://sport-eco.herokuapp.com/auth/register",
+            "https://eco-sports.herokuapp.com/auth/register",
             {
               method: "POST",
               body: JSON.stringify({
@@ -76,7 +76,7 @@ const AuthForm = () => {
       async function getResponseLogin() {
         try {
           const response = await fetch(
-            "https://sport-eco.herokuapp.com/auth/login",
+            "https://eco-sports.herokuapp.com/auth/login",
             {
               method: "POST",
               body: JSON.stringify({
@@ -131,15 +131,17 @@ const AuthForm = () => {
   };
 
   return (
+    <div className="homeScreen container-principal">
+    <Nav />
+    <div className="contaienr-form">
     <form className="LoginScreen" onSubmit={sumbitHandler}>
       <div className="wrapper-auth">
-        <h2 className="wrapper-auth__title">
-          <Link to="/">
-            <img src={IconBack} alt="iconBack" className="iconBack" />
-          </Link>
+        <h2 className="wrapper-auth__title">   
           {isLogin ? "Crear Cuenta" : "Iniciar Sesion"}
         </h2>
+        <div className="inputContainer">
         {isLogin ? (
+          
           <label className="wrapper-auth__label">Nombre Completo</label>
         ) : (
           ""
@@ -154,7 +156,8 @@ const AuthForm = () => {
           />
         ) : (
           ""
-        )}
+        )}</div>
+        <div className="inputContainer">
         <label className="wrapper-auth__label">Correo Electronico</label>
         <input
           className="wrapper-auth__input"
@@ -163,6 +166,8 @@ const AuthForm = () => {
           required
           ref={emailInputRef}
         />
+        </div>
+        <div className="inputContainer">
         <label className="wrapper-auth__label">Constraseña</label>
         <input
           className="wrapper-auth__input"
@@ -171,9 +176,11 @@ const AuthForm = () => {
           required
           ref={passwordInputRef}
         />
-        <span className="wrapper-auth__info">
+         <span className="wrapper-auth__info">
           Debe contener caracteres con letras y numeros{" "}
         </span>
+        </div>
+      
         <div className="wrapper-auth__footer">
           <span className="wrapper-auth__footer__cuenta">
             {isLogin ? "¿ Tienes una cuenta ?" : "¿ Aun no tienes cuenta ?"}
@@ -191,6 +198,9 @@ const AuthForm = () => {
         </button>
       </div>
     </form>
+    <Footer />
+    </div>
+    </div>
   );
 };
 
