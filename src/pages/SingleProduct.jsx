@@ -3,7 +3,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useProductsContext } from "../context/products_context";
-import { single_product_url as url } from "../utils/constants/constants";
+import {
+  reviewUrlPost,
+  single_product_url as url,
+} from "../utils/constants/constants";
 import { formatPrice } from "../utils/helpers/helpers";
 
 import {
@@ -32,8 +35,6 @@ const SingleProduct = () => {
     isLoggedIn,
   } = useProductsContext();
 
-  console.log(product);
-
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
   }, [id]);
@@ -56,7 +57,7 @@ const SingleProduct = () => {
       comment: comment,
     };
 
-    postReview("https://sport-eco.herokuapp.com/review/add", body);
+    postReview(reviewUrlPost, body);
   };
 
   useEffect(() => {
@@ -250,8 +251,16 @@ const Wrapper = styled.main`
   .as {
     svg {
       width: 40px;
-      margin-top: 19px;
-      margin-left: 1rem;
+      margin-top: 100px;
+      margin-left: 2rem;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .as {
+      svg {
+        margin-left: 10rem;
+      }
     }
   }
   .price {

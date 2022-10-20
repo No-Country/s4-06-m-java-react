@@ -4,6 +4,7 @@ import "../../pages/auth/AuthForm.css";
 import { useRef } from "react";
 import { BarraDeProgreso } from "../../stylesComponents/BarraDeProgreso";
 import barraAdresse from "../../assets/images/card/barraAdrese.svg";
+import { Link } from "react-router-dom";
 
 export const AddressForm = () => {
   const emailInputRef = useRef();
@@ -43,7 +44,6 @@ export const AddressForm = () => {
             className="wrapper-address__input"
             type="text"
             placeholder="Ingresa tu nombre completo.."
-            required
             ref={cityInputRef}
           />
           <label className="wrapper-auth__label">Calle y Numero</label>
@@ -51,7 +51,6 @@ export const AddressForm = () => {
             className="wrapper-address__input"
             type="text"
             placeholder="Ingresa tu direccion.."
-            required
             ref={addressInputRef}
           />
           <label className="wrapper-auth__label">Codigo Postal</label>
@@ -60,7 +59,6 @@ export const AddressForm = () => {
             type="number"
             name="numero"
             placeholder="Ingresa tu codigo postal.."
-            required
             ref={postalInputRef}
           />
           <label className="wrapper-auth__label">Telefono</label>
@@ -69,7 +67,6 @@ export const AddressForm = () => {
             type="number"
             name=""
             placeholder="Ingresa tu numero de celular.."
-            required
             ref={cityInputRef}
           />
           <div className="wrapper-address__footer ">
@@ -80,9 +77,12 @@ export const AddressForm = () => {
               {""} ¿deseas cambiar de dirección?
             </div>
           </div>
-          <button className="button button--blue mt-btn">
-            Continuar Con el Pago
-          </button>
+
+          <Link to="/paymentScreen">
+            <button className="button button--blue mt-btn">
+              Continuar Con el Pago
+            </button>
+          </Link>
         </div>
       </form>
     </>

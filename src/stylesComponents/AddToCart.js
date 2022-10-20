@@ -26,10 +26,6 @@ const AddToCart = ({ product }) => {
     });
   };
 
-  console.log("id :   " + id);
-  console.log("mainColor:  " + mainColor.name);
-  console.log("amount:   " + amount);
-  console.log(product);
   return (
     <Wrapper>
       <div className="colors">
