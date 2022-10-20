@@ -7,7 +7,7 @@
 .Footer__Image {
   margin: 0 auto;
   height: 132px;
-  max-width: 1400px;
+
   width: 100%;
 }
 .Footer-content {
@@ -20,7 +20,7 @@
   flex-direction: column;
   position: relative;
   margin: 0 auto;
-  max-width: 1400px;
+ 
 }
 .Footer-content__list {
   font-family: "Roboto";
@@ -54,6 +54,20 @@
 }
 
 @media screen and (min-width: 768px) {
+  .Footer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 21500px;
+  }
+.Footer-content {
+  
+    width: 100%;
+    gap: 20px;
+    letter-spacing: 3px;
+    ;
+  
+  }
   .Footer-content__list {
     margin-bottom: 3rem;
     margin-top: 3rem;
@@ -76,10 +90,10 @@
 
   .Footer__Imagedesktop {
     display: block;
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     height: 360px;
-    max-width: 1400px;
+  
   }
 
   .Footer-content__list__wrapperItem {

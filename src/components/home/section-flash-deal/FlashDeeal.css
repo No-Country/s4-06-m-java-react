@@ -61,7 +61,7 @@
   .FlashDeeal {
     display: flex;
     overflow-x: hidden;
-    flex-direction: column;
+    flex-direction: column;;
   }
 
   .FlashDeeal__paragraph {
