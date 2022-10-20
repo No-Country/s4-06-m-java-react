@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Card } from "../components/sharedComponents/card/Card";
+
 // import products_reducer from "../reducers/products_reducer";
 import Product from "./Product";
 
