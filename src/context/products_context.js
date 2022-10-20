@@ -76,14 +76,20 @@ export const ProductsProvider = ({ children }) => {
 
   /*removeProduct*/
 
-  const removeProduct = async (url, id) => {
+  const removeProduct = async (id) => {
+    console.log(id);
     try {
-      const response = await fetch(url + id, {
-        method: "POST",
-        headers: {
-          Authorization: state.token,
-        },
-      });
+      const response = await fetch(
+        `https://eco-sports.herokuapp.com/product/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: state.token,
+          },
+        }
+      );
+
+      console.log(response);
 
       if (response.ok) {
         const data = await response.json();
@@ -257,6 +263,7 @@ export const ProductsProvider = ({ children }) => {
         isNavOpen,
         setisNavOpen,
         addProductAdmin,
+        removeProduct,
       }}
     >
       {children}
