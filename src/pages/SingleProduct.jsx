@@ -4,7 +4,10 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { useProductsContext } from "../context/products_context";
-import { single_product_url as url } from "../utils/constants/constants";
+import {
+  reviewUrlPost,
+  single_product_url as url,
+} from "../utils/constants/constants";
 import { formatPrice } from "../utils/helpers/helpers";
 
 import {
@@ -55,7 +58,7 @@ const SingleProduct = () => {
       comment: comment,
     };
 
-    postReview("https://sport-eco.herokuapp.com/review/add", body);
+    postReview(reviewUrlPost, body);
   };
 
   useEffect(() => {

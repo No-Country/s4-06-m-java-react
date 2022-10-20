@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 
 import "./AuthForm.css";
 import { useProductsContext } from "../../context/products_context";
+import { loginUrl, registerUrl } from "../../utils/constants/constants";
 
 const AuthForm = () => {
   const history = useNavigate();
@@ -32,20 +33,17 @@ const AuthForm = () => {
     if (isLogin) {
       async function getResponseRegister() {
         try {
-          const response = await fetch(
-            "https://sport-eco.herokuapp.com/auth/register",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                fullName: enteredName,
-                email: enteredEmail,
-                password: enteredPassword,
-              }),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
+          const response = await fetch(registerUrl, {
+            method: "POST",
+            body: JSON.stringify({
+              fullName: enteredName,
+              email: enteredEmail,
+              password: enteredPassword,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
           const data = await response.json();
 
           HandlerRegister(data);
@@ -75,19 +73,16 @@ const AuthForm = () => {
     } else {
       async function getResponseLogin() {
         try {
-          const response = await fetch(
-            "https://sport-eco.herokuapp.com/auth/login",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                email: enteredEmail,
-                password: enteredPassword,
-              }),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
+          const response = await fetch(loginUrl, {
+            method: "POST",
+            body: JSON.stringify({
+              email: enteredEmail,
+              password: enteredPassword,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
 
           if (response.ok) {
             const data = await response.json();
