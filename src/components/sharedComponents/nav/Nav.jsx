@@ -1,6 +1,8 @@
 import EcoSport from "../../../assets/images/nav/Eco-sport.svg";
+
 import cart from "../../../assets/images/nav/cart.svg";
 import styled from "styled-components";
+
 import { Link as LinkDom } from "react-router-dom";
 import { Link } from "react-scroll";
 import { useProductsContext } from "../../../context/products_context";
@@ -25,6 +27,8 @@ export const Nav = (props) => {
     <Wrapper>
       <div className="nav_content">
         <LinkDom to="/">
+
+
           <img src={EcoSport} alt="ecoSport" className="nav_imagen" />
         </LinkDom>
         <img
@@ -44,6 +48,7 @@ export const Nav = (props) => {
           <LinkDom to="/" onClick={handlerCloseNav}>
             <li className="item">Home</li>
           </LinkDom>
+
 
           <Link
             to="nuevas-ofertas"
@@ -66,7 +71,6 @@ export const Nav = (props) => {
               <li className="item">Perfil</li>
             </LinkDom>
           )}
-
           {userData?.role === "ROLE_ADMIN" && isLoggedIn && (
             <LinkDom to="/admin" onClick={handlerCloseNav}>
               <li className="item">Panel</li>
@@ -94,7 +98,9 @@ export const Nav = (props) => {
         </div>
       </div>
       {props.inputSearch}
+
     </Wrapper>
+
   );
 };
 

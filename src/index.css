@@ -166,6 +166,7 @@ img {
 }
 
 .vacio {
+  font-family: "Aclonica";
   font-size: 4rem;
   text-align: center;
 }
@@ -177,16 +178,26 @@ img {
 
   background: linear-gradient(
     90.34deg,
-    #9ae20c 3.48%,
-    #94cd10 7%,
-    #13aa0c 92.96%,
-    #41a801 100%
-  );
-  border: 2px solid #8cf00a;
+    #184f63 3.48%,
+    #1f5b73 7%,
+    #19495b 92.96%,
+    #052734 100% 
+  );  
+  border: 2px solid #072b39;
+  border-radius: 4px;
+  color: white; 
   border-radius: 4px;
   margin: 0 auto;
   display: block;
   color: white;
   margin-top: 3rem;
   margin-bottom: 3rem;
+}
+@media (max-width: 480px) {
+  .vacio-continue-shopping {
+    width: 90vw;
+  }
+  .carrito-vacio-imagen{
+    width: 90vw;
+  }
 }

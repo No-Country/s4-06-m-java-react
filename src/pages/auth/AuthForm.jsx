@@ -33,6 +33,7 @@ const AuthForm = () => {
     if (isLogin) {
       async function getResponseRegister() {
         try {
+
           const response = await fetch(registerUrl, {
             method: "POST",
             body: JSON.stringify({
@@ -44,6 +45,7 @@ const AuthForm = () => {
               "Content-Type": "application/json",
             },
           });
+
           const data = await response.json();
 
           HandlerRegister(data);
@@ -73,6 +75,7 @@ const AuthForm = () => {
     } else {
       async function getResponseLogin() {
         try {
+
           const response = await fetch(loginUrl, {
             method: "POST",
             body: JSON.stringify({
@@ -83,6 +86,7 @@ const AuthForm = () => {
               "Content-Type": "application/json",
             },
           });
+
 
           if (response.ok) {
             const data = await response.json();

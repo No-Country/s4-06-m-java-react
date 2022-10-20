@@ -1,7 +1,4 @@
 import { Link } from "react-router-dom";
-import favoriteImg from "../../../assets/images/card/favoriteImg.svg";
-import star from "../../../assets/images/card/star.svg";
-import { DiscountComponent } from "../../../stylesComponents/DiscountComponent";
 import Stars from "../../../stylesComponents/Stars";
 
 import "./card.css";

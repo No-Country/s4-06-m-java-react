@@ -2,7 +2,6 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 import { useProductsContext } from "../context/products_context";
 import {
   reviewUrlPost,

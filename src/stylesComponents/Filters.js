@@ -1,17 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
-import { formatPrice, getUniquesValues } from "../utils/helpers/helpers";
-import { FaCheck } from "react-icons/fa";
+import { getUniquesValues } from "../utils/helpers/helpers";
 
-import searchIcon from "../assets/images/nav/searchIcon.svg";
 import filtersvg from "../assets/git-commit.svg";
 
 const Filters = () => {
   const {
     filters: { text, category, brand, color, min_price, price, max_price },
-    updateFilters,
-    clearFilters,
+    updateFilters,   
     all_products,
   } = useFilterContext();
 

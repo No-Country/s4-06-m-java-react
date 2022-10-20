@@ -5,8 +5,7 @@ import {
   UPDATE_SORT,
   SORT_PRODUCTS,
   UPDATE_FILTERS,
-  FILTER_PRODUCTS,
-  CLEAR_FILTERS,
+  FILTER_PRODUCTS, 
 } from "../actions/actions";
 
 const filter_reducer = (state, action) => {
