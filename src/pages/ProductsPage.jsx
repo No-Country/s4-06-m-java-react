@@ -10,7 +10,7 @@ const ProductsPage = () => {
     <>
       <Wrapper>
         <Nav />
-        <h2 className="productsPage-title">NUESTRO PRODUCTOS</h2>
+        <h2 className="productsPage-title">NUESTROS PRODUCTOS</h2>
         {/* <Sort /> */}
         <div className="grid">
           <Filters />

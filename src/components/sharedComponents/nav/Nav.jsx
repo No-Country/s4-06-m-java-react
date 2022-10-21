@@ -160,6 +160,10 @@ const Wrapper = styled.div`
     .cart__image {
       width: 30px;
       height: 30px;
+      transition: 300ms;
+    }
+    .cart__image:hover {
+      transform: scale(1.15);
     }
 
     .number-items {
@@ -203,9 +207,19 @@ const Wrapper = styled.div`
       .item {
         color: #052734;
         padding: 0 2rem;
+        transition: 300ms ease-in-out;
+        background-image: linear-gradient(90deg, #135670, #135670, #135670);
+        text-decoration: none;
+        background-repeat: no-repeat;
+        background-size: 0% 2px; /* La propiedad escencial es esta, con el hover haremos que se habra la linea*/
+        background-position: bottom;
+        transition: background-size 400ms ease-in-out;
+        line-height: 30px;
       }
       .item:hover {
-        color: #0f6e94;
+        color: #135670;
+        transform: scale(1.1);
+        background-size: 60% 2px;
       }
     }
 

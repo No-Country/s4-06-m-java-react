@@ -36,7 +36,7 @@ export const Card = (props) => {
           </p>
         </div>
         <Link className="card" to={`/products/${props.id}`}>
-          <button className="agregar-Carrito">agregar al carrito</button>
+          <button className="agregar-Carrito">Agregar al carrito</button>
         </Link>
       </article>
     </>

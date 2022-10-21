@@ -2,13 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { useFilterContext } from "../context/filter_context";
 import { getUniquesValues } from "../utils/helpers/helpers";
-
+import Lupa from "../assets/images/nav/Lupa.png";
 import filtersvg from "../assets/git-commit.svg";
 
 const Filters = () => {
   const {
     filters: { text, category, brand, color, min_price, price, max_price },
-    updateFilters,   
+    updateFilters,
     all_products,
   } = useFilterContext();
 
@@ -21,14 +21,18 @@ const Filters = () => {
         <form onSubmit={(e) => e.preventDefault} className="wrapper-form">
           {/*search input*/}
           <div className="search-input">
-            <input
-              type="text"
-              name="text"
-              placeholder="Buscar"
-              className="search-input"
-              value={text}
-              onChange={updateFilters}
-            />
+            <div></div>
+
+            <div>
+              <input
+                type="text"
+                name="text"
+                placeholder="Buscar"
+                className="search-input"
+                value={text}
+                onChange={updateFilters}
+              />
+            </div>
 
             {/* <img src={searchIcon} className="searchIcon" /> */}
           </div>
@@ -102,7 +106,7 @@ const Wrapper = styled.section`
   }
 
   .wrapper-select-company {
-    /* margin-top: 9rem; */
+    margin-top: 8rem;
   }
   .select-title {
     color: #052734;
@@ -111,6 +115,7 @@ const Wrapper = styled.section`
     font-style: normal;
     font-weight: 400;
     font-size: 22.4144px;
+    cursor: pointer;
   }
   .company {
     border: 1px solid #dcdcdc;
@@ -119,6 +124,7 @@ const Wrapper = styled.section`
     padding: 1rem;
     margin: -30px auto;
     display: block;
+    cursor: pointer;
   }
   .wrapper-form {
     display: flex;
@@ -133,7 +139,7 @@ const Wrapper = styled.section`
   }
 
   .search-input {
-    display: block;
+    display: flex;
     border-radius: 5px;
     padding: 1rem;
     position: absolute;
@@ -188,6 +194,12 @@ const Wrapper = styled.section`
     border: none;
     border-bottom: 1px solid #dcdcdc;
     padding-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.5s;
+  }
+  button:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
   }
 
   @media screen and (min-width: 1024px) {
