@@ -3,6 +3,7 @@
 .card__wrapper-image {
   width: 300px;
   margin: 0 auto;
+  margin-top: 50px;
 }
 
 .card {
@@ -57,6 +58,7 @@
 .card__content {
   text-align: center;
   padding: 1.7rem;
+  height: 211px;
 }
 
 .card__content__paragraph {
@@ -81,7 +83,7 @@
   font-family: "Roboto";
   font-style: normal;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 24px;
   color: #052734;
   height: 30px;
   vertical-align: middle;
@@ -109,7 +111,7 @@
     #19495b 92.96%,
     #052734 100%
   );
-  border: 2px solid #072b39;
+  border: 2px solid #fafafa;
   border-radius: 4px;
   color: white;
   width: 70%;
@@ -117,6 +119,16 @@
   margin: 0 auto;
   display: block;
   cursor: pointer;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  transition: 200ms ;
+}
+.agregar-Carrito:hover{
+  transform: scale(1.15);
+  transition: 200ms;
 }
 
 .Eliminar-Producto {

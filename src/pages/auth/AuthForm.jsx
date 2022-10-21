@@ -33,7 +33,6 @@ const AuthForm = () => {
     if (isLogin) {
       async function getResponseRegister() {
         try {
-
           const response = await fetch(registerUrl, {
             method: "POST",
             body: JSON.stringify({
@@ -75,7 +74,6 @@ const AuthForm = () => {
     } else {
       async function getResponseLogin() {
         try {
-
           const response = await fetch(loginUrl, {
             method: "POST",
             body: JSON.stringify({
@@ -86,7 +84,6 @@ const AuthForm = () => {
               "Content-Type": "application/json",
             },
           });
-
 
           if (response.ok) {
             const data = await response.json();
@@ -133,10 +130,12 @@ const AuthForm = () => {
     <form className="LoginScreen" onSubmit={sumbitHandler}>
       <div className="wrapper-auth">
         <h2 className="wrapper-auth__title">
-          <Link to="/">
-            <img src={IconBack} alt="iconBack" className="iconBack" />
-          </Link>
-          {isLogin ? "Crear Cuenta" : "Iniciar Sesion"}
+          <div>
+            <Link to="/">
+              <img src={IconBack} alt="iconBack" className="iconBack" />
+            </Link>
+          </div>
+          <div>{isLogin ? "Crear Cuenta" : "Iniciar Sesion"}</div>
         </h2>
         {isLogin ? (
           <label className="wrapper-auth__label">Nombre Completo</label>
