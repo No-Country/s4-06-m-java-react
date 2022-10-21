@@ -25,7 +25,7 @@ export const Card = (props) => {
             className="Eliminar-Producto"
             onClick={() => removeProduct(props.id)}
           >
-            elimnar producto
+            eliminar producto
           </button>
         )}
         <div className="card__content">

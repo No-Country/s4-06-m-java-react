@@ -22,6 +22,7 @@ const initialState = {
   products_loading: false,
   products_error: false,
   featured_products: [],
+  flash_products: [],
   single_product_loading: false,
   single_product_error: false,
   single_product: {},
@@ -34,6 +35,8 @@ const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  console.log(state.flash_products);
 
   /*nav*/
 

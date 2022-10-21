@@ -30,12 +30,16 @@ const products_reducer = (state, action) => {
     const featured_products = action.payload.filter(
       (product) => product.category === "NUEVAS OFERTAS"
     );
+    const relampagoProducts = action.payload.filter(
+      (product) => product.category === "OFERTAS RELAMPAGO"
+    );
 
     return {
       ...state,
       products_loading: false,
       products: action.payload,
       featured_products: featured_products,
+      flash_products: relampagoProducts,
     };
   }
 
