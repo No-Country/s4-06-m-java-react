@@ -106,9 +106,19 @@ const SingleProduct = () => {
           <ProductImages images={imgList} />
 
           <section className="content">
-            <h2>{title}</h2>
-            <Stars stars={stars} />
-            <h5 className="price">{formatPrice(price)}</h5>
+            <div className="titleandStars">
+              <h2>{title}</h2>
+              <div>
+                {" "}
+                <span className="starts">
+                  <Stars stars={stars} />{" "}
+                </span>
+              </div>
+            </div>
+            <div className="price">
+              <span className="textPrecio">Precio:</span>{" "}
+              <span className="realPrice">{formatPrice(price)}</span>
+            </div>
             <p className="desc">{shortDetails}</p>
 
             <p className="info">
@@ -132,7 +142,7 @@ const SingleProduct = () => {
 
         {isLoggedIn ? (
           <>
-            <h1 className="agregaResena">AGREGA UNA RESEÑA DEL PRODUCTO</h1>
+            <h1 className="agregaResena">Agregar una reseña del producto</h1>
 
             <form className="form-review" onSubmit={handlerSubmit}>
               <input
@@ -162,7 +172,7 @@ const SingleProduct = () => {
           </>
         ) : (
           <h2 className="agregaResena">
-            TE GUSTARIA AGREGAR UNA RESEÑA PORFAVOR REGISTRATE
+            ¿ Te gustaria agregar una reseña ?, Porfavor, registrate.
           </h2>
         )}
       </div>
@@ -172,7 +182,32 @@ const SingleProduct = () => {
 
 const Wrapper = styled.main`
   background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+  .info {
+    font-size: 15px;
+  }
+  .desc {
+    font-size: 15px;
+  }
+  .textPrecio {
+    font-size: 18px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+  }
+  .price {
+    font-size: 22px;
+  }
+  .titleandStars {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+    margin-top: 10px;
+  }
   .labelResenas {
     font-size: 2rem;
     margin-bottom: 1rem;
@@ -181,6 +216,9 @@ const Wrapper = styled.main`
     text-align: center;
     font-size: 2rem;
     margin-top: 3rem;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 600;
   }
 
   .inputComentario {
@@ -225,9 +263,23 @@ const Wrapper = styled.main`
 
   .single-product {
     padding-bottom: 3rem;
+    padding: 5px;
+  }
+  h2 {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
   }
 
   @media screen and (min-width: 1024px) {
+    h2 {
+      font-size: 30px;
+    }
+    .realPrice {
+      margin-left: 100px;
+      font-size: 40px;
+    }
     .agregaResena {
       text-align: center;
       font-size: 3rem;
@@ -239,6 +291,8 @@ const Wrapper = styled.main`
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 70%;
+      margin: 0 auto;
     }
   }
 
@@ -269,6 +323,7 @@ const Wrapper = styled.main`
   .desc {
     line-height: 2;
     max-width: 45em;
+    font-size: 20px;
   }
   .info {
     text-transform: capitalize;
@@ -278,6 +333,7 @@ const Wrapper = styled.main`
     span {
       font-weight: 700;
     }
+    font-size: 20px;
   }
 
   @media (min-width: 992px) {

@@ -9,21 +9,28 @@
 - Seleccion de productos.
 - Landing Page con variedad de productos a seleccionar.
 - Proceso de pago.
+- Herramienta de Administrador.
 
 ## TECNOLOGIAS EN FRONT
 
 - ✅ React
-- ✅ Redux toolkit
+- ✅ Context
 - ✅ JavaScript
-
-.
-.
+- ✅ Styled Component
+  .  
+  .
 
 ## TECNOLOGIAS EN BACK
 
-- ✅ Java
-- ✅
-- ✅
+- ✅ Java-11
+- ✅ Spring boot 2.7.4
+- ✅ IomBok
+- ✅ Builder
+- ✅ Spring Security
+- ✅ Programacion Funcional
+- ✅ Arquitectura en capas MVC
+- ✅ Swagger
+- ✅ JWT Token
 
 .
 .
@@ -40,7 +47,6 @@ Si deseas puedes probar el funcionamiento del sitio desde el siguiente link: <u>
 
 - Diana Zambrano (_`UX/UI`_)
 - Cristian Mosquera (_`Front end`_)
-- Lucas Abdala (_`Front end`_)
 - Santiago Schroh (_`Front end`_)
 - Gabriel Navarro (_`Back end`_)
 - Abel Acevedo (_`Back end`_)

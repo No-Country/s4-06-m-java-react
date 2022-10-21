@@ -29,7 +29,7 @@ const AddToCart = ({ product }) => {
   return (
     <Wrapper>
       <div className="colors">
-        <span>colors : </span>
+        <span>colores : </span>
       </div>
 
       {colors.map((color, index) => {
@@ -48,11 +48,13 @@ const AddToCart = ({ product }) => {
       })}
 
       <div className="btn-container">
-        <AmountButtons
-          amount={amount}
-          increase={increase}
-          decrease={decrease}
-        />
+        <div className="incrementButton">
+          <AmountButtons
+            amount={amount}
+            increase={increase}
+            decrease={decrease}
+          />
+        </div>
         <Link to="/cart">
           <button
             type="button"
@@ -74,9 +76,12 @@ const Wrapper = styled.section`
   height: 100px;
   justify-content: center;
   width: 100%;
-
+  .buttonsColors {
+    display: flex;
+  }
   .addProductbtn {
     position: absolute;
+    width: 95%;
     left: 50%;
     transform: translateX(-50%);
     height: 30px;
@@ -90,18 +95,31 @@ const Wrapper = styled.section`
     border: 2px solid #072b39;
     border-radius: 4px;
     cursor: pointer;
-    color: white;
+    color: white !important;
     padding: 5px 10px;
     margin-top: 30px;
     border: none;
     cursor: pointer;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    outline: 1px solid;
+    outline-color: rgba(49, 138, 172, 0.4);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
     /* box-shadow: 2px 2px 2px 2px #082710; */
   }
   .addProductbtn:hover {
-    background-color: #46dc46f1;
+    box-shadow: inset 0 0 20px rgba(49, 138, 172, 0.5),
+      0 0 20px rgba(49, 138, 172, 0.4);
+    outline-color: rgba(49, 138, 172, 0);
+    outline-offset: 80px;
   }
   .colors {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
     display: grid;
     grid-template-columns: 125px 1fr;
     align-items: center;
@@ -116,8 +134,8 @@ const Wrapper = styled.section`
   }
   .color-btn {
     display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1.7rem;
+    height: 1.7rem;
     border-radius: 50%;
     background: #222;
     margin-right: 0.5rem;
@@ -136,11 +154,22 @@ const Wrapper = styled.section`
     opacity: 1;
   }
   .btn-container {
+    display: flex;
+    align-items: center;
   }
-
+  .incrementButton {
+    margin-bottom: 20px;
+  }
   .btn {
     margin-top: 1rem;
     width: 140px;
+  }
+  @media screen and (min-width: 1024px) {
+    .addProductbtn {
+      width: 100%;
+      height: 50px;
+      font-size: 20px;
+    }
   }
 `;
 export default AddToCart;

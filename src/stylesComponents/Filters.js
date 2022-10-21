@@ -160,6 +160,7 @@ const Wrapper = styled.section`
       border-radius: 10px;
       padding: 2rem;
       display: block;
+      margin-left: 60px;
     }
   }
 
