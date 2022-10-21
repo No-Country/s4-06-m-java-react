@@ -5,7 +5,7 @@ import { Card } from "../../sharedComponents/card/Card";
 import "./FlashDeeal.css";
 
 export const FlashDeeal = () => {
-  const { featured_products: featured } = useProductsContext();
+  const { featured_products: featured, flash_products } = useProductsContext();
 
   const [timeHours, setHours] = useState("");
   const [timeMinutes, setMinutes] = useState("00");
@@ -67,15 +67,15 @@ export const FlashDeeal = () => {
         </div>
       </div>
       <div className="FlashDeeal__cardSimpleGrid">
-        {featured.slice(0, 4).map((item) => {
+        {flash_products.slice(0, 4).map((item) => {
           return (
             <Card
               key={item.id}
               id={item.id}
               porcent="-50%"
               image={item.imgList[0].fileUrl}
-              text="Tommy Hilfiger padded jackets - black with..."
-              price="55"
+              text={item.details}
+              price={item.price}
               stars={item.stars}
             />
           );

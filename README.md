@@ -42,5 +42,5 @@ Si deseas puedes probar el funcionamiento del sitio desde el siguiente link: <u>
 - Cristian Mosquera (_`Front end`_)
 - Lucas Abdala (_`Front end`_)
 - Santiago Schroh (_`Front end`_)
-- Diego SC (_`Back end`_)
+- Gabriel Navarro (_`Back end`_)
 - Abel Acevedo (_`Back end`_)

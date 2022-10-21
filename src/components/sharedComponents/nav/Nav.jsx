@@ -27,8 +27,6 @@ export const Nav = (props) => {
     <Wrapper>
       <div className="nav_content">
         <LinkDom to="/">
-
-
           <img src={EcoSport} alt="ecoSport" className="nav_imagen" />
         </LinkDom>
         <img
@@ -49,7 +47,6 @@ export const Nav = (props) => {
             <li className="item">Home</li>
           </LinkDom>
 
-
           <Link
             to="nuevas-ofertas"
             spy={true}
@@ -61,10 +58,7 @@ export const Nav = (props) => {
             <li className="item">Ofertas</li>
           </Link>
           <LinkDom to="/products" onClick={handlerCloseNav}>
-            <li className="item">Productos</li>
-          </LinkDom>
-          <LinkDom to="/cart" onClick={handlerCloseNav}>
-            <li className="item">Carrito</li>
+            <li className="item">Tienda</li>
           </LinkDom>
           {isLoggedIn && (
             <LinkDom to="/profileUser" onClick={handlerCloseNav}>
@@ -98,9 +92,7 @@ export const Nav = (props) => {
         </div>
       </div>
       {props.inputSearch}
-
     </Wrapper>
-
   );
 };
 
