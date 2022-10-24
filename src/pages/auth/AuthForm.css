@@ -24,6 +24,8 @@
 }
 
 .wrapper-auth__title {
+  display: flex;
+  justify-content: center;
   text-align: center;
   color: #052734;
   font-family: "Roboto";
@@ -103,8 +105,12 @@
 
 .iconBack {
   cursor: pointer;
-  padding: 1rem;
-  display: inline-block;
+  padding-right: 2rem;
+  padding-top: 8px;
+  transition: 300ms;
+}
+.iconBack:hover{
+  transform: scale(1.40);
 }
 
 .button.button--blue.mt-btn {

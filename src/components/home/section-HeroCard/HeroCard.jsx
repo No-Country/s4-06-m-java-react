@@ -14,9 +14,10 @@ export const HeroCard = () => {
         </h3>
 
         <p className="HeroCard__paragraph">
-          En eco-sportswear vistes de acuerdo a tus valores. Nuestras prendas
-          estan fabricadas con algodon certificados por la ONGT. Somos tus
-          aliados, con nuestra marca no solo vistes, tambien cuidas el ambiente
+          En <span className="eco-sportwear22">eco-sportswear</span> vistes de
+          acuerdo a tus valores. Nuestras prendas estan fabricadas con algodon
+          certificados por la <span>ONGT</span>. Somos tus aliados, con nuestra
+          marca no solo vistes, tambien cuidas el ambiente
         </p>
         <Link to="/products">
           <button className="button button--blue" type="button">

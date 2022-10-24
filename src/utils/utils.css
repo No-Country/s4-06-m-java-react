@@ -44,7 +44,7 @@
   color: black;
   margin: 0 auto;
   display: block;
-  cursor: pointer;
+  
 }
 
 .button.button--blue {
@@ -58,6 +58,16 @@
   border: 2px solid #072b39;
   border-radius: 4px;
   color: white;
+  font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    cursor: pointer;
+    transition: 100ms;
+}
+.button.button--blue:hover{
+  transform: scale(1.10);
 }
 .button.button--Darkblue {
   background: #052734;

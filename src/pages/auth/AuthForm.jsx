@@ -6,6 +6,8 @@ import { Nav } from "../../components/sharedComponents/nav/Nav";
 import "./AuthForm.css";
 import { useProductsContext } from "../../context/products_context";
 import { Footer } from "../../components/sharedComponents/footer/Footer";
+import { loginUrl, registerUrl } from "../../utils/constants/constants";
+
 
 const AuthForm = () => {
   const history = useNavigate();
@@ -32,20 +34,19 @@ const AuthForm = () => {
     if (isLogin) {
       async function getResponseRegister() {
         try {
-          const response = await fetch(
-            "https://eco-sports.herokuapp.com/auth/register",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                fullName: enteredName,
-                email: enteredEmail,
-                password: enteredPassword,
-              }),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
+
+          const response = await fetch(registerUrl, {
+            method: "POST",
+            body: JSON.stringify({
+              fullName: enteredName,
+              email: enteredEmail,
+              password: enteredPassword,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+
           const data = await response.json();
 
           HandlerRegister(data);
@@ -75,19 +76,16 @@ const AuthForm = () => {
     } else {
       async function getResponseLogin() {
         try {
-          const response = await fetch(
-            "https://eco-sports.herokuapp.com/auth/login",
-            {
-              method: "POST",
-              body: JSON.stringify({
-                email: enteredEmail,
-                password: enteredPassword,
-              }),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          );
+          const response = await fetch(loginUrl, {
+            method: "POST",
+            body: JSON.stringify({
+              email: enteredEmail,
+              password: enteredPassword,
+            }),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
 
           if (response.ok) {
             const data = await response.json();
@@ -136,8 +134,10 @@ const AuthForm = () => {
     <div className="contaienr-form">
     <form className="LoginScreen" onSubmit={sumbitHandler}>
       <div className="wrapper-auth">
-        <h2 className="wrapper-auth__title">   
-          {isLogin ? "Crear Cuenta" : "Iniciar Sesion"}
+
+        <h2 className="wrapper-auth__title">
+      
+          <div>{isLogin ? "Crear Cuenta" : "Iniciar Sesion"}</div>
         </h2>
         <div className="inputContainer">
         {isLogin ? (

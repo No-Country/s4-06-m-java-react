@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import favoriteImg from "../../../assets/images/card/favoriteImg.svg";
-import star from "../../../assets/images/card/star.svg";
-import { DiscountComponent } from "../../../stylesComponents/DiscountComponent";
+import { useProductsContext } from "../../../context/products_context";
 import Stars from "../../../stylesComponents/Stars";
 
 import "./card.css";
 
 export const Card = (props) => {
+  const { removeProduct, isLoggedIn, userData } = useProductsContext();
+
   return (
-    <Link className="card" to={`/products/${props.id}`}>
+    <>
       <article>
         <div className="card__wrapper-image">
           <img
@@ -20,6 +20,14 @@ export const Card = (props) => {
           {props.Discount}
           <Stars stars={props.stars} />
         </div>
+        {isLoggedIn && userData?.role === "ROLE_ADMIN" && (
+          <button
+            className="Eliminar-Producto"
+            onClick={() => removeProduct(props.id)}
+          >
+            eliminar producto
+          </button>
+        )}
         <div className="card__content">
           <p className="card__content__paragraph">{props.text}</p>
           <p className="card__content__price">${props.price}</p>
@@ -27,7 +35,10 @@ export const Card = (props) => {
             Entrega para el jueves, 25 de sept
           </p>
         </div>
+        <Link className="card" to={`/products/${props.id}`}>
+          <button className="agregar-Carrito">Agregar al carrito</button>
+        </Link>
       </article>
-    </Link>
+    </>
   );
 };

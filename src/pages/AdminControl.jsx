@@ -1,14 +1,14 @@
-import axios from "axios";
 import React, { useState } from "react";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { UserControl } from "../components/products/UserControl";
 import { useProductsContext } from "../context/products_context";
+import { productAddUrl } from "../utils/constants/constants";
 import { productAdd } from "../utils/helpers/helpers";
 
 const AdminControl = () => {
-  const { token } = useProductsContext();
+  const { token, addProductAdmin } = useProductsContext();
   const [isActiveProductsControler, setisActiveProductsControler] =
     useState(true);
   const [isAlluserActive, setisAlluserActive] = useState(false);
@@ -50,7 +50,7 @@ const AdminControl = () => {
 
     const product = {
       shortDetails: "Conjunto deportivo",
-      details: "Maxi Dress in Black",
+      details: "Correcto",
       title: "cdfdf",
       brand: "Fila",
       view: 500,
@@ -64,17 +64,18 @@ const AdminControl = () => {
 
     const productJson = JSON.stringify(product);
 
-    const imagestring = new Blob([JSON.stringify(image)], {
-      type: "application/json",
-    });
+    // const imagestring = new Blob([JSON.stringify(image)], {
+    //   type: "application/json",
+    // });
 
     const formData = new FormData();
-    // formData.append("postimages", imagestring);
+    formData.append("postimages", image);
     formData.append("product", productJson);
 
-    console.log(...formData);
+    console.log(formData.get("postimages"));
+    console.log(formData.get("product"));
 
-    productAdd(formData, token);
+    addProductAdmin(productAddUrl, formData);
   };
 
   const ProductsControler = (
@@ -83,8 +84,8 @@ const AdminControl = () => {
       <input
         type="file"
         className="file input"
-        name="postimages"
-        id="postimages"
+        name="image"
+        id="image"
         onChange={handlerUpload}
       />
       <label>titulo</label>

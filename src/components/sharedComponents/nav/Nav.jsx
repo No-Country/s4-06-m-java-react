@@ -1,6 +1,8 @@
 import EcoSport from "../../../assets/images/nav/Eco-sport.svg";
+
 import cart from "../../../assets/images/nav/cart.svg";
 import styled from "styled-components";
+
 import { Link as LinkDom } from "react-router-dom";
 import { Link } from "react-scroll";
 import { useProductsContext } from "../../../context/products_context";
@@ -56,17 +58,13 @@ export const Nav = (props) => {
             <li className="item">Ofertas</li>
           </Link>
           <LinkDom to="/products" onClick={handlerCloseNav}>
-            <li className="item">Productos</li>
-          </LinkDom>
-          <LinkDom to="/cart" onClick={handlerCloseNav}>
-            <li className="item">Carrito</li>
+            <li className="item">Tienda</li>
           </LinkDom>
           {isLoggedIn && (
             <LinkDom to="/profileUser" onClick={handlerCloseNav}>
               <li className="item">Perfil</li>
             </LinkDom>
           )}
-
           {userData?.role === "ROLE_ADMIN" && isLoggedIn && (
             <LinkDom to="/admin" onClick={handlerCloseNav}>
               <li className="item">Panel</li>
@@ -162,6 +160,10 @@ const Wrapper = styled.div`
     .cart__image {
       width: 30px;
       height: 30px;
+      transition: 300ms;
+    }
+    .cart__image:hover {
+      transform: scale(1.15);
     }
 
     .number-items {
@@ -205,9 +207,19 @@ const Wrapper = styled.div`
       .item {
         color: #052734;
         padding: 0 2rem;
+        transition: 300ms ease-in-out;
+        background-image: linear-gradient(90deg, #135670, #135670, #135670);
+        text-decoration: none;
+        background-repeat: no-repeat;
+        background-size: 0% 2px; /* La propiedad escencial es esta, con el hover haremos que se habra la linea*/
+        background-position: bottom;
+        transition: background-size 400ms ease-in-out;
+        line-height: 30px;
       }
       .item:hover {
-        color: #0f6e94;
+        color: #135670;
+        transform: scale(1.1);
+        background-size: 60% 2px;
       }
     }
 

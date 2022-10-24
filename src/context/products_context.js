@@ -22,6 +22,7 @@ const initialState = {
   products_loading: false,
   products_error: false,
   featured_products: [],
+  flash_products: [],
   single_product_loading: false,
   single_product_error: false,
   single_product: {},
@@ -34,6 +35,8 @@ const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  console.log(state.flash_products);
 
   /*nav*/
 
@@ -74,6 +77,104 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
+  /*removeProduct*/
+
+  const removeProduct = async (id) => {
+    console.log(id);
+    try {
+      const response = await fetch(
+        `https://eco-sports.herokuapp.com/product/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            Authorization: state.token,
+          },
+        }
+      );
+
+      console.log(response);
+
+      if (response.ok) {
+        const data = await response.json();
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Producto eliminado",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        console.log(data);
+      } else {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Error",
+          text: "Intentelo mas tarde porfavor",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Error",
+        text: error,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
+
+  /*addproduct*/
+
+  const addProductAdmin = async (url, dataUser) => {
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        body: dataUser,
+        headers: {
+          Authorization: state.token,
+          // "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "producto anadido exitosamente ",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+
+        console.log(data);
+      } else {
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: "Error",
+          text: "Intentelo mas tarde porfavor",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Error",
+        text: error,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
+  };
+
   /*post reviews controler*/
 
   const postReview = async (url, dataUser) => {
@@ -109,22 +210,6 @@ export const ProductsProvider = ({ children }) => {
           timer: 1500,
         });
       }
-
-      //       console.log("esta data contiene comment
-      // :
-      // "hola prueba "
-      // id
-      // :
-      // 4
-      // score
-      // :
-      // 1
-      // time
-      // :
-      // "2022-10-17 19:27:37"
-      // username
-      // :
-      // "admin@eco-sport.com"")
     } catch (error) {
       Swal.fire({
         position: "top-end",
@@ -180,6 +265,8 @@ export const ProductsProvider = ({ children }) => {
         postReview,
         isNavOpen,
         setisNavOpen,
+        addProductAdmin,
+        removeProduct,
       }}
     >
       {children}

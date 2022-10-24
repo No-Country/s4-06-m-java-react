@@ -123,6 +123,7 @@ img {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: var(--radius);
   border-color: transparent;
+  
 }
 .btn:hover {
   color: var(--clr-primary-1);
@@ -145,6 +146,7 @@ img {
 }
 .page {
   min-height: calc(100vh - (20vh + 10rem));
+  margin: 0 auto;
 }
 
 .content {
@@ -194,8 +196,7 @@ img {
   border-radius: 4px;
   color: white;  
   margin: 0 auto;
-  display: block;
-  color: white;
+  display: block; 
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
@@ -207,3 +208,5 @@ img {
     width: 90vw;
   }
 }
+
+

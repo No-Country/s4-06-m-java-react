@@ -14,6 +14,12 @@ const PageHero = () => {
 const Wrapper = styled.section`
   max-width: 909px;
   margin: 0 auto;
+  h3 {
+    font-size: 30px;
+    font-family: "Aclonica";
+    font-style: normal;
+    font-weight: 400;
+  }
   .hero {
     width: 100%;
     height: 58px;

@@ -77,7 +77,9 @@ export const CartScreen = () => {
                   </div>
 
                   <div className="wrapper-details">
-                    <p>Playera deportiva en algodon con estampado de letras </p>
+                    <p className="playera">
+                      Playera deportiva en algodon con estampado de letras{" "}
+                    </p>
                     <div
                       style={{
                         width: "15px",
@@ -111,7 +113,7 @@ export const CartScreen = () => {
           <hr />
 
           <Link to="/products">
-            <button className="botton-pagar">continue shopping</button>
+            <button className="botton-pagar">Continuar Comprando</button>
           </Link>
 
           {/* <button className="botton-pagar" onClick={clearCart}>
@@ -140,16 +142,14 @@ export const CartScreen = () => {
           <div className="wrapper-input">
             <input type="checkbox" className="checkbox-input" />
             <p className="checkbox">
-              Por favor marque para reconocer nuestra Política de Privacidad y
-              Términos
+              Por favor marque para reconocer nuestra Política de{" "}
+              <span className="privacityandterms">Privacidad y Términos</span>
             </p>
           </div>
 
           {!token ? (
             <Link to="/login">
-              <button className="botton-pagar">
-                REGISTRATE ANTES DE PAGAR
-              </button>
+              <button className="botton-pagar">Registrarse Para Pagar</button>
             </Link>
           ) : (
             <Link to="/address">
@@ -170,6 +170,11 @@ const Wrapper = styled.main`
   justify-content: center;
   align-items: center;
   padding: 1rem;
+  margin-top: 50px;
+
+  .privacityandterms {
+    color: #218137;
+  }
 
   @media screen and (min-width: 1024px) {
     /* flex-direction: row;
@@ -180,7 +185,9 @@ const Wrapper = styled.main`
     grid-template-columns: 1fr 1fr;
     align-items: flex-start;
   }
-
+  .playera {
+    padding-left: 30px;
+  }
   .vacio {
     font-size: 4rem;
     text-align: center;
@@ -224,9 +231,12 @@ const Wrapper = styled.main`
 
     .remove-icon {
       position: absolute;
-      top: 10px;
       right: 10px;
       cursor: pointer;
+      transition: 600ms;
+    }
+    .remove-icon:hover {
+      transform: scale(1.3);
     }
   }
 
@@ -334,7 +344,7 @@ const Wrapper = styled.main`
     font-family: "Open Sans";
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .checkbox-input {
@@ -358,11 +368,22 @@ const Wrapper = styled.main`
     margin: 0 auto;
     display: block;
     color: white;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    transition: 200ms;
   }
 
   @media screen and (min-width: 1024px) {
     .botton-pagar {
       width: 50%;
+    }
+    .botton-pagar:hover {
+      transform: scale(1.1);
+    }
+    .card-detalles__paragraph {
+      font-size: 12px;
     }
   }
 `;
