@@ -6,6 +6,7 @@ import { useCartContext } from "../context/cart_context";
 import { formatPrice } from "../utils/helpers/helpers";
 import AmountButtons from "../stylesComponents/AmountButtons";
 import { Nav } from "../components/sharedComponents/nav/Nav";
+import{Footer} from "../components/sharedComponents/footer/Footer"
 import { useProductsContext } from "../context/products_context";
 
 export const CartScreen = () => {
@@ -23,20 +24,27 @@ export const CartScreen = () => {
 
   if (cart.length < 1) {
     return (
+      <div className="div-cart-vacio">
+      <Nav />
       <div className="content-vacio">
+      
         <p className="vacio">
-          Tu carrito esta vacio porfavor <br /> elige uno de nuestro mejores
+          Tu carro esta vacio <br /> elige nuestros mejores
           productos
         </p>
 
         <Link to="/products">
           <button className="vacio-continue-shopping">SHOPPING </button>
         </Link>
-
+        <dev className="div__img__cart">
         <img
           src="https://www.presteamshop.com/blog/wp-content/uploads/2020/12/como-solucionar-el-error-de-carrito-vacio-en-prestashop.png"
           className="carrito-vacio-imagen"
         />
+        </dev>
+      
+      </div>
+      <Footer />
       </div>
     );
   }

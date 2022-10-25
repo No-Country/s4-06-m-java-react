@@ -1,12 +1,13 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useState, useRef } from "react";
-import IconBack from "../../assets/images/auth/iconBack.svg";
 import Swal from "sweetalert2";
-
+import { Nav } from "../../components/sharedComponents/nav/Nav";
 import "./AuthForm.css";
 import { useProductsContext } from "../../context/products_context";
+import { Footer } from "../../components/sharedComponents/footer/Footer";
 import { loginUrl, registerUrl } from "../../utils/constants/constants";
+
 
 const AuthForm = () => {
   const history = useNavigate();
@@ -33,6 +34,7 @@ const AuthForm = () => {
     if (isLogin) {
       async function getResponseRegister() {
         try {
+
           const response = await fetch(registerUrl, {
             method: "POST",
             body: JSON.stringify({
@@ -127,17 +129,19 @@ const AuthForm = () => {
   };
 
   return (
+    <div className="homeScreen container-principal">
+    <Nav />
+    <div className="contaienr-form">
     <form className="LoginScreen" onSubmit={sumbitHandler}>
       <div className="wrapper-auth">
+
         <h2 className="wrapper-auth__title">
-          <div>
-            <Link to="/">
-              <img src={IconBack} alt="iconBack" className="iconBack" />
-            </Link>
-          </div>
+      
           <div>{isLogin ? "Crear Cuenta" : "Iniciar Sesion"}</div>
         </h2>
+        <div className="inputContainer">
         {isLogin ? (
+          
           <label className="wrapper-auth__label">Nombre Completo</label>
         ) : (
           ""
@@ -152,7 +156,8 @@ const AuthForm = () => {
           />
         ) : (
           ""
-        )}
+        )}</div>
+        <div className="inputContainer">
         <label className="wrapper-auth__label">Correo Electronico</label>
         <input
           className="wrapper-auth__input"
@@ -161,6 +166,8 @@ const AuthForm = () => {
           required
           ref={emailInputRef}
         />
+        </div>
+        <div className="inputContainer">
         <label className="wrapper-auth__label">Constraseña</label>
         <input
           className="wrapper-auth__input"
@@ -169,9 +176,11 @@ const AuthForm = () => {
           required
           ref={passwordInputRef}
         />
-        <span className="wrapper-auth__info">
+         <span className="wrapper-auth__info">
           Debe contener caracteres con letras y numeros{" "}
         </span>
+        </div>
+      
         <div className="wrapper-auth__footer">
           <span className="wrapper-auth__footer__cuenta">
             {isLogin ? "¿ Tienes una cuenta ?" : "¿ Aun no tienes cuenta ?"}
@@ -189,6 +198,9 @@ const AuthForm = () => {
         </button>
       </div>
     </form>
+    <Footer />
+    </div>
+    </div>
   );
 };
 

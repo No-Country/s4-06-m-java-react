@@ -153,16 +153,23 @@ img {
   max-width: 493px;
   margin: 0 auto;
 }
-
-.content-vacio {
+.div-cart-vacio{
+  background: rgba(217, 217, 217, 0.9);
   display: flex;
   flex-direction: column;
-  height: 100vh;
   justify-content: center;
   align-items: center;
+  padding-top: 5%; 
+}
+.content-vacio {  
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3%;
 }
 
-.carrito-vacio-imagen {
+.carrito-vacio-imagen {  
   height: 300px;
   border-radius: 40px;
 }
@@ -187,11 +194,9 @@ img {
   );  
   border: 2px solid #072b39;
   border-radius: 4px;
-  color: white; 
-  border-radius: 4px;
+  color: white;  
   margin: 0 auto;
-  display: block;
-  color: white;
+  display: block; 
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
@@ -203,3 +208,5 @@ img {
     width: 90vw;
   }
 }
+
+
